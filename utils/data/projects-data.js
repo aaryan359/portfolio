@@ -28,15 +28,43 @@ export const projects = [
 			"Typescript",
 		],
 		images: [
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenney.jpeg?updatedAt=1749988519859",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/evreryPenny5.jpeg?updatedAt=1749988525437",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny.jpeg?updatedAt=1749988521298",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenny3.jpeg?updatedAt=1749988521247",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny6.jpeg?updatedAt=1749988521251",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenny4.jpeg?updatedAt=1749988521221",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everrypenny2.jpeg?updatedAt=1749988521036",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny7.jpeg?updatedAt=1749988520974",
-            "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny1.jpeg?updatedAt=1749988520735",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenney.jpeg?updatedAt=1749988519859",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/evreryPenny5.jpeg?updatedAt=1749988525437",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny.jpeg?updatedAt=1749988521298",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenny3.jpeg?updatedAt=1749988521247",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny6.jpeg?updatedAt=1749988521251",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenny4.jpeg?updatedAt=1749988521221",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everrypenny2.jpeg?updatedAt=1749988521036",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny7.jpeg?updatedAt=1749988520974",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny1.jpeg?updatedAt=1749988520735",
+
+		],
+		liveUrl: "https://drive.google.com/file/d/1IvF-0Cptd6FGrzVFFltJM4fRZiqYPKij/view",
+		githubUrl: "https://github.com/aaryan359/EveryPenny-1",
+	},
+	{
+		id: 3,
+		name: "Vehical Rental App",
+		description:
+			"Mobile app for online invoicing and effortless renting.",
+		technologies: [
+			"React Native",
+			"Express",
+			"Nodejs",
+			"MongoDB",
+			"Typescript",
+		],
+		images: [
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM.jpeg?updatedAt=1750001977148",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM(1).jpeg?updatedAt=1750001977695",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM(2).jpeg?updatedAt=1750001977551",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.34%20PM.jpeg?updatedAt=1750001977629",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.35%20PM.jpeg?updatedAt=1750001977282",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.34%20PM(1).jpeg?updatedAt=1750001977166",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.35%20PM(1).jpeg?updatedAt=1750001976731",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.33%20PM.jpeg?updatedAt=1750001975535",
+			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.34%20PM(2).jpeg?updatedAt=1750001972468"
+
 
 		],
 		liveUrl: "https://drive.google.com/file/d/1IvF-0Cptd6FGrzVFFltJM4fRZiqYPKij/view",
@@ -44,3 +72,5 @@ export const projects = [
 	},
 
 ];
+
+

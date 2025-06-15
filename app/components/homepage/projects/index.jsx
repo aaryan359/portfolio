@@ -175,7 +175,7 @@ const ProjectCard = ({ project }) => {
 
 const Projects = () => {
   return (
-    <div id="experience" className="relative my-12 lg:my-24">
+    <div id="projects" className="relative my-12 lg:my-24">
       <div className="mb-6 lg:mb-6">
         <div className="relative">
           {/* Decorative blur */}

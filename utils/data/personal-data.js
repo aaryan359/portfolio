@@ -13,5 +13,8 @@ export const personalData = {
   stackOverflow: '',
   leetcode: "https://leetcode.com",
   devUsername: "aryan",
+  hasnode:"https://hashnode.com/68426111f04a704b83bf3718/dashboard",
+  instagram:"https://www.instagram.com/_aaryan_82/",
   resume: "https://drive.google.com/file/d/1tN46vwWTcWZw5PA96jIKGVW-rgxgHedt/view?usp=drive_link"
+  
 }
