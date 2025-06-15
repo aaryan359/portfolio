@@ -26,7 +26,7 @@ function HeroSection() {
 		const ctx = canvas.getContext("2d");
 		ctxRef.current = ctx;
 
-		const arrayColors = ["#eee", "#545454", "#596d91", "#545452"];
+		const arrayColors = ["#0c03031b", "#355eaa23", "#5767614b"];
 		for (let index = 0; index < 50; index++) {
 			dots.current.push({
 				x: Math.floor(Math.random() * canvas.width),
@@ -108,17 +108,16 @@ function HeroSection() {
 				src="/hero.svg"
 				alt="Hero"
 				width={1572}
-				height={795}
+				height={800}
 				className="absolute -top-[98px] -z-10"
 			/>
 
 			<div
-
 				ref={bannerRef}
 				className="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-y-8">
 				<canvas
 					ref={canvasRef}
-					className="absolute w-[100%] bg-transparent hidden md:block"
+					className="absolute w-[100%] h-[60%] bg-transparent hidden md:block"
 					style={{
 						pointerEvents: "none",
 						height: "100%",
@@ -130,18 +129,22 @@ function HeroSection() {
 							{personalData.name}
 						</span>
 					</h1>
-					<span className="text-lg font-bold leading-10  text-zinc-200 dark:text-zinc-500 ">
+					<span className="text-lg font-bold leading-10  text-gray-400 ">
 						Building useful things - from
 						React apps to AI solutions, one
 						commit at a time.
 						<br />
-						<span className=" text-lg text-[#16f2b3]">
+						<span>
 							Student & Developer
 							crafting intelligent
 							tools and web/mobile
-							experiences. Find me on
-							Twitter for tech, math,
-							and bad jokes.
+							experiences.
+						</span>
+						<br />
+						<span className="text-lg text-[#16f2b3]">
+							Find me on Twitter for
+							tech, math, and bad
+							jokes.
 						</span>
 					</span>
 
@@ -225,7 +228,7 @@ function HeroSection() {
 						<div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
 						<div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
 					</div>
-					
+
 					<div className="flex justify-center order-1 lg:order-2">
 						<Image
 							src={

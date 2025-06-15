@@ -21,8 +21,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <ToastContainer />
-         <SideNavbar />
-          <main className="min-h-screen  w-[55%] relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
+          <main className="min-h-screen  w-[50%] relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
           <Navbar />
           {children}
           <ScrollToTop />

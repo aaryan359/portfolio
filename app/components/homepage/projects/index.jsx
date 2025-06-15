@@ -55,7 +55,8 @@ const ProjectCard = ({ project }) => {
 
       <div className="relative z-10 flex flex-col lg:flex-row h-full">
         {/* Image Section - Full width on mobile, half on desktop */}
-        <div className="relative w-full lg:w-1/2 h-48 sm:h-64 lg:h-80 overflow-hidden">
+        <div className="relative w-full lg:w-1/2 h-40 sm:h-56 lg:h-72 overflow-hidden">
+
           <div
             className="flex transition-transform duration-700 ease-out h-full"
             style={{
@@ -67,7 +68,9 @@ const ProjectCard = ({ project }) => {
                 <img
                   src={image}
                   alt={`${project.name} screenshot ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  width={200}
+                  height={200}
+                  className=" w-full h-full object-scale-down"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -143,7 +146,7 @@ const ProjectCard = ({ project }) => {
             </div>
 
             {/* Description */}
-            <p className="text-lg lg:text-lg  font-medium text-gray-800 dark:text-gray-300 leading-relaxed">
+            <p className="text-sm lg:text-sm  font-medium text-gray-800 dark:text-gray-300 leading-relaxed">
               {project.description}
             </p>
           </div>
@@ -173,7 +176,7 @@ const ProjectCard = ({ project }) => {
 const Projects = () => {
   return (
     <div id="experience" className="relative my-12 lg:my-24">
-      <div className="mb-8 lg:mb-12">
+      <div className="mb-6 lg:mb-6">
         <div className="relative">
           {/* Decorative blur */}
           <div className="absolute -top-3 left-0 h-20 w-20 translate-x-1/2 rounded-full bg-violet-200 dark:bg-violet-900/30 blur-3xl opacity-30" />
@@ -187,9 +190,9 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl">
         {/* Project Cards */}
-        <div className="space-y-6 lg:space-y-8">
+        <div className="space-y-3 lg:space-y-3">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

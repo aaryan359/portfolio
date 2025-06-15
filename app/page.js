@@ -15,12 +15,12 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-     
+     <Blogs  />
       <Experience />
       <Skills />
       <Projects />
       <Education />
-      {/* <Blogs  /> */}
+      
       <ContactSection />
     </>
   )

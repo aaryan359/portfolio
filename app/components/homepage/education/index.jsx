@@ -10,7 +10,7 @@ function Education() {
   return (
     <div id="education" className="relative my-12 lg:my-24">
 
-      <div className="mb-12">
+      <div className="mb-6 lg:mb-6">
 				<div className="relative">
 					{/* Decorative blur */}
 					<div className="absolute -top-3 left-0 h-20 w-20 translate-x-1/2 rounded-full bg-violet-200 dark:bg-violet-900/30 blur-3xl opacity-30" />
@@ -52,7 +52,7 @@ function Education() {
                           <BsPersonWorkspace size={36} />
                         </div>
                         <div>
-                          <p className="text-base sm:text-xl mb-2 font-medium uppercase">
+                          <p className="text-base sm:text-xl mb-2 font-medium ">
                             {education.title}
                           </p>
                           <p className="text-sm sm:text-base">{education.institution}</p>
