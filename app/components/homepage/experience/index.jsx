@@ -1,141 +1,142 @@
-// @flow strict
-"use client";
-import { experiences } from "@/utils/data/experience";
-import Image from "next/image";
-import { BsPersonWorkspace } from "react-icons/bs";
-import GlowCard from "../../helper/glow-card";
-import { useEffect, useRef } from "react";
-import * as THREE from "three";
+import React from 'react';
+import { BsPersonWorkspace } from 'react-icons/bs';
+
+// Sample experience data - replace with your actual data
+const experiences = [
+  {
+    id: 1,
+    title: "Senior Frontend Developer",
+    company: "Tech Solutions Inc",
+    duration: "2023 - Present",
+  },
+  {
+    id: 2,
+    title: "Full Stack Developer",
+    company: "Digital Innovations",
+    duration: "2021 - 2023",
+  },
+  {
+    id: 3,
+    title: "React Developer",
+    company: "StartUp Hub",
+    duration: "2020 - 2021",
+  }
+];
+
+const ExperienceCard = ({ children, className = "" }) => {
+  return (
+    <div className={`group relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 transition-all duration-300 hover:shadow-lg hover:shadow-gray-200/50 dark:hover:shadow-gray-800/50 hover:border-gray-300 dark:hover:border-gray-600 ${className}`}>
+      {/* Animated background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/0 via-blue-50/50 to-purple-50/0 dark:from-blue-900/0 dark:via-blue-900/20 dark:to-purple-900/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      
+      {/* Animated border effects */}
+      <div className="absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="absolute -bottom-px left-1/2 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
+        <div className="absolute -left-px top-1/2 h-1/2 w-px -translate-y-1/2 bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
+      </div>
+      
+      <div className="relative z-10">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const ProjectCard = () => {
+  return (
+    <ExperienceCard className="h-full">
+      <div className="p-6">
+        <div className="mb-4">
+          <div className="h-8 w-8 rounded bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+            <span className="text-white text-sm font-bold">VS</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+            VSCode Resume
+          </h4>
+          
+          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+            A VSCode themed resume for all the web developers out there. A UI which looks exactly like a React file-system based VSCode window with create and update operations.
+          </p>
+          
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full">
+              React
+            </span>
+            <span className="px-3 py-1 text-xs font-medium bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 rounded-full">
+              TypeScript
+            </span>
+            <span className="px-3 py-1 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 rounded-full">
+              Next.js
+            </span>
+          </div>
+        </div>
+      </div>
+    </ExperienceCard>
+  );
+};
+
+const ExperienceItem = ({ experience }) => {
+  return (
+    <ExperienceCard>
+      <div className="p-6">
+        <div className="flex justify-center mb-4">
+          <span className="px-3 py-1 text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-300 rounded-full">
+            {experience.duration}
+          </span>
+        </div>
+        
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 p-2 rounded-lg bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 transition-transform duration-300 group-hover:scale-110">
+            <BsPersonWorkspace size={24} />
+          </div>
+          
+          <div className="flex-1 min-w-0">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-1">
+              {experience.title}
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              {experience.company}
+            </p>
+          </div>
+        </div>
+      </div>
+    </ExperienceCard>
+  );
+};
 
 function Experience() {
-  const mountRef = useRef(null);
-
-  useEffect(() => {
-    // Scene setup
-    const scene = new THREE.Scene();
-
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(
-      75, // Field of View
-      mountRef.current.clientWidth / mountRef.current.clientHeight, // Aspect Ratio
-      0.1, // Near clipping plane
-      1000 // Far clipping plane
-    );
-    camera.position.z = 5;
-
-    // Renderer setup
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
-    if (mountRef.current) {
-      mountRef.current.appendChild(renderer.domElement);
-    }
-
-    // Cube setup
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshStandardMaterial({ color: "orange" });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0x404040, 2); // Soft white light
-    scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5).normalize();
-    scene.add(directionalLight);
-
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    // Resize handler
-    const handleResize = () => {
-      if (mountRef.current) {
-        const { clientWidth, clientHeight } = mountRef.current;
-        renderer.setSize(clientWidth, clientHeight);
-        camera.aspect = clientWidth / clientHeight;
-        camera.updateProjectionMatrix();
-      }
-    };
-
-    // Event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup on unmount
-    return () => {
-      renderer.dispose();
-      if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
-      }
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
-    <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-[#25213b]">
-      <Image
-        src="/section.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        className="absolute top-0 -z-10"
-      />
-      <div className="flex justify-center my-5 lg:py-8">
-        <div className="flex items-center">
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-          <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
-            Experiences
-          </span>
-          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+    <div id="experience" className="relative my-12 lg:my-24">
+      {/* Section Header */}
+      <div className="mb-12">
+        <div className="relative">
+          {/* Decorative blur */}
+          <div className="absolute -top-3 left-0 h-20 w-20 translate-x-1/2 rounded-full bg-violet-200 dark:bg-violet-900/30 blur-3xl opacity-30" />
+          
+          <div className="relative flex items-center">
+            <span className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-6 py-3 text-xl font-semibold rounded-lg shadow-lg">
+              Experience
+            </span>
+            <div className="ml-4 h-0.5 flex-1 bg-gradient-to-r from-gray-900 dark:from-gray-100 to-transparent" />
+          </div>
         </div>
       </div>
 
-      <div className="py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="flex justify-center items-start">
-            <div ref={mountRef} style={{ width: "100%", height: "300px" }} /> {/* Attach renderer here */}
-          </div>
+      {/* Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        {/* Project Card */}
+        <div className="order-2 lg:order-1">
+          <ProjectCard />
+        </div>
 
-          <div>
-            <div className="flex flex-col gap-6">
-              {experiences.map((experience) => (
-                <GlowCard key={experience.id} identifier={`experience-${experience.id}`}>
-                  <div className="p-3 relative">
-                    <Image
-                      src="/blur-23.svg"
-                      alt="Hero"
-                      width={1080}
-                      height={200}
-                      className="absolute bottom-0 opacity-80"
-                    />
-                    <div className="flex justify-center">
-                      <p className="text-xs sm:text-sm text-[#16f2b3]">
-                        {experience.duration}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-x-8 px-3 py-5">
-                      <div className="text-violet-500 transition-all duration-300 hover:scale-125">
-                        <BsPersonWorkspace size={36} />
-                      </div>
-                      <div>
-                        <p className="text-base sm:text-xl mb-2 font-medium uppercase">
-                          {experience.title}
-                        </p>
-                        <p className="text-sm sm:text-base">
-                          {experience.company}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </GlowCard>
-              ))}
-            </div>
-          </div>
+        {/* Experience List */}
+        <div className="order-1 lg:order-2 space-y-6">
+          {experiences.map((experience) => (
+            <ExperienceItem key={experience.id} experience={experience} />
+          ))}
         </div>
       </div>
     </div>
