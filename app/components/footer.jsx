@@ -70,15 +70,7 @@ export default function Footer() {
 				</div>
 			</div>
 
-			<p className="flex flex-row text-gray-400 items-center mt-2">
-				Portfolio inspired by{" "}
-				<a
-					href="https://leerob.io"
-					className="ml-1"
-					target="__blank">
-					Lee Rob
-				</a>
-			</p>
+			
 		</footer>
 	);
 }
