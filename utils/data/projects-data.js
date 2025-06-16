@@ -39,7 +39,7 @@ export const projects = [
 			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny1.jpeg?updatedAt=1749988520735",
 
 		],
-		liveUrl: "https://drive.google.com/file/d/1IvF-0Cptd6FGrzVFFltJM4fRZiqYPKij/view",
+		liveUrl: "hhttps://drive.google.com/file/d/1WuC29NH3BPawQrvmq9vHsuShRHj5RxJ-/view",
 		githubUrl: "https://github.com/aaryan359/EveryPenny-1",
 	},
 	{

@@ -96,7 +96,7 @@ const Blogs = () => {
 					<div className="absolute -top-3 left-0 h-20 w-20 translate-x-1/2 rounded-full bg-violet-200 dark:bg-violet-900/30 blur-3xl opacity-30" />
 
 					<div className="relative flex items-center">
-						<span className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-6 py-3 text-xl font-semibold rounded-lg shadow-lg">
+						<span className="bg-gray-900  text-white px-6 py-3 text-xl font-semibold rounded-lg shadow-lg">
 							Recent Blogs
 						</span>
 						<div className="ml-4 h-0.5 flex-1 bg-gradient-to-r from-gray-900 dark:from-gray-100 to-transparent" />

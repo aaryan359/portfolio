@@ -1,4 +1,4 @@
-// Sample blog data - replace with your actual data
+
 export const blogs = [
 	{
 		id: 1,
@@ -25,5 +25,13 @@ export const blogs = [
 		readTime: "12 min read",
 		category: "machine learning",
 		url: "https://dev-aaryan.hashnode.dev/the-effect-of-preprocessing-on-supervised-learning",
+	},
+	{
+		id: 3,
+		title: "one-hot-encoding or one-out-of-N encoding, also known as dummy variables.",
+		date: "2025-06-16",
+		readTime: "12 min read",
+		category: "machine learning",
+		url: "https://dev-aaryan.hashnode.dev/one-hot-encoding-or-one-out-of-n-encoding-also-known-as-dummy-variables",
 	},
 ];
