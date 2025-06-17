@@ -1,76 +1,76 @@
-"use-client";
+"use client";
 
 import Link from "next/link";
 import { personalData } from "@/utils/data/personal-data";
 
 const ExternalLink = ({ href, children }) => (
-	<a
-		className="text-gray-500 hover:text-gray-600 transition"
-		target="_blank"
-		rel="noopener noreferrer"
-		href={href}>
-		{children}
-	</a>
+  <a
+    className="text-gray-500 hover:text-gray-600 transition text-sm md:text-base"
+    target="_blank"
+    rel="noopener noreferrer"
+    href={href}
+  >
+    {children}
+  </a>
 );
 
 export default function Footer() {
-	return (
-		<footer className="flex flex-col justify-center items-start mb-8  w-full md:w-[90%] lg:w-[80%] xl:w-[50%] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-			<hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
-			<div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
-				<div className="flex flex-col space-y-4">
-					<a
-						href="/"
-						className="text-gray-500 hover:text-gray-600 transition">
-						Home
-					</a>
-					<a
-						href="#blogs"
-						className="text-gray-500 hover:text-gray-600 transition">
-						Blog
-					</a>
+  return (
+    <footer className="w-full px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
+      <hr className="w-full border-1 border-gray-200 dark:border-gray-800 my-8" />
+      <div className="w-full grid grid-cols-2 gap-8 pb-16 sm:grid-cols-3">
+        {/* First Column */}
+        <div className="flex flex-col space-y-3">
+          <span className="font-medium text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
+            Navigation
+          </span>
+          <Link
+            href="/"
+            className="text-gray-500 hover:text-gray-600 transition text-sm md:text-base"
+          >
+            Home
+          </Link>
+          <Link
+            href="#blogs"
+            className="text-gray-500 hover:text-gray-600 transition text-sm md:text-base"
+          >
+            Blog
+          </Link>
+          <Link
+            href="#projects"
+            className="text-gray-500 hover:text-gray-600 transition text-sm md:text-base"
+          >
+            Projects
+          </Link>
+          <Link
+            href="#links"
+            className="text-gray-500 hover:text-gray-600 transition text-sm md:text-base"
+          >
+            Links
+          </Link>
+        </div>
 
-					<a href={'/#projects'} className="text-gray-500 hover:text-gray-600 transition">
-						Projects
-					</a>
+        {/* Second Column */}
+        <div className="flex flex-col space-y-3">
+          <span className="font-medium text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">
+            Social
+          </span>
+          <ExternalLink href={personalData.github}>GitHub</ExternalLink>
+          <ExternalLink href={personalData.linkedIn}>LinkedIn</ExternalLink>
+          <ExternalLink href={personalData.twitter}>Twitter</ExternalLink>
+          <ExternalLink href={personalData.instagram}>Instagram</ExternalLink>
+          <ExternalLink href={personalData.hasnode}>Hashnode</ExternalLink>
+        </div>
 
-					<a className="text-gray-500 hover:text-gray-600 transition">
-						Links
-					</a>
-				</div>
-				<div className="flex flex-col space-y-4">
-					<ExternalLink
-						href={personalData.github}>
-						GitHub
-					</ExternalLink>
-					<ExternalLink
-						href={personalData.linkedIn}>
-						LinkedIn
-					</ExternalLink>
-					<ExternalLink
-						href={personalData.twitter}>
-						Twitter
-					</ExternalLink>
-					<ExternalLink
-						href={personalData.instagram}>
-						Instagram
-					</ExternalLink>
+        {/* Third Column - Empty but maintained for layout */}
+        <div className="hidden sm:flex flex-col space-y-3">
+          {/* Optional: Add additional links here if needed */}
+        </div>
+      </div>
 
-					<ExternalLink
-						href={personalData.hasnode}>
-						Hashnode
-					</ExternalLink>
-				</div>
-				<div className="flex flex-col space-y-4">
-					{/* <a
-						href="/tweets"
-						className="text-gray-500 hover:text-gray-600 transition">
-						Tweets
-					</a> */}
-				</div>
-			</div>
-
-			
-		</footer>
-	);
+      <div className="text-center text-gray-500 text-xs md:text-sm pb-8">
+        © {new Date().getFullYear()} {personalData.name}. All rights reserved.
+      </div>
+    </footer>
+  );
 }
