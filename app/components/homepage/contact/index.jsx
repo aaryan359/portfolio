@@ -21,7 +21,7 @@ function ContactSection() {
         </span>
         <span className="h-36 w-[2px] bg-[#1a1443]"></span>
       </div> */}
-		
+			
     {/* Section Header */}
     <div className="mb-6 lg:mb-6">
       <div className="relative">
@@ -30,7 +30,7 @@ function ContactSection() {
 
         <div className="relative flex items-center">
           <span className="bg-gray-900  text-white px-6 py-3 text-xl font-semibold rounded-lg shadow-lg">
-				Contacts
+					Contacts
           </span>
           <div className="ml-4 h-0.5 flex-1 bg-gradient-to-r from-gray-900 dark:from-gray-100 to-transparent" />
         </div>

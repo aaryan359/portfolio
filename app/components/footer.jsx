@@ -16,7 +16,7 @@ const ExternalLink = ({ href, children }) => (
 
 export default function Footer() {
   return (
-    <footer className="w-full px-4 sm:px-6 md:px-8 lg:px-12 max-w-7xl mx-auto">
+    <footer className="w-full  max-w-7xl mx-auto">
       <hr className="w-full border-1 border-gray-200 dark:border-gray-800 my-8" />
       <div className="w-full grid grid-cols-2 gap-8 pb-16 sm:grid-cols-3">
         {/* First Column */}
