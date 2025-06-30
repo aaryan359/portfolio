@@ -14,7 +14,7 @@ function ContactSection() {
 	return (
 		<div
 			id="contact"
-			className="mb-6 lg:mb-6">
+			className="mt-12">
 			{/* <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
         <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
           CONTACT
@@ -23,19 +23,12 @@ function ContactSection() {
       </div> */}
 			
     {/* Section Header */}
-    <div className="mb-6 lg:mb-6">
-      <div className="relative">
-        {/* Decorative blur */}
-        <div className="absolute -top-3 left-0 h-20 w-20 translate-x-1/2 rounded-full bg-violet-200 dark:bg-violet-900/30 blur-3xl opacity-30" />
-
-        <div className="relative flex items-center">
-          <span className="bg-gray-900  text-white px-6 py-3 text-xl font-semibold rounded-lg shadow-lg">
-					Contacts
-          </span>
-          <div className="ml-4 h-0.5 flex-1 bg-gradient-to-r from-gray-900 dark:from-gray-100 to-transparent" />
-        </div>
-      </div>
-    </div>
+    <div className='mb-4 flex items-center'>
+				<span className='bg-gradient-to-r from-purple-600 to-blue-500 text-white px-5 py-2 text-lg font-semibold rounded-lg shadow-lg dark:from-purple-800 dark:to-blue-700'>
+					Contact
+				</span>
+				<div className='ml-4 h-0.5 flex-1 bg-gradient-to-r from-purple-600 dark:from-purple-400 to-transparent' />
+			</div>
 			<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 				{process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY &&
 				process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY ? (

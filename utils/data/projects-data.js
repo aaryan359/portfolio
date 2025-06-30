@@ -80,9 +80,16 @@ export const projects = [
 		technologies: [
 			"React Native",
 			"Express",
-			"Nodejs",
-			"MongoDB",
+			"Deepseek-R1",
+			"Postgress",
+			"Prisma",
 			"Typescript",
+			"Javascript",
+			"Nodejs",
+			"redux",
+			"Redux toolkit",
+			"Google-Oauth"
+
 		],
 		images: [
 				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219792.png?updatedAt=1751227865413',

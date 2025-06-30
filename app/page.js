@@ -7,6 +7,7 @@ import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 import Blogs from "./components/homepage/blogs";
+import UpcomingProjects from "./components/homepage/upcomingProjects";
 
 
 
@@ -15,10 +16,11 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-     <Blogs  />
+      <Blogs  />
       <Experience />
       <Skills />
       <Projects />
+      <UpcomingProjects/>
       <Education />
       
       <ContactSection />
