@@ -10,5 +10,10 @@ export const upcomingProjects = [
   {
     title: "EduClip - Focused Learning Platform",
     description: "An educational app that curates high-quality video tutorials on specific topics for targeted skill development."
-  }
+  },
+  {
+  title: "StoryEd - AI-Powered Story Learning for Kids",
+  description: "An educational platform that transforms textbook stories into engaging videos using AI-generated visuals and avatars, helping children from KG to 8th grade learn through storytelling."
+ }
+
 ];
