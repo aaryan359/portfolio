@@ -27,11 +27,19 @@ export const blogs = [
 		url: "https://dev-aaryan.hashnode.dev/the-effect-of-preprocessing-on-supervised-learning",
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "one-hot-encoding or one-out-of-N encoding, also known as dummy variables.",
 		date: "2025-06-16",
 		readTime: "12 min read",
 		category: "machine learning",
 		url: "https://dev-aaryan.hashnode.dev/one-hot-encoding-or-one-out-of-n-encoding-also-known-as-dummy-variables",
+	},
+	{
+		id: 5,
+		title: "Weights Regularization",
+		date: "2025-08-16",
+		readTime: "3 min read",
+		category: "machine learning",
+		url: "https://dev-aaryan.hashnode.dev/weights-regularization",
 	},
 ];

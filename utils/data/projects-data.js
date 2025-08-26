@@ -112,6 +112,35 @@ export const projects = [
 		liveUrl: "https://drive.google.com/file/d/1JPOGCUPsh-abcE7WhQtILiSD1r3z8aev/view?usp=sharing",
 		githubUrl: "https://github.com/aaryan359/PromptX",
 	},
+	{
+		id: 5,
+		name: "Quick Drop",
+		description:
+			"Chrome extension for quick drop images and also usefull links and notes and also manage your tasks",
+		technologies: [
+			"React",
+			"Express",
+			"Nodejs",
+			"MongoDB",
+			"Typescript",
+			"Javascript",
+
+		],
+		images: [
+			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-44-26.png?updatedAt=1756230582960',
+			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-43-51.png?updatedAt=1756230582926',
+			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-43-43.png?updatedAt=1756230582954',
+			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-44-12.png?updatedAt=1756230582890'
+
+
+
+		],
+		liveUrl: "https://github.com/aaryan359/QuickDrop",
+		githubUrl: "https://github.com/aaryan359/QuickDrop",
+	},
+
+
+
 
 	  
 
