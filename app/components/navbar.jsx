@@ -18,11 +18,12 @@ function Navbar() {
         <div className="flex items-center justify-between">
           <div className="flex flex-shrink-0 items-center">
             <Image
-              src={"/logo.jpeg"}
+              src={"/portfolio/logo.jpeg"}
               width={60}
               height={60}
               className="rounded-lg"
               alt="Logo"
+              unoptimized
             />
           </div>
 
