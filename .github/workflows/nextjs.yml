@@ -38,9 +38,7 @@ jobs:
 
       # ✅ Build + export for GitHub Pages
       - name: Build
-        run: |
-          yarn build
-          yarn next export
+        run: yarn build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
