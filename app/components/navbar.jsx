@@ -40,7 +40,7 @@ function Navbar() {
 						href='/'
 						className='flex items-center gap-3'>
 						<Image
-							src={'/profile.jpg'}
+							src={'/public/profile.jpg'}
 							alt='Profile'
 							width={40}
 							height={40}
