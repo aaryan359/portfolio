@@ -6,8 +6,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { personalData } from "@/utils/data/personal-data";
 import { Menu, X } from "lucide-react";
-import getConfig from "next/config";
-const { publicRuntimeConfig } = getConfig();
+
 const NAV_ITEMS = ["about", "experience", "skills", "education", "projects", "blogs"];
 
 function Navbar() {
@@ -41,7 +40,7 @@ function Navbar() {
 						href='/'
 						className='flex items-center gap-3'>
 						<Image
-							src={`${publicRuntimeConfig.basePath}/profile.jpg`}
+							src="public/profile.jpg"
 							alt='Profile'
 							width={40}
 							height={40}
@@ -88,7 +87,9 @@ function Navbar() {
               hover:bg-white/10
               focus-visible:ring-2 focus-visible:ring-white/30
             '>
-						{open ? <X size={20} /> : <Menu size={20} />}
+						{open ?
+							<X size={20} />
+						:	<Menu size={20} />}
 					</button>
 				</div>
 
