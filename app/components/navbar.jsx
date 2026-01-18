@@ -3,102 +3,121 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { personalData } from "@/utils/data/personal-data";
+import { Menu, X } from "lucide-react";
+
+const NAV_ITEMS = ["about", "experience", "skills", "education", "projects", "blogs"];
 
 function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [open, setOpen] = useState(false);
+	const navRef = useRef(null);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+	// close on outside click
+	useEffect(() => {
+		function handleClick(e) {
+			if (navRef.current && !navRef.current.contains(e.target)) {
+				setOpen(false);
+			}
+		}
+		document.addEventListener("mousedown", handleClick);
+		return () => document.removeEventListener("mousedown", handleClick);
+	}, []);
 
-  return (
-    <nav className="bg-transparent sticky backdrop-blur-sm rounded-[20px] p-1 top-0 z-[1000]">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
-          <div className="flex flex-shrink-0 items-center">
-            <Image
-              src={"/portfolio/logo.jpeg"}
-              width={60}
-              height={60}
-              className="rounded-lg"
-              alt="Logo"
-              unoptimized
-            />
-          </div>
+	return (
+		<header className='sticky top-4 z-[1000] '>
+			<nav
+				ref={navRef}
+				className='
+          rounded-2xl
+          border border-white/10
+          bg-black/40 backdrop-blur
+          px-2 py-2
+          transition-all
+        '>
+				<div className='flex items-center justify-between'>
+					<Link
+						href='/'
+						className='flex items-center gap-3'>
+						<Image
+							src={personalData.profile}
+							alt='Profile'
+							width={40}
+							height={40}
+							className='rounded-lg'
+							unoptimized
+						/>
+						<span className='hidden sm:block text-sm font-medium text-white/80'>{personalData.name}</span>
+					</Link>
+					<ul className='hidden md:flex items-center gap-6'>
+						{NAV_ITEMS.map((item) => (
+							<li key={item}>
+								<Link
+									href={`/#${item}`}
+									className='
+                    group relative text-sm
+                    text-white/60
+                    transition
+                    hover:text-white
+                    focus-visible:outline-none
+                  '>
+									{item}
+									<span
+										className='
+                      absolute -bottom-1 left-0 h-px w-full
+                      origin-left scale-x-0
+                      bg-gradient-to-r from-purple-500 to-blue-500
+                      transition-transform duration-200
+                      group-hover:scale-x-100
+                    '
+									/>
+								</Link>
+							</li>
+						))}
+					</ul>
 
-          {/* Mobile menu button - positioned to the right */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-lg focus:outline-none ml-auto mr-2"
-            aria-label="Toggle menu"
-          >
-            <svg
-              className="w-6 h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+					<button
+						onClick={() => setOpen((v) => !v)}
+						aria-label='Toggle menu'
+						className='
+              md:hidden
+              rounded-lg p-2
+              text-white/70
+              transition
+              hover:bg-white/10
+              focus-visible:ring-2 focus-visible:ring-white/30
+            '>
+						{open ? <X size={20} /> : <Menu size={20} />}
+					</button>
+				</div>
 
-          {/* Desktop menu - always visible */}
-          <div className="hidden md:flex">
-            <ul className="flex space-x-4">
-              {['about', 'experience', 'skills', 'education', 'projects', 'blogs'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={`/#${item}`}
-                    className="block px-3 py-2 no-underline"
-                  >
-                    <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
-                      {item.toUpperCase()}
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Mobile menu - slides down from top */}
-        <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-          <div className="absolute left-0 right-0 top-20 bg-gray-900/95 backdrop-blur-lg rounded-lg shadow-lg mx-4 py-2">
-            <ul className="flex flex-col space-y-2 px-4">
-              {['about', 'experience', 'skills', 'education', 'projects', 'blogs'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={`/#${item}`}
-                    className="block px-3 py-3 no-underline"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">
-                      {item.toUpperCase()}
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  );
+				<div
+					className={`
+            md:hidden overflow-hidden
+            transition-all duration-300
+            ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+          `}>
+					<ul className='mt-4 space-y-2 border-t border-white/10 pt-4'>
+						{NAV_ITEMS.map((item) => (
+							<li key={item}>
+								<Link
+									href={`/#${item}`}
+									onClick={() => setOpen(false)}
+									className='
+                    block rounded-lg px-3 py-2
+                    text-sm text-white/70
+                    transition
+                    hover:bg-white/10 hover:text-white
+                  '>
+									{item.toUpperCase()}
+								</Link>
+							</li>
+						))}
+					</ul>
+				</div>
+			</nav>
+		</header>
+	);
 }
 
 export default Navbar;

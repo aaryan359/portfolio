@@ -29,6 +29,12 @@ module.exports = {
           "4k": "1980px",
         },
       },
+      animation: {
+        'shimmer': 'shimmer 2s infinite linear',
+        'shimmer-text': 'shimmer-text 3s infinite linear',
+        'particle-float': 'particle-float 1.5s ease-out forwards',
+        'ripple': 'ripple 0.6s ease-out forwards',
+      }
     },
   },
   plugins: [],

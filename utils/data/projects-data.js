@@ -1,6 +1,55 @@
 export const projects = [
 	{
 		id: 1,
+		slug: "open-course",
+		name: "Open Course",
+		tagline: "Crowdsourced learning platform for collaborative education",
+		description:
+			"A crowdsourced learning platform where anyone can create or expand courses by adding videos or lessons to existing curricula.",
+
+		role: "Frontend Developer",
+		duration: "3 months",
+		team: "Solo",
+		status: "Completed",
+
+		problem: [
+			"Learning resources are scattered across platforms",
+			"Students cannot easily contribute to course content",
+			"No unified system for expanding existing courses"
+		],
+
+		solution: [
+			"Built a modular course architecture",
+			"Enabled user-generated lessons and videos",
+			"Designed a scalable content contribution flow"
+		],
+
+		features: [
+			"Course creation & expansion",
+			"Video + lesson based curriculum",
+			"Community-driven contributions",
+			"Responsive UI for learners"
+		],
+
+		techStack: [
+			"React",
+			"Node.js",
+			"MongoDB",
+			"Redux"
+		],
+
+		impact: [
+			"Improved content discoverability",
+			"Enabled collaborative learning",
+			"Learned scalable state management"
+		],
+
+		futurePlans: [
+			"Add instructor verification",
+			"Introduce course ratings",
+			"Implement progress tracking"
+		],
+
 		name: "Open Course",
 		description:
 			"Crowdsourced learning platform where Anyone can create or expand courses by adding videos or lessons on existing courses",
@@ -17,16 +66,55 @@ export const projects = [
 	},
 	{
 		id: 2,
+		slug: "every-penny",
 		name: "Every Penny",
+		tagline: "Smart expense tracking via SMS & custom labels",
 		description:
-			"A mobile App Developed with epxo to track payments extract transaction details via SMS, and allow users to add custom titles for amounts at payment time (e.g. 100 for a notebook via GPay)",
-		technologies: [
+			"A mobile app built with Expo that extracts transaction details from SMS and allows users to label expenses at payment time.",
+
+		role: "Mobile App Developer",
+		duration: "2 months",
+		team: "Solo",
+		status: "Completed",
+
+		problem: [
+			"Users forget where money is spent",
+			"Bank apps lack contextual labeling",
+			"Manual expense tracking is tedious"
+		],
+
+		solution: [
+			"SMS parsing for automatic transactions",
+			"Custom labels during payment",
+			"Simple, focused mobile UI"
+		],
+
+		features: [
+			"Automatic SMS parsing",
+			"Custom expense titles",
+			"Daily & monthly summaries",
+			"Offline-friendly storage"
+		],
+
+		techStack: [
 			"React Native",
 			"Express",
-			"Nodejs",
 			"MongoDB",
-			"Typescript",
+			"TypeScript"
 		],
+
+		impact: [
+			"Improved personal finance awareness",
+			"Hands-on experience with SMS parsing",
+			"Learned mobile UX constraints"
+		],
+
+		futurePlans: [
+			"Cloud sync",
+			"Category analytics",
+			"Export to CSV"
+		],
+
 		images: [
 			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenney.jpeg?updatedAt=1749988519859",
 			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/evreryPenny5.jpeg?updatedAt=1749988525437",
@@ -45,16 +133,56 @@ export const projects = [
 
 	{
 		id: 3,
-		name: "Vehical Rental App",
+		slug: "vehicle-rental-app",
+		name: "Vehicle Rental App",
+		tagline: "Effortless vehicle renting and invoicing",
 		description:
-			"Mobile app for online invoicing and effortless renting.",
-		technologies: [
-			"React Native",
-			"Express",
-			"Nodejs",
-			"MongoDB",
-			"Typescript",
+			"A mobile application that enables vehicle rentals with integrated invoicing and admin management.",
+
+		role: "Full Stack Developer",
+		duration: "3 months",
+		team: "Small Team",
+		status: "Completed",
+
+		problem: [
+			"Manual vehicle rental tracking",
+			"Inefficient invoice generation",
+			"No centralized admin dashboard",
 		],
+
+		solution: [
+			"Built a mobile-first rental flow",
+			"Automated invoice generation",
+			"Centralized admin management system",
+		],
+
+		features: [
+			"Vehicle listing and booking",
+			"Automated invoicing",
+			"Admin dashboard",
+			"Customer management",
+		],
+
+		techStack: [
+			"React Native",
+			"Node.js",
+			"Express",
+			"MongoDB",
+			"TypeScript",
+		],
+
+		impact: [
+			"Simplified vehicle rental operations",
+			"Reduced manual paperwork",
+			"Improved admin efficiency",
+		],
+
+		futurePlans: [
+			"Online payments",
+			"Customer ratings",
+			"Fleet analytics",
+		],
+
 		images: [
 			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM.jpeg?updatedAt=1750001977148",
 			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM(1).jpeg?updatedAt=1750001977695",
@@ -74,10 +202,37 @@ export const projects = [
 
 	{
 		id: 4,
+		slug: "promptx",
 		name: "PromptX",
+		tagline: "Marketplace for AI prompts and task-based chat",
 		description:
-			"Market Place for AI prompts(system and user prompts) And chat bot with dedicated button for specific tasks.",
-		technologies: [
+			"A marketplace for AI system and user prompts combined with a chatbot offering task-specific actions.",
+
+		role: "Full Stack Developer",
+		duration: "4 months",
+		team: "Solo",
+		status: "Completed",
+
+		problem: [
+			"AI prompts are scattered and hard to reuse",
+			"Users struggle with prompt optimization",
+			"No structured marketplace for prompts",
+		],
+
+		solution: [
+			"Built a prompt marketplace",
+			"Integrated task-based chatbot actions",
+			"Implemented authentication and payments-ready architecture",
+		],
+
+		features: [
+			"Prompt marketplace",
+			"Task-specific chatbot buttons",
+			"Google OAuth authentication",
+			"Prompt categorization and search",
+		],
+
+		techStack: [
 			"React Native",
 			"Express",
 			"Deepseek-R1",
@@ -89,23 +244,37 @@ export const projects = [
 			"redux",
 			"Redux toolkit",
 			"Google-Oauth"
-
 		],
+
+		impact: [
+			"Improved prompt reuse efficiency",
+			"Hands-on experience with LLM integration",
+			"Built scalable backend architecture",
+		],
+
+		futurePlans: [
+			"Paid prompt subscriptions",
+			"Creator analytics",
+			"Prompt versioning",
+		],
+
+
+
 		images: [
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219792.png?updatedAt=1751227865413',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219783.png?updatedAt=1751227863497',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219879.png?updatedAt=1751227865815',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219821.png?updatedAt=1751227872546',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219909.png?updatedAt=1751227884738',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219929.png?updatedAt=1751227883795',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219942.png?updatedAt=1751227880693',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219936.png?updatedAt=1751227878779',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219904.png?updatedAt=1751227877873',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219869.png?updatedAt=1751227867512',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219848.png?updatedAt=1751227862689',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219798.png?updatedAt=1751227862436',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219855.png?updatedAt=1751227861938',
-				'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot%20from%202025-06-30%2001-44-49.png?updatedAt=1751228228100'
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219792.png?updatedAt=1751227865413',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219783.png?updatedAt=1751227863497',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219879.png?updatedAt=1751227865815',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219821.png?updatedAt=1751227872546',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219909.png?updatedAt=1751227884738',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219929.png?updatedAt=1751227883795',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219942.png?updatedAt=1751227880693',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219936.png?updatedAt=1751227878779',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219904.png?updatedAt=1751227877873',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219869.png?updatedAt=1751227867512',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219848.png?updatedAt=1751227862689',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219798.png?updatedAt=1751227862436',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219855.png?updatedAt=1751227861938',
+			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot%20from%202025-06-30%2001-44-49.png?updatedAt=1751228228100'
 
 
 		],
@@ -114,17 +283,54 @@ export const projects = [
 	},
 	{
 		id: 5,
+		slug: "quick-drop",
 		name: "Quick Drop",
+		tagline: "Quick access notes, images, and tasks",
 		description:
-			"Chrome extension for quick drop images and also usefull links and notes and also manage your tasks",
-		technologies: [
-			"React",
-			"Express",
-			"Nodejs",
-			"MongoDB",
-			"Typescript",
-			"Javascript",
+			"A Chrome extension that lets users quickly save images, links, notes, and manage daily tasks.",
 
+		role: "Full Stack Developer",
+		duration: "1.5 months",
+		team: "Solo",
+		status: "Completed",
+
+		problem: [
+			"Users lose important links and images",
+			"Too many tools for simple note-taking",
+			"Task tracking is fragmented",
+		],
+
+		solution: [
+			"Built a lightweight Chrome extension",
+			"Centralized notes, links, and images",
+			"Integrated simple task management",
+		],
+
+		features: [
+			"Quick image and link saving",
+			"Notes and bookmarks",
+			"Task management",
+			"Fast and minimal UI",
+		],
+
+		techStack: [
+			"React",
+			"Node.js",
+			"Express",
+			"MongoDB",
+			"TypeScript",
+		],
+
+		impact: [
+			"Improved personal productivity",
+			"Learned Chrome extension APIs",
+			"Optimized lightweight UI performance",
+		],
+
+		futurePlans: [
+			"Cloud sync",
+			"Cross-device support",
+			"Tag-based organization",
 		],
 		images: [
 			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-44-26.png?updatedAt=1756230582960',
@@ -142,7 +348,7 @@ export const projects = [
 
 
 
-	  
+
 
 ];
 

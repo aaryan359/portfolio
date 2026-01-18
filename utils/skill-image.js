@@ -136,7 +136,7 @@ export const skillsImage = (skill) => {
     case 'c++':
       return cplusplus;
     case 'c#':
-      return csharp;
+      return csharp; 
     case 'dart':
       return dart;
     case 'go':

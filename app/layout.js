@@ -19,23 +19,23 @@ export const metadata = {
     title: "Aaryan Meena – Freelance Web & App Developer",
     description:
       "Looking for a freelance developer? I design, build, and deploy modern websites and mobile apps using Next.js, React, Node.js and more.",
-    url: "https://aaryanm.netlify.app/", 
+    url: "https://aaryanm.netlify.app/",
     siteName: "Aaryan Meena",
     images: [
       {
-        url: "/logo.jpeg",
+        url: "logo.jpeg",
         width: 800,
         height: 600,
-        alt: "Aaryan Meena Logo",
+        alt: "",
       },
     ],
     locale: "en_US",
     type: "website",
   },
   icons: {
-    icon: "/logo.jpeg",
-    shortcut: "/logo.jpeg",
-    apple: "/logo.jpeg",
+    icon: "logo.jpeg",
+    shortcut: "logo.jpeg",
+    apple: "logo.jpeg",
   },
 };
 
@@ -49,12 +49,12 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#ffffff" />
         <meta name="author" content="Aaryan Meena" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:image" content="/logo.jpeg" />
-                <link rel="icon" href="/logo.jpeg" />
+        <meta property="og:image" content="logo.jpeg" />
+        <link rel="icon" href="logo.jpeg" />
 
         <link rel="canonical" href="https://aaryanm.netlify.app/" />
 
-       
+
         <meta
           name="keywords"
           content="freelance web developer, hire app developer, React developer India, Next.js expert, portfolio website developer"
@@ -93,10 +93,10 @@ export default function RootLayout({ children }) {
         <main className="min-h-screen w-full md:w-[90%] lg:w-[80%] xl:w-[50%] relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-white">
           <Navbar />
           {children}
-          <ScrollToTop />
+
           <Footer />
         </main>
-        
+
       </body>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
     </html>

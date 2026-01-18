@@ -3,7 +3,6 @@ export const skillsData = [
   'Java',
   'Bootstrap',
   'Python',
-  // 'Ruby',
   'Ubuntu',
   'HTML',
   'CSS',
@@ -19,7 +18,7 @@ export const skillsData = [
   'Git',
   'Bootstrap',
   'Docker',
-  // 'Go',
+  'Go',
   'Figma',
   'Firebase',
   'Node JS'
