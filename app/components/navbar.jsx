@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { personalData } from "@/utils/data/personal-data";
 import { Menu, X } from "lucide-react";
+import profileImg from "@/public/profile.jpg";
 
 const NAV_ITEMS = ["about", "experience", "skills", "education", "projects", "blogs"];
 
@@ -40,7 +41,7 @@ function Navbar() {
 						href='/'
 						className='flex items-center gap-3'>
 						<Image
-							src="public/profile.jpg"
+							src={profileImg}
 							alt='Profile'
 							width={40}
 							height={40}

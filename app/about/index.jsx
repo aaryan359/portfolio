@@ -2,7 +2,7 @@
 
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
-
+import profileImg from "@/public/profile.jpg";
 
 function AboutSection() {
   return (
@@ -24,7 +24,7 @@ function AboutSection() {
         </div>
         <div className="flex justify-center order-1 lg:order-2">
           <Image
-            src={personalData.profile}
+            src={profileImg}
             width={280}
             height={280}
             alt="Aryan meena"
