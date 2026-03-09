@@ -15,18 +15,7 @@ export default function HeroSection() {
 	return (
 		<section className='relative pt-10  overflow-hidden'>
 			<div className='relative top-[-24px] transition-transform duration-300 will-change-transform'>
-				<div
-					className='
-						pointer-events-none
-						absolute top-0 left-1/2
-						h-px w-[70%]
-						-translate-x-1/2
-						bg-gradient-to-r
-						from-transparent
-						via-purple-500/70
-						to-transparent
-						'
-				/>
+
 
 				<div className='pointer-events-none absolute inset-0'>
 					<div

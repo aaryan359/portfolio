@@ -30,12 +30,14 @@ function Navbar() {
 			<nav
 				ref={navRef}
 				className='
+          relative
           rounded-2xl
           border border-white/10
           bg-black/40 backdrop-blur
           px-2 py-2
           transition-all
         '>
+				<div className='pointer-events-none absolute bottom-0 left-1/2 h-px w-[70%] -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500/70 to-transparent' />
 				<div className='flex items-center justify-between'>
 					<Link
 						href='/'
