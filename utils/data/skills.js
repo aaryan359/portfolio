@@ -82,5 +82,25 @@ export const skillsData = [
   {
     name: 'Node JS',
     desc: 'Running JavaScript on the server because we can\'t get enough JS in the frontend.'
+  },
+  {
+    name: 'Terraform',
+    desc: 'Infrastructure as Code. Defining networks and servers in files so I never have to click around AWS console again.'
+  },
+  {
+    name: 'AWS',
+    desc: 'Amazon Web Services. Cloud platform where I rent other people\'s massive computers to deploy my code.'
+  },
+  {
+    name: 'Kubernetes',
+    desc: 'Container orchestration. Managing clusters of containers so they heal themselves and scale automatically.'
+  },
+  {
+    name: 'React Native',
+    desc: 'Building cross-platform mobile apps for iOS and Android with a single JavaScript codebase.'
+  },
+  {
+    name: 'PyTorch',
+    desc: 'Deep learning framework for training and testing complex multimodal AI models.'
   }
 ];

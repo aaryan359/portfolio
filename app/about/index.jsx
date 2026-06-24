@@ -8,6 +8,7 @@ import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
+import { motion } from "framer-motion";
 
 function AboutSection() {
   return (
@@ -19,24 +20,105 @@ function AboutSection() {
 
       <div className="w-full flex flex-col justify-center">
         <span className="text-xs font-semibold tracking-widest uppercase text-purple-400">
-          Engineer
+          DevOps & AI/ML Engineer
         </span>
         <h1 className="mt-3 text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
           Hi, I’m <span className="text-purple-400">{personalData.name}</span>
         </h1>
-        <p className="mt-4 text-xl md:text-2xl font-medium text-white/90 leading-snug">
-          I build reliable web and mobile apps with a focus on real-world usability.
+        <p className="mt-4 text-xl md:text-2xl font-medium text-white/95 leading-snug">
+          I leverage mathematical foundations, multimodal AI research, and scalable cloud infrastructure to solve complex, real-world problems.
         </p>
-        <p className="mt-6 text-sm lg:text-base leading-relaxed text-white/60">
-          I enjoy building real-world web and mobile applications, from clean user interfaces to the backend systems that support them. Lately, I’ve been working mostly with{" "}
-          <span className="text-white font-medium bg-white/5 px-2 py-0.5 rounded border border-white/10">React</span>,{" "}
-          <span className="text-white font-medium bg-white/5 px-2 py-0.5 rounded border border-white/10">React Native</span>,{" "}
-          <span className="text-white font-medium bg-white/5 px-2 py-0.5 rounded border border-white/10">Node.js</span>,{" "}
-          <span className="text-white font-medium bg-white/5 px-2 py-0.5 rounded border border-white/10">Express</span>,{" "}
-          <span className="text-white font-medium bg-white/5 px-2 py-0.5 rounded border border-white/10">MongoDB</span>,{" "}
-          <span className="text-white font-medium bg-white/5 px-2 py-0.5 rounded border border-white/10">MySQL</span> and{" "}
-          <span className="text-white font-medium bg-white/5 px-2 py-0.5 rounded border border-white/10">Next.js</span>, focusing on writing understandable code, improving performance, and learning how to build features that people actually use.
-        </p>
+
+        <div className="mt-6 space-y-4 text-base md:text-lg leading-relaxed text-white/70">
+          <p>
+            I am a DevOps Engineer, AI/ML Researcher, and Full-Stack Developer with a deep-seated foundation in Mathematics. 
+            Currently, I am contributing to open-source ecosystem architectures as a contributor at{" "}
+            <motion.span 
+              whileHover={{ 
+                scale: 1.06,
+                color: "#c084fc",
+                backgroundColor: "rgba(168, 85, 247, 0.25)",
+                borderColor: "rgba(168, 85, 247, 0.5)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 450, damping: 12 }}
+              className="inline-block px-2.5 py-0.5 rounded-lg text-purple-300 bg-purple-500/10 border border-purple-500/20 font-semibold cursor-pointer select-none"
+            >
+              Code for GovTech (C4GT)
+            </motion.span>{" "}
+            under the **TAP project**, while simultaneously conducting AI research as an intern at the{" "}
+            <motion.span 
+              whileHover={{ 
+                scale: 1.06,
+                color: "#60a5fa",
+                backgroundColor: "rgba(59, 130, 246, 0.25)",
+                borderColor: "rgba(59, 130, 246, 0.5)"
+              }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 450, damping: 12 }}
+              className="inline-block px-2.5 py-0.5 rounded-lg text-blue-300 bg-blue-500/10 border border-blue-500/30 font-semibold cursor-pointer select-none"
+            >
+              MIDAS
+            </motion.span>{" "}
+            focusing on multimodal deep learning models.
+          </p>
+          <p>
+            Alongside my research and devops roles, I have extensive experience building reliable, real-world web and mobile applications from scratch. 
+            My mathematical background gives me a strong first-principles understanding of core machine learning algorithms, enabling me to transition models from theoretical design to production-grade cloud deployments.
+          </p>
+          <p>
+            Lately, my stack has revolved around{" "}
+            <motion.span 
+              whileHover={{ scale: 1.05, color: "#ffffff", backgroundColor: "rgba(255, 255, 255, 0.15)", borderColor: "rgba(255, 255, 255, 0.3)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-2 py-0.5 rounded border border-white/10 bg-white/5 text-white/90 font-medium cursor-pointer select-none"
+            >
+              Terraform
+            </motion.span>,{" "}
+            <motion.span 
+              whileHover={{ scale: 1.05, color: "#ffffff", backgroundColor: "rgba(255, 255, 255, 0.15)", borderColor: "rgba(255, 255, 255, 0.3)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-2 py-0.5 rounded border border-white/10 bg-white/5 text-white/90 font-medium cursor-pointer select-none"
+            >
+              AWS
+            </motion.span>,{" "}
+            <motion.span 
+              whileHover={{ scale: 1.05, color: "#ffffff", backgroundColor: "rgba(255, 255, 255, 0.15)", borderColor: "rgba(255, 255, 255, 0.3)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-2 py-0.5 rounded border border-white/10 bg-white/5 text-white/90 font-medium cursor-pointer select-none"
+            >
+              Docker & Kubernetes
+            </motion.span>,{" "}
+            <motion.span 
+              whileHover={{ scale: 1.05, color: "#ffffff", backgroundColor: "rgba(255, 255, 255, 0.15)", borderColor: "rgba(255, 255, 255, 0.3)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-2 py-0.5 rounded border border-white/10 bg-white/5 text-white/90 font-medium cursor-pointer select-none"
+            >
+              React Native
+            </motion.span>,{" "}
+            <motion.span 
+              whileHover={{ scale: 1.05, color: "#ffffff", backgroundColor: "rgba(255, 255, 255, 0.15)", borderColor: "rgba(255, 255, 255, 0.3)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-2 py-0.5 rounded border border-white/10 bg-white/5 text-white/90 font-medium cursor-pointer select-none"
+            >
+              React/Next.js
+            </motion.span>,{" "}
+            and <motion.span 
+              whileHover={{ scale: 1.05, color: "#ffffff", backgroundColor: "rgba(255, 255, 255, 0.15)", borderColor: "rgba(255, 255, 255, 0.3)" }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
+              className="inline-block px-2 py-0.5 rounded border border-white/10 bg-white/5 text-white/90 font-medium cursor-pointer select-none"
+            >
+              PyTorch
+            </motion.span>.
+            I focus on writing clean, understandable code, automating cloud architectures, and optimizing model inference performance.
+          </p>
+        </div>
 
         {/* CTA Actions */}
         <div className="mt-8 flex flex-wrap gap-4">
