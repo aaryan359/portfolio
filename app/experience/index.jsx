@@ -6,6 +6,21 @@ import { ShowMoreButton } from "../components/ui/Button";
 
 const experiences = [
 	{
+		company: "Freelance Developer",
+		role: "Fullstack & Mobile Developer",
+		website: "https://aaryanm.netlify.app/",
+		start: "August 2025",
+		end: "Present",
+		location: "Remote",
+		status: "Active",
+		tools: ["Next.js", "React Native", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "Figma"],
+		points: [
+			"Crafting responsive web applications and cross-platform mobile apps with pixel-perfect designs and intuitive UX.",
+			"Developing modular API structures, optimizing database transactions, and implementing secure user authentication.",
+			"Guiding projects from client ideation, system design, to continuous integration and cloud deployment.",
+		],
+	},
+	{
 		company: "Infrawave Solutions",
 		role: "React Native developer",
 		website: "https://www.infrawavesolutions.com/",
@@ -26,10 +41,11 @@ const experiences = [
 		start: "June 2025",
 		end: "July 2025",
 		location: "Gwalior, India (On-site)",
-		tools: ["Raspberry PI","React", "TypeScript", "Postman", "Express"],
+		tools: ["Raspberry Pi 5", "Python", "TensorFlow Lite", "OpenCV", "Flask"],
 		points: [
-			"Worked on Raspberry PI 5",
-			"Built and deployed ml model on raspberry PI",
+			"Developed and optimized resource-constrained Machine Learning models for real-time edge computing on Raspberry Pi 5.",
+			"Implemented low-latency image processing pipelines using OpenCV to enable real-time detection on the hardware.",
+			"Integrated edge models with local web interfaces using lightweight Python frameworks.",
 		],
 	},
 ];

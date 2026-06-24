@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HomeIcon, PencilIcon, CalendarIcon, MailIcon, MoonIcon, SunIcon, Phone, FileText, User, Dumbbell, BookOpen, Atom } from 'lucide-react';
 import { contactsData } from "@/utils/data/contactsData";
@@ -46,13 +47,14 @@ const Icons = {
 // Data for navbar and social links
 const DATA = {
   navbar: [
-    { href: "#", icon: "home", label: "Home" },
-    { href: "#projects", icon: "fileText", label: "Projects" },
-    { href: "#research-projects", icon: "atom", label: "Research Projects" },
-    { href: "#papers", icon: "bookOpen", label: "Papers" },
-    { href: "#blogs", icon: "blog", label: "Blogs" },
-    { href: "#skills", icon: "skills", label: "Skills" },
-    { href: "#contact", icon: "phone", label: "Contact" },
+    { href: "/", icon: "home", label: "Home" },
+    { href: "/projects", icon: "fileText", label: "Projects" },
+    { href: "/research-projects", icon: "atom", label: "Research Projects" },
+    { href: "/papers", icon: "bookOpen", label: "Papers" },
+    { href: "/blogs", icon: "blog", label: "Blogs" },
+    { href: "/upcoming-projects", icon: "calendar", label: "Upcoming" },
+    { href: "/#skills", icon: "skills", label: "Skills" },
+    { href: "/#contact", icon: "phone", label: "Contact" },
   ],
   contact: {
     social: [
@@ -72,23 +74,25 @@ const DockItem = ({ icon: Icon, label, href }) => {
     <motion.li
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex items-center justify-center"
+      className="group relative flex items-center justify-center select-none"
     >
-      <motion.a
-        href={href}
-        className="flex h-12 w-12 items-center justify-center rounded-full text-white transition-colors hover:bg-white/20"
-        whileHover={{ scale: 1.2 }}
-        transition={{ type: "spring", stiffness: 400, damping: 17 }}
-      >
-        <Icon className="h-6 w-6" />
-      </motion.a>
+      <Link href={href} passHref legacyBehavior>
+        <motion.a
+          className="flex h-12 w-12 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+          whileHover={{ scale: 1.2 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+        >
+          <Icon className="h-5 w-5" />
+        </motion.a>
+      </Link>
       <AnimatePresence>
         {isHovered && (
           <motion.span
-            className="absolute -right-10 rounded-md bg-gray-800 px-2 py-1 text-xs text-white"
+            className="absolute -right-28 rounded-md bg-black/60 border border-white/10 px-2 py-1 text-xs text-white backdrop-blur-sm pointer-events-none"
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
+            transition={{ duration: 0.15 }}
           >
             {label}
           </motion.span>
@@ -100,7 +104,7 @@ const DockItem = ({ icon: Icon, label, href }) => {
 
 // Divider Component
 const Divider = () => (
-  <div className="mx-1 h-px w-8 bg-white/50" />
+  <div className="my-1.5 h-px w-6 bg-white/20" />
 )
 
 // SideNavbar Component
@@ -128,9 +132,9 @@ const SideNavbar = () => {
   }, [lastScrollY]);
 
   return (
-    <div className={`flex fixed md:h-full ml-4 flex-row items-center justify-center z-[100] transition-all duration-300`}>
+    <div className="flex fixed md:h-full ml-4 flex-row items-center justify-center z-[100] transition-all duration-300">
       <motion.ul
-        className={`flex flex-col items-center space-y-1 rounded-2xl bg-black/20 p-2 backdrop-blur-md border border-[#7790eaa0] ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+        className={`flex flex-col items-center space-y-1 rounded-2xl bg-black/40 p-2 backdrop-blur-md border border-white/15 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         initial={{ opacity: 0, x: -50 }}
         animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
         transition={{ duration: 0.5, delay: 0.2 }}

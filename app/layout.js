@@ -90,7 +90,7 @@ export default function RootLayout({ children }) {
 
       <body>
         <ToastContainer />
-        <main className="min-h-screen w-full md:w-[90%] lg:w-[80%] xl:w-[50%] relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-white">
+        <main className="min-h-screen w-full max-w-6xl relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-white">
           <Navbar />
           {children}
 
