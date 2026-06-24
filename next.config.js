@@ -9,6 +9,13 @@ module.exports = {
   basePath: isProd ? `/${repoName}` : '',
   assetPrefix: isProd ? `/${repoName}/` : '',
 
+  // Optimize package imports to drastically reduce memory usage and speed up dev compiling
+  experimental: {
+    optimizePackageImports: ['react-icons', 'lucide-react', 'three', '@react-three/drei'],
+  },
+
+  swcMinify: true,
+
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },

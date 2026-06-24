@@ -3,8 +3,8 @@
 
 import Link from "next/link";
 import { personalData } from "@/utils/data/personal-data";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
+import { BsGithub, BsLinkedin, BsInstagram, BsWhatsapp } from "react-icons/bs";
+import { FaTwitterSquare, FaEnvelope } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
@@ -141,12 +141,123 @@ function AboutSection() {
         </div>
 
         {/* Social Accounts */}
-        <div className="mt-8 flex items-center gap-5 text-white/40">
-          <a href={personalData.github} target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200" aria-label="GitHub"><BsGithub size={20} /></a>
-          <a href={personalData.linkedIn} target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200" aria-label="LinkedIn"><BsLinkedin size={20} /></a>
-          <a href={personalData.leetcode} target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200" aria-label="Leetcode"><SiLeetcode size={20} /></a>
-          <a href={personalData.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200" aria-label="Twitter"><FaTwitterSquare size={20} /></a>
-          <a href={personalData.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-white transition duration-200" aria-label="Facebook"><FaFacebook size={20} /></a>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          {/* GitHub */}
+          <div className="relative group">
+            <a
+              href={personalData.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:border-purple-400/50 hover:text-purple-400 transition-all duration-300 shadow-md hover:shadow-purple-500/10 hover:-translate-y-0.5"
+              aria-label="GitHub"
+            >
+              <BsGithub size={20} />
+            </a>
+            <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2.5 py-1 text-xs font-medium text-white bg-black/90 border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none whitespace-nowrap z-30">
+              GitHub
+              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90"></span>
+            </span>
+          </div>
+
+          {/* LinkedIn */}
+          <div className="relative group">
+            <a
+              href={personalData.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#0A66C2]/10 border border-[#0A66C2]/30 text-[#0A66C2] hover:bg-[#0A66C2] hover:text-white transition-all duration-300 shadow-md hover:shadow-[#0A66C2]/20 hover:-translate-y-0.5"
+              aria-label="LinkedIn"
+            >
+              <BsLinkedin size={20} />
+            </a>
+            <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2.5 py-1 text-xs font-medium text-white bg-black/90 border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none whitespace-nowrap z-30">
+              LinkedIn
+              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90"></span>
+            </span>
+          </div>
+
+          {/* LeetCode */}
+          <div className="relative group">
+            <a
+              href={personalData.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#FFA116]/10 border border-[#FFA116]/30 text-[#FFA116] hover:bg-[#FFA116] hover:text-white transition-all duration-300 shadow-md hover:shadow-[#FFA116]/20 hover:-translate-y-0.5"
+              aria-label="LeetCode"
+            >
+              <SiLeetcode size={20} />
+            </a>
+            <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2.5 py-1 text-xs font-medium text-white bg-black/90 border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none whitespace-nowrap z-30">
+              LeetCode
+              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90"></span>
+            </span>
+          </div>
+
+          {/* Instagram */}
+          <div className="relative group">
+            <a
+              href={personalData.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#E1306C]/10 border border-[#E1306C]/30 text-[#E1306C] hover:bg-gradient-to-tr hover:from-[#FCAF45] hover:via-[#E1306C] hover:to-[#C13584] hover:text-white transition-all duration-300 shadow-md hover:shadow-[#E1306C]/20 hover:-translate-y-0.5"
+              aria-label="Instagram"
+            >
+              <BsInstagram size={20} />
+            </a>
+            <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2.5 py-1 text-xs font-medium text-white bg-black/90 border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none whitespace-nowrap z-30">
+              Instagram
+              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90"></span>
+            </span>
+          </div>
+
+          {/* Twitter / X */}
+          <div className="relative group">
+            <a
+              href={personalData.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1DA1F2]/10 border border-[#1DA1F2]/30 text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white transition-all duration-300 shadow-md hover:shadow-[#1DA1F2]/20 hover:-translate-y-0.5"
+              aria-label="Twitter"
+            >
+              <FaTwitterSquare size={20} />
+            </a>
+            <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2.5 py-1 text-xs font-medium text-white bg-black/90 border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none whitespace-nowrap z-30">
+              Twitter
+              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90"></span>
+            </span>
+          </div>
+
+          {/* WhatsApp */}
+          <div className="relative group">
+            <a
+              href={`https://wa.me/${personalData.phone.replace(/[^0-9]/g, "")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300 shadow-md hover:shadow-[#25D366]/20 hover:-translate-y-0.5"
+              aria-label="WhatsApp"
+            >
+              <BsWhatsapp size={20} />
+            </a>
+            <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2.5 py-1 text-xs font-medium text-white bg-black/90 border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none whitespace-nowrap z-30">
+              WhatsApp
+              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90"></span>
+            </span>
+          </div>
+
+          {/* Email */}
+          <div className="relative group">
+            <a
+              href={`mailto:${personalData.email}`}
+              className="w-11 h-11 flex items-center justify-center rounded-xl bg-[#EA4335]/10 border border-[#EA4335]/30 text-[#EA4335] hover:bg-[#EA4335] hover:text-white transition-all duration-300 shadow-md hover:shadow-[#EA4335]/20 hover:-translate-y-0.5"
+              aria-label="Email"
+            >
+              <FaEnvelope size={18} />
+            </a>
+            <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 px-2.5 py-1 text-xs font-medium text-white bg-black/90 border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none whitespace-nowrap z-30">
+              Email
+              <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-black/90"></span>
+            </span>
+          </div>
         </div>
       </div>
     </section>

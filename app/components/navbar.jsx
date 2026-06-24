@@ -51,7 +51,7 @@ function Navbar() {
         "
       >
         <div className="pointer-events-none absolute bottom-0 left-1/2 h-px w-[75%] -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500/70 to-transparent" />
-        
+
         <div className="flex items-center justify-between">
           {/* Logo / Profile */}
           <Link
@@ -62,8 +62,8 @@ function Navbar() {
               <Image
                 src={profileImg}
                 alt="Profile"
-                width={40}
-                height={40}
+                width={50}
+                height={50}
                 className="rounded-lg w-[40px] h-[40px] object-cover"
                 unoptimized
               />

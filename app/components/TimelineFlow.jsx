@@ -148,26 +148,6 @@ export function TimelineFlow({ parentRef }) {
     setClipD(`M -100 -1000 L ${W + 100} -1000 L ${W + 100} ${initialY - initialTilt} L -100 ${initialY + initialTilt} Z`);
   };
 
-  // Recalculate whenever page size changes or elements shift
-  useEffect(() => {
-    updatePath();
-
-    // Use ResizeObserver to detect dynamic client height changes
-    const container = parentRef.current;
-    if (!container) return;
-
-    const observer = new ResizeObserver(() => {
-      updatePath();
-    });
-    observer.observe(container);
-
-    window.addEventListener("resize", updatePath);
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", updatePath);
-    };
-  }, [parentRef]);
-
   // Reactively rebuild the clip path string when trigger coordinate updates
   useMotionValueEvent(smoothTriggerY, "change", (latest) => {
     const bounds = boundariesRef.current;
@@ -202,7 +182,7 @@ export function TimelineFlow({ parentRef }) {
     setClipD(d);
   });
 
-  // Synchronize active draw progress with user viewport scroll height
+  // Unified hook to manage timeline coordinates, layout observations, and scroll viewport synchronization
   useEffect(() => {
     const handleScroll = () => {
       const container = parentRef.current;
@@ -236,15 +216,39 @@ export function TimelineFlow({ parentRef }) {
       triggerY.set(clampedY);
     };
 
+    // Run initial calculations
+    updatePath();
+    handleScroll();
+
+    // Use ResizeObserver to detect dynamic client height changes
+    const container = parentRef.current;
+    if (!container) return;
+
+    const observer = new ResizeObserver(() => {
+      updatePath();
+      handleScroll();
+    });
+    observer.observe(container);
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", updatePath);
     window.addEventListener("resize", handleScroll);
     
-    // Run initially and set a brief interval to secure coordinates after image layout load
-    handleScroll();
-    const timer = setInterval(handleScroll, 100);
+    // Initial startup interval timer: fires every 100ms for 3 seconds to guarantee layout calculations
+    // align perfectly as image/text content hydrates and finishes loading.
+    const startTime = Date.now();
+    const timer = setInterval(() => {
+      handleScroll();
+      updatePath();
+      if (Date.now() - startTime > 3000) {
+        clearInterval(timer);
+      }
+    }, 100);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updatePath);
       window.removeEventListener("resize", handleScroll);
       clearInterval(timer);
     };
