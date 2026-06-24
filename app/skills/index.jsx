@@ -6,13 +6,10 @@ import { skillsData } from "@/utils/data/skills";
 
 export default function Skills() {
   return (
-    <section id="skills" className="pt-10 pb-16 pr-8 md:pr-12 relative">
+    <section id="skills" className="pt-8 pb-8  pl-6 pr-6 md:pr-6 relative">
       {/* Header */}
-      <div className="mb-6">
-        <h2 className="text-3xl font-semibold text-white">Skills & Tech Stack</h2>
-        <p className="text-sm text-white/50 mt-2 max-w-xl">
-          Technologies I work with across AI/ML research, cloud DevOps infrastructure, and full-stack applications.
-        </p>
+      <div className="mb-2">
+        <h2 className="text-2xl font-semibold text-white">Skills & Tech Stack</h2>
       </div>
 
       {/* Skills Grid - Flex Wrap */}

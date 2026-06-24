@@ -62,7 +62,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="pt-10 pb-6 pl-8 md:pl-12 relative">
+    <section id="contact" className="pt-8 pb-8 pl-6 md:pl-8 relative">
       {/* Apple-style background blur helper elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
         <div className="absolute top-[20%] right-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
@@ -71,13 +71,10 @@ export default function ContactSection() {
       </div>
 
       {/* HEADER */}
-      <header className="mb-10 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+      <header className="mb-2 relative z-10">
+        <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
           Let’s Connect
         </h2>
-        <p className="text-sm md:text-base text-white/50 mt-2 max-w-xl">
-          Interested in working together or hiring? Reach out directly via the form or copy my credentials.
-        </p>
       </header>
 
       <div className="grid gap-8 lg:grid-cols-2 relative z-10 items-start">

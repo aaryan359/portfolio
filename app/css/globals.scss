@@ -247,7 +247,7 @@
 }
 
 .about-thought-text {
-  font-family: "Schibsted Grotesk", sans-serif;
+  font-family: "Schibsted Grotesk", sans-serif !important;
   font-size: 1.1rem;
   line-height: 1.75;
   letter-spacing: -0.015em;
@@ -937,6 +937,34 @@ html.light {
       border: 1.5px solid rgba(147, 51, 234, 0.55) !important; /* Visible purple border hover in light mode */
       background: rgba(147, 51, 234, 0.02) !important;
       transform: scale(1.008) !important;
+    }
+  }
+
+  footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+    
+    .text-white {
+      color: #0f172a !important;
+    }
+    
+    .text-white\/50 {
+      color: #475569 !important;
+    }
+    
+    .text-white\/60 {
+      color: #334155 !important;
+      
+      &:hover {
+        color: #9333ea !important;
+      }
+    }
+    
+    .text-white\/40 {
+      color: #64748b !important;
+    }
+    
+    .border-white\/5 {
+      border-color: rgba(0, 0, 0, 0.08) !important;
     }
   }
 }

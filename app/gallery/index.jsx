@@ -45,13 +45,7 @@ const galleryImages = [
 export default function Gallery() {
   return (
     <section id="gallery" className="mt-8">
-      {/* Header */}
-      <header className="mb-6 flex items-center gap-3">
-        <ImageIcon className="h-6 w-6 text-purple-400" />
-        <h2 className="text-3xl font-bold tracking-tight text-white project-card-text">
-          Gallery & Media
-        </h2>
-      </header>
+
 
       {/* Masonry Columns Layout */}
       <div className="columns-1 sm:columns-2 md:columns-3 gap-4">
@@ -78,7 +72,7 @@ export default function Gallery() {
               <h3 className="text-sm font-bold text-white project-card-text">
                 {image.title}
               </h3>
-              <p className="text-xs text-white/50 project-card-text mt-1 leading-relaxed">
+              <p className="text-xs text-white/50 about-thought-text mt-1 leading-relaxed">
                 {image.description}
               </p>
             </div>

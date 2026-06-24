@@ -57,7 +57,7 @@ const getCourseIcon = (name) => {
 
 export default function Education() {
   return (
-    <section id="education" className="pt-10 pb-10 pr-8 md:pr-12 relative">
+    <section id="education" className="pt-6 pb-6 pl-6 pr-6 md:pr-6 relative">
       {/* Apple-style background blur helper elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
         <div className="absolute top-[20%] left-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
@@ -66,17 +66,14 @@ export default function Education() {
       </div>
 
       {/* Header */}
-      <div className="mb-4 relative z-10">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+      <div className="mb-2 relative z-10">
+        <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
           Education
         </h2>
-        <p className="text-sm md:text-base text-white/50 mt-2 max-w-xl">
-          Academic foundation in theoretical mathematics, scientific computing, and physical sciences.
-        </p>
       </div>
 
       {/* Education List - Stacked Rows */}
-      <div className="space-y-5 mt-8 relative z-10">
+      <div className="space-y-5 mt-4 relative z-10">
         {educations.map((edu) => (
           <div
             key={edu.id}
