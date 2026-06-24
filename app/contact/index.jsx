@@ -5,7 +5,6 @@ import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Check, Copy, Instagram 
 import { FaWhatsapp } from "react-icons/fa";
 import { personalData } from "@/utils/data/personal-data";
 import { ContactForm } from "./ContactForm";
-import { SectionDivider } from "../components/ui/Divider";
 
 export default function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -62,10 +61,8 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="mt-16 relative">
-      <SectionDivider />
-
-      {/* Apple-style background blur helper elements (with soft whites for realistic glass refraction) */}
+    <section id="contact" className="pt-10 pb-16 pl-8 md:pl-12 relative">
+      {/* Apple-style background blur helper elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
         <div className="absolute top-[20%] right-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
         <div className="absolute bottom-[20%] left-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.03] blur-[120px] animate-pulse duration-[10000ms]" />
@@ -221,8 +218,6 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
-      
-      <SectionDivider />
     </section>
   );
 }

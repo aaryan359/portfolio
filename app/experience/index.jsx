@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
+import React from "react";
 import { TechPill } from "../components/ui/TechPill";
 import { FiExternalLink, FiCalendar, FiMapPin } from "react-icons/fi";
-import { useScroll, useTransform, motion } from "framer-motion";
 
 const experiences = [
   {
@@ -94,29 +93,13 @@ const experiences = [
 ];
 
 export default function Experience() {
-  const containerRef = useRef(null);
-
-  // Track scroll progress of the experience container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
-  });
-
-  // Calculate top percentage for the moving indicator
-  const topPosition = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
   return (
-    <section id="experience" className="mt-16 relative">
-      {/* Apple-style background blur helper elements (with soft whites for realistic glass refraction) */}
+    <section id="experience" className="pt-10 pb-16 pl-8 md:pl-12 relative">
+      {/* Apple-style background blur helper elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
-        {/* Soft-white ambient radial glows */}
         <div className="absolute top-[10%] left-[20%] h-[350px] w-[350px] rounded-full bg-white/[0.03] blur-[110px] animate-pulse duration-[8000ms]" />
         <div className="absolute top-[45%] right-[25%] h-[300px] w-[300px] rounded-full bg-white/[0.02] blur-[100px] animate-pulse duration-[10000ms]" />
         <div className="absolute bottom-[10%] left-[30%] h-[280px] w-[280px] rounded-full bg-white/[0.04] blur-[90px] animate-pulse duration-[6000ms]" />
-
-        {/* Floating white gradient frosted spheres */}
-        <div className="absolute top-1/4 left-[10%] w-24 h-24 rounded-full bg-gradient-to-tr from-white/10 to-white/5 blur-sm animate-bounce duration-[14000ms]" />
-        <div className="absolute bottom-1/3 right-[10%] w-32 h-32 rounded-full bg-gradient-to-br from-white/8 to-transparent blur-md animate-bounce duration-[17000ms]" />
         
         {/* Colorful elements for deep refraction contrast */}
         <div className="absolute top-[5%] right-[15%] h-[250px] w-[250px] rounded-full bg-purple-500/5 blur-[90px]" />
@@ -133,34 +116,13 @@ export default function Experience() {
         </p>
       </div>
 
-      {/* Timeline Wrapper */}
-      <div ref={containerRef} className="relative ml-3 md:ml-4 pl-6 md:pl-8 space-y-12 z-10">
-        
-        {/* Scroll-Linked Timeline Progress Line (Railway style) */}
-        <div className="absolute left-0 top-3 bottom-3 w-[20px] -translate-x-1/2 h-[calc(100%-24px)] pointer-events-none z-20">
-          {/* Main Background static track line */}
-          <div className="absolute left-[9px] top-0 bottom-0 w-[2px] bg-white/10" />
-
-          {/* Scroll-linked progress fill line */}
-          <motion.div 
-            style={{ scaleY: scrollYProgress }}
-            className="absolute left-[9px] top-0 bottom-0 w-[2px] bg-gradient-to-b from-purple-500 via-indigo-500 to-blue-500 origin-top shadow-[0_0_10px_rgba(168,85,247,0.5)]"
-          />
-
-          {/* Traveling glowing bubble indicator */}
-          <motion.div 
-            style={{ top: topPosition }}
-            className="absolute left-0 -translate-y-1/2 h-[20px] w-[20px] rounded-full bg-white border-2 border-purple-500 shadow-[0_0_15px_rgba(168,85,247,1)] flex items-center justify-center"
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-purple-600 animate-pulse" />
-          </motion.div>
-        </div>
-
+      {/* Timeline Card Wrapper */}
+      <div className="relative space-y-12 z-10">
         {experiences.map((exp, idx) => (
           <div key={idx} className="group relative">
-            {/* Stationary Timeline Node Ring */}
+            {/* Stationary Timeline Node Ring aligned with page-wide line */}
             <div className={`
-              absolute -left-[31px] md:-left-[39px] top-1.5 h-4 w-4 rounded-full border-2 
+              absolute left-2 -translate-x-1/2 top-2 h-4.5 w-4.5 rounded-full border-2 
               ${exp.status === "Active" 
                 ? "border-emerald-500 bg-emerald-950 shadow-[0_0_10px_rgba(16,185,129,0.4)]" 
                 : "border-white/20 bg-zinc-950"} 

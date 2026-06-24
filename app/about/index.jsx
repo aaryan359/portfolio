@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 
 function AboutSection() {
   return (
-    <section id="about" className="relative pt-12 pb-16 overflow-hidden">
+    <section id="about" className="relative pt-12 pb-16 pl-8 md:pl-12 overflow-hidden">
       {/* Background glow effect */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-purple-500/10 blur-[120px]" />

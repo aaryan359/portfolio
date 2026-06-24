@@ -16,7 +16,6 @@ import {
   FiZap,
   FiPercent 
 } from "react-icons/fi";
-import { SectionDivider } from "../components/ui/Divider";
 
 // Map each course name to its custom icon and brand color
 const courseMeta = {
@@ -58,10 +57,8 @@ const getCourseIcon = (name) => {
 
 export default function Education() {
   return (
-    <section id="education" className="mt-16 relative">
-      <SectionDivider />
-      
-      {/* Apple-style background blur helper elements (with soft whites for realistic glass refraction) */}
+    <section id="education" className="pt-10 pb-16 pr-8 md:pr-12 relative">
+      {/* Apple-style background blur helper elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
         <div className="absolute top-[20%] left-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
         <div className="absolute bottom-[20%] right-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.03] blur-[120px] animate-pulse duration-[10000ms]" />
@@ -172,8 +169,6 @@ export default function Education() {
           </div>
         ))}
       </div>
-      
-      <SectionDivider />
     </section>
   );
 }

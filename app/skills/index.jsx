@@ -3,13 +3,10 @@
 import React from "react";
 import { TechPill } from "../components/ui/TechPill";
 import { skillsData } from "@/utils/data/skills";
-import { SectionDivider } from "../components/ui/Divider";
 
 export default function Skills() {
   return (
-    <section id="skills" className="mt-10">
-      <SectionDivider />
-
+    <section id="skills" className="pt-10 pb-16 pr-8 md:pr-12 relative">
       {/* Header */}
       <div className="mb-6">
         <h2 className="text-3xl font-semibold text-white">Skills & Tech Stack</h2>
@@ -30,8 +27,6 @@ export default function Skills() {
           />
         ))}
       </div>
-
-      <SectionDivider />
     </section>
   );
 }
