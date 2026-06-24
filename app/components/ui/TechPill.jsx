@@ -7,13 +7,13 @@ import { SiKubernetes, SiTerraform, SiPytorch, SiNextdotjs } from "react-icons/s
 import { FaUbuntu, FaAws, FaReact } from "react-icons/fa";
 
 const fallbackIcons = {
-  "kubernetes": <SiKubernetes className="text-[#326ce5] w-5 h-5" />,
-  "terraform": <SiTerraform className="text-[#844fba] w-5 h-5" />,
-  "ubuntu": <FaUbuntu className="text-[#e95420] w-5 h-5" />,
-  "react native": <FaReact className="text-[#61dafb] w-5 h-5 animate-[spin_10s_linear_infinite]" />,
-  "pytorch": <SiPytorch className="text-[#ee4c2c] w-5 h-5" />,
-  "aws": <FaAws className="text-[#ff9900] w-5 h-5" />,
-  "next js": <SiNextdotjs className="text-white w-5 h-5" />,
+  "kubernetes": <SiKubernetes className="text-[#326ce5] w-4 h-4" />,
+  "terraform": <SiTerraform className="text-[#844fba] w-4 h-4" />,
+  "ubuntu": <FaUbuntu className="text-[#e95420] w-4 h-4" />,
+  "react native": <FaReact className="text-[#61dafb] w-4 h-4 animate-[spin_10s_linear_infinite]" />,
+  "pytorch": <SiPytorch className="text-[#ee4c2c] w-4 h-4" />,
+  "aws": <FaAws className="text-[#ff9900] w-4 h-4" />,
+  "next js": <SiNextdotjs className="text-white w-4 h-4" />,
 };
 
 export function TechPill({ name, desc, style, className }) {
@@ -26,10 +26,10 @@ export function TechPill({ name, desc, style, className }) {
       <span
         tabIndex={0}
         className={`
-          inline-flex items-center gap-2.5
-          rounded-xl border border-white/10
-          bg-white/[0.03] px-5 py-2.5
-          text-sm md:text-base font-semibold text-white/90
+          inline-flex items-center gap-2
+          rounded-lg border border-white/10
+          bg-white/[0.03] px-3.5 py-1.5
+          text-xs md:text-sm font-semibold text-white/90
           transition-all duration-300
           hover:border-white/30
           hover:bg-white/[0.08]
@@ -46,9 +46,9 @@ export function TechPill({ name, desc, style, className }) {
           <Image
             src={icon.src}
             alt={name}
-            width={20}
-            height={20}
-            className="h-5 w-5 object-contain"
+            width={16}
+            height={16}
+            className="h-4 w-4 object-contain"
           />
         ) : fallback ? (
           fallback

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { personalData } from "@/utils/data/personal-data";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import profileImg from "@/public/profile.jpg";
 
 const NAV_ITEMS = [
@@ -23,8 +23,31 @@ const NAV_ITEMS = [
 
 function Navbar() {
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState("dark");
   const navRef = useRef(null);
   const pathname = usePathname();
+
+  // Load theme preference on mount
+  useEffect(() => {
+    try {
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme) {
+        setTheme(storedTheme);
+        document.documentElement.classList.toggle("light", storedTheme === "light");
+      } else {
+        const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        setTheme(prefersLight ? "light" : "dark");
+        document.documentElement.classList.toggle("light", prefersLight);
+      }
+    } catch (e) {}
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    localStorage.setItem("theme", nextTheme);
+    document.documentElement.classList.toggle("light", nextTheme === "light");
+  };
 
   // Close mobile menu on outside click
   useEffect(() => {
@@ -74,52 +97,82 @@ function Navbar() {
           </Link>
 
           {/* Desktop Nav Items */}
-          <ul className="hidden lg:flex items-center gap-4 xl:gap-5">
-            {NAV_ITEMS.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <li key={item.id}>
-                  <Link
-                    href={item.href}
-                    className={`
-                      group relative text-xs xl:text-sm font-medium
-                      transition duration-200
-                      ${isActive ? "text-purple-400" : "text-white/60 hover:text-white"}
-                      focus-visible:outline-none
-                    `}
-                  >
-                    {item.label}
-                    <span
+          <div className="hidden lg:flex items-center gap-5">
+            <ul className="flex items-center gap-4 xl:gap-5">
+              {NAV_ITEMS.map((item) => {
+                const isActive = pathname === item.href;
+                return (
+                  <li key={item.id}>
+                    <Link
+                      href={item.href}
                       className={`
-                        absolute -bottom-1 left-0 h-px w-full
-                        origin-left scale-x-0
-                        bg-gradient-to-r from-purple-500 to-blue-500
-                        transition-transform duration-200
-                        group-hover:scale-x-100
-                        ${isActive ? "scale-x-100" : ""}
+                        group relative text-xs xl:text-sm font-medium
+                        transition duration-200
+                        ${isActive ? "text-purple-400" : "text-white/60 hover:text-white"}
+                        focus-visible:outline-none
                       `}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+                    >
+                      {item.label}
+                      <span
+                        className={`
+                          absolute -bottom-1 left-0 h-px w-full
+                          origin-left scale-x-0
+                          bg-gradient-to-r from-purple-500 to-blue-500
+                          transition-transform duration-200
+                          group-hover:scale-x-100
+                          ${isActive ? "scale-x-100" : ""}
+                        `}
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
 
-          {/* Hamburger button */}
-          <button
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle menu"
-            className="
-              lg:hidden
-              rounded-lg p-2
-              text-white/70
-              transition
-              hover:bg-white/10 hover:text-white
-              focus-visible:ring-2 focus-visible:ring-white/30
-            "
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+            {/* Theme Toggle Button (Desktop) */}
+            <button
+              onClick={toggleTheme}
+              className="
+                p-2 rounded-xl border border-white/10 bg-white/[0.03] text-white/70 
+                hover:text-white hover:bg-white/10 hover:border-white/20
+                transition-all duration-200 focus-visible:outline-none
+              "
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} className="text-purple-400" />}
+            </button>
+          </div>
+
+          {/* Mobile Right Section: Theme Toggle + Hamburger */}
+          <div className="flex items-center gap-2 lg:hidden">
+            {/* Theme Toggle Button (Mobile) */}
+            <button
+              onClick={toggleTheme}
+              className="
+                p-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-white/70 
+                hover:text-white hover:bg-white/10 hover:border-white/20
+                transition-all duration-200 focus-visible:outline-none
+              "
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun size={16} className="text-yellow-400" /> : <Moon size={16} className="text-purple-400" />}
+            </button>
+
+            {/* Hamburger button */}
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Toggle menu"
+              className="
+                rounded-lg p-2
+                text-white/70
+                transition
+                hover:bg-white/10 hover:text-white
+                focus-visible:ring-2 focus-visible:ring-white/30
+              "
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Nav Drawer */}

@@ -78,28 +78,28 @@ export default function Footer() {
               href={personalData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/70 hover:text-white hover:border-purple-500/40 hover:bg-white/[0.08] transition-all duration-300"
+              className="flex h-10 w-10 items-center justify-center social-icon-github transition-all duration-300 hover:-translate-y-0.5"
               aria-label="GitHub Profile"
             >
-              <Github size={18} />
+              <Github size={22} />
             </a>
             <a
               href={personalData.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/70 hover:text-white hover:border-purple-500/40 hover:bg-white/[0.08] transition-all duration-300"
+              className="flex h-10 w-10 items-center justify-center social-icon-linkedin transition-all duration-300 hover:-translate-y-0.5"
               aria-label="LinkedIn Profile"
             >
-              <Linkedin size={18} />
+              <Linkedin size={22} />
             </a>
             <a
               href={personalData.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/70 hover:text-white hover:border-purple-500/40 hover:bg-white/[0.08] transition-all duration-300"
+              className="flex h-10 w-10 items-center justify-center social-icon-twitter transition-all duration-300 hover:-translate-y-0.5"
               aria-label="Twitter Profile"
             >
-              <Twitter size={18} />
+              <Twitter size={22} />
             </a>
           </div>
         </div>

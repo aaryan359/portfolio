@@ -85,10 +85,11 @@ export default function Experience() {
               </div>
 
               {/* Bullet Points */}
-              <ul className="space-y-2 text-sm md:text-base text-white/70 leading-relaxed list-disc list-inside">
+              <ul className="space-y-3">
                 {exp.points.map((point, i) => (
-                  <li key={i} className="marker:text-purple-500 font-light">
-                    {point}
+                  <li key={i} className="experience-point-text flex items-start gap-2">
+                    <span className="text-purple-500 shrink-0 select-none">•</span>
+                    <span>{point}</span>
                   </li>
                 ))}
               </ul>

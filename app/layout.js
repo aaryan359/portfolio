@@ -19,7 +19,7 @@ export const metadata = {
     title: "Aaryan Meena – Freelance Web & App Developer",
     description:
       "Looking for a freelance developer? I design, build, and deploy modern websites and mobile apps using Next.js, React, Node.js and more.",
-    url: "https://aaryanm.netlify.app/",
+    url: "https://aaryan359.github.io/portfolio/",
     siteName: "Aaryan Meena",
     images: [
       {
@@ -43,6 +43,22 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme');
+                  if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                    document.documentElement.classList.add('light');
+                  } else {
+                    document.documentElement.classList.remove('light');
+                  }
+                } catch (e) {}
+              })();
+            `
+          }}
+        />
         {/* Basic Meta */}
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -90,7 +106,7 @@ export default function RootLayout({ children }) {
 
       <body>
         <ToastContainer />
-        <main className="min-h-screen w-full max-w-6xl relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-white">
+        <main className="min-h-screen w-full max-w-5xl relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-white">
           <Navbar />
           {children}
 
