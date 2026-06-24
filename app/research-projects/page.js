@@ -1,8 +1,8 @@
 import ResearchProjects from "./index";
 
 export const metadata = {
-  title: "Research Projects – Aaryan Meena",
-  description: "Explore the scientific and academic research projects conducted by Aaryan Meena at ABV-IIITM Gwalior.",
+  title: "Hackathons – Aaryan Meena",
+  description: "Explore the research projects and hackathon solutions conducted and built by Aaryan Meena.",
 };
 
 export default function Page() {

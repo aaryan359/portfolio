@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full px-4 md:px-8 mt-20 pb-12 border-t border-white/10">
+    <footer className="relative w-full px-4 md:px-8 mt-8 pb-12 border-t border-white/10">
       {/* Visual Top Glow */}
       <div className="pointer-events-none absolute -top-px left-1/2 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
 
@@ -46,7 +46,7 @@ export default function Footer() {
               Projects
             </Link>
             <Link href="/research-projects" className="text-sm text-white/60 hover:text-purple-400 transition-colors duration-200">
-              Research
+              Hackathons
             </Link>
           </div>
           <div className="flex flex-col space-y-3">

@@ -1,8 +1,8 @@
 import Papers from "./index";
 
 export const metadata = {
-  title: "Publications & Papers – Aaryan Meena",
-  description: "Browse the machine learning and engineering papers published by Aaryan Meena.",
+  title: "Research Papers – Aaryan Meena",
+  description: "Browse the research and machine learning papers written by Aaryan Meena.",
 };
 
 export default function Page() {

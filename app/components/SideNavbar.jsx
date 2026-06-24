@@ -49,11 +49,10 @@ const DATA = {
   navbar: [
     { href: "/", icon: "home", label: "Home" },
     { href: "/projects", icon: "fileText", label: "Projects" },
-    { href: "/research-projects", icon: "atom", label: "Research Projects" },
+    { href: "/research-projects", icon: "atom", label: "Hackathons" },
     { href: "/papers", icon: "bookOpen", label: "Papers" },
     { href: "/blogs", icon: "blog", label: "Blogs" },
     { href: "/upcoming-projects", icon: "calendar", label: "Upcoming" },
-    { href: "/#skills", icon: "skills", label: "Skills" },
     { href: "/#contact", icon: "phone", label: "Contact" },
   ],
   contact: {
@@ -117,12 +116,12 @@ const SideNavbar = () => {
   // Track scroll position
   const handleScroll = () => {
     if (typeof window !== "undefined") {
-      if (window.scrollY > scrollThreshold ) {
-        setIsVisible(true); 
+      if (window.scrollY > scrollThreshold) {
+        setIsVisible(true);
       } else {
         setIsVisible(false);
       }
-      setLastScrollY(window.scrollY); 
+      setLastScrollY(window.scrollY);
     }
   };
 

@@ -61,6 +61,7 @@ export function TechPill({ name, desc, style, className }) {
       {desc && (
         <div
           className="
+            tech-pill-tooltip
             absolute bottom-full left-1/2 z-50 mb-3 w-64 -translate-x-1/2
             rounded-xl border border-white/10 bg-[#121214]/98 p-3 text-xs md:text-sm font-medium text-zinc-200 shadow-[0_10px_35px_rgba(0,0,0,0.8),0_0_15px_rgba(255,255,255,0.05)]
             backdrop-blur-md transition-all duration-200 ease-out
@@ -69,7 +70,7 @@ export function TechPill({ name, desc, style, className }) {
           "
         >
           {/* Arrow */}
-          <div className="absolute top-full left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1 rotate-45 border-r border-b border-white/10 bg-[#121214]" />
+          <div className="absolute top-full left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1 rotate-45 border-r border-b border-white/10 bg-[#121214] tooltip-arrow" />
           
           <div className="text-center leading-relaxed">
             {desc}

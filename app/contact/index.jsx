@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Check, Copy, Instagram } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import { Mail, Phone, MapPin, Check, Copy } from "lucide-react";
+import { BsGithub, BsLinkedin, BsInstagram, BsWhatsapp } from "react-icons/bs";
+import { FaTwitterSquare, FaEnvelope } from "react-icons/fa";
 import { personalData } from "@/utils/data/personal-data";
 import { ContactForm } from "./ContactForm";
 
@@ -25,43 +26,43 @@ export default function ContactSection() {
     {
       label: "Email",
       href: `mailto:${personalData.email}`,
-      icon: <Mail size={22} className="text-[#ea4335]" />,
-      colorClass: "border-[#ea4335]/20 bg-[#ea4335]/5 hover:border-[#ea4335]/50 hover:bg-[#ea4335]/15 hover:shadow-[0_0_15px_rgba(234,67,53,0.25)]",
+      icon: <FaEnvelope size={24} />,
+      colorClass: "social-icon-email",
     },
     {
       label: "WhatsApp",
       href: `https://wa.me/919799819141`,
-      icon: <FaWhatsapp size={22} className="text-[#25d366]" />,
-      colorClass: "border-[#25d366]/20 bg-[#25d366]/5 hover:border-[#25d366]/50 hover:bg-[#25d366]/15 hover:shadow-[0_0_15px_rgba(37,211,102,0.25)]",
+      icon: <BsWhatsapp size={24} />,
+      colorClass: "social-icon-whatsapp",
     },
     {
       label: "GitHub",
       href: personalData.github,
-      icon: <Github size={22} className="text-white" />,
-      colorClass: "border-white/15 bg-white/5 hover:border-white/40 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]",
+      icon: <BsGithub size={24} />,
+      colorClass: "social-icon-github",
     },
     {
       label: "LinkedIn",
       href: personalData.linkedIn,
-      icon: <Linkedin size={22} className="text-[#0077b5]" />,
-      colorClass: "border-[#0077b5]/20 bg-[#0077b5]/5 hover:border-[#0077b5]/50 hover:bg-[#0077b5]/15 hover:shadow-[0_0_15px_rgba(0,119,181,0.25)]",
+      icon: <BsLinkedin size={24} />,
+      colorClass: "social-icon-linkedin",
     },
     {
       label: "Twitter / X",
       href: personalData.twitter,
-      icon: <Twitter size={22} className="text-[#1da1f2]" />,
-      colorClass: "border-[#1da1f2]/20 bg-[#1da1f2]/5 hover:border-[#1da1f2]/50 hover:bg-[#1da1f2]/15 hover:shadow-[0_0_15px_rgba(29,161,242,0.25)]",
+      icon: <FaTwitterSquare size={24} />,
+      colorClass: "social-icon-twitter",
     },
     {
       label: "Instagram",
       href: personalData.instagram,
-      icon: <Instagram size={22} className="text-[#e1306c]" />,
-      colorClass: "border-[#e1306c]/20 bg-[#e1306c]/5 hover:border-[#e1306c]/50 hover:bg-[#e1306c]/15 hover:shadow-[0_0_15px_rgba(225,48,108,0.25)]",
+      icon: <BsInstagram size={24} />,
+      colorClass: "social-icon-instagram",
     }
   ];
 
   return (
-    <section id="contact" className="pt-10 pb-16 pl-8 md:pl-12 relative">
+    <section id="contact" className="pt-10 pb-6 pl-8 md:pl-12 relative">
       {/* Apple-style background blur helper elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
         <div className="absolute top-[20%] right-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
@@ -79,7 +80,7 @@ export default function ContactSection() {
         </p>
       </header>
 
-      <div className="grid gap-8 lg:grid-cols-2 relative z-10 items-stretch">
+      <div className="grid gap-8 lg:grid-cols-2 relative z-10 items-start">
         {/* LEFT — FORM */}
         <ContactForm />
 
@@ -182,11 +183,12 @@ export default function ContactSection() {
               Find me online
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 items-center">
               {socials.map((social) => (
                 <div key={social.label} className="relative group hover:z-50">
                   {/* Tooltip */}
                   <div className="
+                    contact-tooltip
                     absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50 pointer-events-none 
                     opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 
                     bg-[#121214] text-xs font-semibold px-3 py-1.5 rounded-lg border border-white/10 text-white 
@@ -194,7 +196,7 @@ export default function ContactSection() {
                   ">
                     {social.label}
                     {/* Tiny arrow */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1 h-1.5 w-1.5 rotate-45 bg-[#121214] border-r border-b border-white/10" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1 h-1.5 w-1.5 rotate-45 bg-[#121214] border-r border-b border-white/10 tooltip-arrow" />
                   </div>
 
                   {/* Icon link */}
@@ -203,9 +205,8 @@ export default function ContactSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`
-                      flex h-12 w-12 items-center justify-center rounded-xl 
-                      border border-white/10 bg-white/5 text-white/70 
-                      transition-all duration-300 hover:scale-105
+                      w-10 h-10 flex items-center justify-center 
+                      transition-all duration-300 hover:-translate-y-0.5
                       ${social.colorClass}
                     `}
                     aria-label={social.label}

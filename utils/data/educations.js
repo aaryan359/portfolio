@@ -4,7 +4,6 @@ export const educations = [
     title: "B.Tech in Mathematics and Scientific Computing",
     duration: "2023 - Present",
     institution: "Atal Bihari Vajpayee Indian Institute of Information Technology and Management, Gwalior",
-    details: "Developing a rigorous first-principles understanding of machine learning algorithms through computational mathematics, numerical analysis, and statistical modeling.",
     coursework: [
       {
         name: "Linear Algebra",
@@ -37,22 +36,17 @@ export const educations = [
     title: "Higher Secondary Certificate (PCM)",
     duration: "2020 - 2022",
     institution: "Career Point School, Sawai Madhopur",
-    details: "Completed advanced academic training in Physics, Chemistry, and Mathematics, establishing a strong analytical foundation.",
     coursework: [
       {
-        name: "Advanced Mathematics",
+        name: "Mathematics",
         desc: "Where my love affair with numbers started, long before I met neural networks."
       },
       {
-        name: "Classical Mechanics",
-        desc: "Forces, momentum, and gravity. Keeping physics simulation in first principles."
-      },
-      {
-        name: "Electromagnetism",
+        name: "Physics",
         desc: "Maxwell's equations. Calculating fields and understanding the universe's hardware layer."
       },
       {
-        name: "Organic & Inorganic Chemistry",
+        name: "Chemistry",
         desc: "Valence bonds and reaction pathways. Mostly memorizing benzene rings, honestly."
       }
     ]

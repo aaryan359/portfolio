@@ -11,11 +11,9 @@ import profileImg from "@/public/profile.jpg";
 
 const NAV_ITEMS = [
   { id: "home", label: "Home", href: "/" },
-  { id: "skills", label: "Skills", href: "/#skills" },
   { id: "experience", label: "Experience", href: "/#experience" },
-  { id: "education", label: "Education", href: "/#education" },
   { id: "projects", label: "Projects", href: "/projects" },
-  { id: "research-projects", label: "Research", href: "/research-projects" },
+  { id: "research-projects", label: "Hackathons", href: "/research-projects" },
   { id: "papers", label: "Papers", href: "/papers" },
   { id: "blogs", label: "Blogs", href: "/blogs" },
   { id: "upcoming-projects", label: "Upcoming", href: "/upcoming-projects" }
@@ -39,7 +37,7 @@ function Navbar() {
         setTheme(prefersLight ? "light" : "dark");
         document.documentElement.classList.toggle("light", prefersLight);
       }
-    } catch (e) {}
+    } catch (e) { }
   }, []);
 
   const toggleTheme = () => {

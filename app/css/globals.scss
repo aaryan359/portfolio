@@ -242,6 +242,10 @@
   -webkit-text-fill-color: transparent;
 }
 
+.about-intro-text {
+  font-family: "Schibsted Grotesk", sans-serif !important;
+}
+
 .about-thought-text {
   font-family: "Schibsted Grotesk", sans-serif;
   font-size: 1.1rem;
@@ -259,6 +263,25 @@
   font-weight: 450;
   color: rgba(255, 255, 255, 0.72);
 }
+
+.project-card-text {
+  font-family: "Schibsted Grotesk", sans-serif !important;
+}
+
+.project-demo-btn {
+  background: #ffffff !important;
+  color: #000000 !important;
+
+  span,
+  svg {
+    color: #000000 !important;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+}
+
 
 /* ==========================================
    LIGHT MODE STYLING OVERRIDES
@@ -305,7 +328,9 @@ html.light {
   .relative.group .experience-point-text span,
   .group.relative .experience-point-text span,
   .experience-point-text span {
-    &, &:hover {
+
+    &,
+    &:hover {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
@@ -411,7 +436,7 @@ html.light {
   }
 
   // Tech pills in light mode
-  .relative.group span {
+  .relative.group>span {
     background: rgba(0, 0, 0, 0.03) !important;
     border-color: rgba(0, 0, 0, 0.08) !important;
     color: #1e293b !important;
@@ -435,8 +460,88 @@ html.light {
     }
   }
 
+  // Contact Form Subject buttons
+  form button[type="button"] {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: #475569 !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05) !important;
+      border-color: rgba(0, 0, 0, 0.15) !important;
+      color: #0f172a !important;
+    }
+
+    // Active state
+    &.bg-purple-500\/10 {
+      background: rgba(126, 34, 206, 0.08) !important;
+      border-color: rgba(126, 34, 206, 0.4) !important;
+      color: #7e22ce !important;
+      box-shadow: 0 4px 20px rgba(126, 34, 206, 0.08) !important;
+    }
+  }
+
+  // Contact section item rows
+  .flex.items-center.p-4.rounded-xl {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border-color: rgba(0, 0, 0, 0.06) !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.04) !important;
+    }
+
+    button {
+      border-color: rgba(0, 0, 0, 0.08) !important;
+      color: rgba(0, 0, 0, 0.4) !important;
+
+      &:hover {
+        border-color: rgba(0, 0, 0, 0.15) !important;
+        color: rgba(0, 0, 0, 0.8) !important;
+        background: rgba(0, 0, 0, 0.02) !important;
+      }
+    }
+  }
+
+  // Contact tooltip overrides
+  .contact-tooltip {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+
+    .tooltip-arrow {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    div,
+    p,
+    span {
+      color: #1e293b !important;
+    }
+  }
+
   // Project action buttons
   article {
+    .project-demo-btn {
+      background: #0f172a !important;
+      color: #ffffff !important;
+
+      span,
+      svg {
+        color: #ffffff !important;
+      }
+
+      &:hover {
+        background: #1e293b !important;
+      }
+    }
+
+    &.group.relative .project-demo-btn span,
+    & .project-demo-btn span {
+      color: #ffffff !important;
+    }
+
     a.bg-white {
       background: #0f172a !important;
       color: #ffffff !important;
@@ -467,6 +572,12 @@ html.light {
         border-color: rgba(147, 51, 234, 0.3) !important;
       }
     }
+  }
+
+  // Specific specificity override to ensure Project Card Demo button text stays white in light mode
+  .group.relative .project-demo-btn span,
+  .group.relative .project-demo-btn svg {
+    color: #ffffff !important;
   }
 
   // Specific detail page block overrides
@@ -568,16 +679,16 @@ html.light {
     background: rgba(0, 0, 0, 0.04) !important;
     border-color: rgba(0, 0, 0, 0.08) !important;
     color: #0f172a !important;
-    
+
     svg {
       color: #0f172a !important;
     }
-    
+
     &:hover {
       background: #0f172a !important;
       border-color: #0f172a !important;
       color: #ffffff !important;
-      
+
       svg {
         color: #ffffff !important;
       }
@@ -633,6 +744,7 @@ html.light {
 
   // Timeline Flow connection lines override
   .TimelineFlow {
+
     svg line,
     svg path {
       opacity: 0.15;
@@ -643,23 +755,50 @@ html.light {
   .social-icon-github {
     color: #181717 !important;
   }
+
   .social-icon-linkedin {
     color: #0A66C2 !important;
   }
+
   .social-icon-leetcode {
     color: #FFA116 !important;
   }
+
   .social-icon-instagram {
     color: #E1306C !important;
   }
+
   .social-icon-twitter {
     color: #1DA1F2 !important;
   }
+
   .social-icon-whatsapp {
     color: #25D366 !important;
   }
+
   .social-icon-email {
     color: #EA4335 !important;
+  }
+
+  // Tooltips light mode styling overrides
+  .tech-pill-tooltip,
+  .course-pill-tooltip {
+    background: #ffffff !important;
+    color: #1e293b !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+
+    .tooltip-arrow {
+      background: #ffffff !important;
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+
+    // Ensure tooltip text is fully readable in light mode (overriding global overrides)
+    div,
+    p,
+    span {
+      color: #1e293b !important;
+    }
   }
 }
 
@@ -667,21 +806,47 @@ html.light {
 .social-icon-github {
   color: #ffffff;
 }
+
 .social-icon-linkedin {
   color: #0A66C2;
 }
+
 .social-icon-leetcode {
   color: #FFA116;
 }
+
 .social-icon-instagram {
   color: #E1306C;
 }
+
 .social-icon-twitter {
   color: #1DA1F2;
 }
+
 .social-icon-whatsapp {
   color: #25D366;
 }
+
 .social-icon-email {
   color: #EA4335;
+}
+
+// Tooltips dark mode styling defaults
+.tech-pill-tooltip,
+.course-pill-tooltip,
+.contact-tooltip {
+  background: #121214 !important;
+  color: #e4e4e7 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+
+  .tooltip-arrow {
+    background: #121214 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  div,
+  p,
+  span {
+    color: #e4e4e7 !important;
+  }
 }

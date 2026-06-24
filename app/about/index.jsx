@@ -25,7 +25,7 @@ function AboutSection() {
         <h1 className="mt-3 text-4xl md:text-4xl font-extrabold tracking-tight text-white leading-tight">
           Hi, I’m <span className="text-purple-400">{personalData.name}</span>
         </h1>
-        <p className="mt-4 text-xl md:text-2xl font-medium text-white/95 leading-snug">
+        <p className="mt-4 text-xl md:text-2xl font-medium text-white/95 leading-snug about-intro-text">
           I leverage mathematical foundations, multimodal AI research, and scalable cloud infrastructure to solve complex, real-world problems.
         </p>
 
