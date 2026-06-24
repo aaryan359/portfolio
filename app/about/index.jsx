@@ -17,7 +17,7 @@ function AboutSection() {
         <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-purple-500/10 blur-[120px]" />
       </div>
 
-      <div className="w-full max-w-4xl mx-auto flex flex-col justify-center">
+      <div className="w-full flex flex-col justify-center">
         <span className="text-xs font-semibold tracking-widest uppercase text-purple-400">
           Engineer
         </span>
