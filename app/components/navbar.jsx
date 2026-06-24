@@ -11,7 +11,6 @@ import profileImg from "@/public/profile.jpg";
 
 const NAV_ITEMS = [
   { id: "home", label: "Home", href: "/" },
-  { id: "about", label: "About", href: "/#about" },
   { id: "skills", label: "Skills", href: "/#skills" },
   { id: "experience", label: "Experience", href: "/#experience" },
   { id: "education", label: "Education", href: "/#education" },
