@@ -1,96 +1,9 @@
 "use client";
-
+ 
 import React from "react";
 import { TechPill } from "../components/ui/TechPill";
 import { FiExternalLink, FiCalendar, FiMapPin } from "react-icons/fi";
-
-const experiences = [
-  {
-    company: "MIDAS",
-    role: "AI/ML Research Intern",
-    start: "June 2026",
-    end: "Present",
-    location: "Delhi, India (Remote)",
-    status: "Active",
-    tools: ["PyTorch", "Python", "OpenCV", "TensorFlow Lite", "Flask"],
-    points: [
-      "Conducting research on multimodal deep learning models to process heterogeneous data types.",
-      "Designing low-latency, resource-constrained model architectures for edge computing devices.",
-      "Optimizing inference pipelines and evaluating models on academic benchmark datasets."
-    ]
-  },
-  {
-    company: "Code for GovTech (C4GT)",
-    role: "DevOps & Open Source Contributor",
-    start: "May 2026",
-    end: "Present",
-    location: "Remote",
-    status: "Active",
-    tools: ["Terraform", "Docker", "Kubernetes", "AWS", "Go", "GitHub Actions"],
-    points: [
-      "Contributing to open-source ecosystem architectures under the C4GT Technology Advocacy Project (TAP).",
-      "Automating infrastructure deployments using Terraform, optimizing cloud resources, and building reusable CI/CD pipelines.",
-      "Developing modular APIs and packages in Go/Next.js to streamline public sector tech initiatives."
-    ]
-  },
-  {
-    company: "DevOps Intern",
-    role: "DevOps Engineering Intern",
-    start: "April 2026",
-    end: "Present",
-    location: "Remote",
-    status: "Active",
-    tools: ["AWS", "Docker", "Kubernetes", "Terraform", "Nginx", "Git", "Bash"],
-    points: [
-      "Designing and deploying production-grade, highly available cloud infrastructures on AWS.",
-      "Orchestrating containerized applications with Docker and managing deployments using Kubernetes clusters.",
-      "Automating routine tasks and container configurations using Bash scripting and Nginx ingress controllers."
-    ]
-  },
-  {
-    company: "Freelance Developer",
-    role: "Fullstack & Mobile Developer",
-    website: "https://aaryanm.netlify.app/",
-    start: "August 2025",
-    end: "Present",
-    location: "Remote",
-    status: "Active",
-    tools: ["Next.js", "React Native", "TypeScript", "Node.js", "Express", "PostgreSQL", "Tailwind CSS", "Figma"],
-    points: [
-      "Crafting responsive web applications and cross-platform mobile apps with pixel-perfect designs and intuitive UX.",
-      "Developing modular API structures, optimizing database transactions, and implementing secure user authentication.",
-      "Guiding projects from client ideation, system design, to continuous integration and cloud deployment."
-    ]
-  },
-  {
-    company: "Infrawave Solutions",
-    role: "React Native Developer",
-    website: "https://www.infrawavesolutions.com/",
-    start: "March 2025",
-    end: "May 2025",
-    location: "Jaipur, India (Remote)",
-    tools: ["React Native", "React", "TypeScript", "Tailwind CSS", "Figma", "AWS", "Postman"],
-    points: [
-      "Worked on a vehicle rental app featuring an admin dashboard and real-time booking analytics, optimizing fleet utilization by 35%.",
-      "Automated invoice generation reduced manual work by 90% through dynamic pricing, tax calculations, and customizable templates.",
-      "Implemented efficient data fetching and robust error handling.",
-      "Built accessible, performance-focused UI systems."
-    ]
-  },
-  {
-    company: "ABV IIITM Gwalior",
-    role: "ML Engineer (Embedded Systems)",
-    start: "June 2025",
-    end: "July 2025",
-    location: "Gwalior, India (On-site)",
-    tools: ["Raspberry Pi 5", "Python", "TensorFlow Lite", "OpenCV", "Flask"],
-    points: [
-      "Developed and optimized resource-constrained Machine Learning models for real-time edge computing on Raspberry Pi 5.",
-      "Implemented low-latency image processing pipelines using OpenCV to enable real-time detection on the hardware.",
-      "Integrated edge models with local web interfaces using lightweight Python frameworks."
-    ]
-  }
-];
+import { experiences } from "@/utils/data/experience";
 
 export default function Experience() {
   return (
@@ -120,16 +33,6 @@ export default function Experience() {
       <div className="relative space-y-12 z-10">
         {experiences.map((exp, idx) => (
           <div key={idx} className="group relative">
-            {/* Stationary Timeline Node Ring aligned with page-wide line */}
-            <div className={`
-              absolute left-2 -translate-x-1/2 top-2 h-4.5 w-4.5 rounded-full border-2 
-              ${exp.status === "Active" 
-                ? "border-emerald-500 bg-emerald-950 shadow-[0_0_10px_rgba(16,185,129,0.4)]" 
-                : "border-white/20 bg-zinc-950"} 
-              z-10 transition duration-300 group-hover:scale-125 
-              ${exp.status === "Active" ? "group-hover:border-emerald-400" : "group-hover:border-purple-500 group-hover:shadow-[0_0_10px_rgba(168,85,247,0.6)]"}
-            `} />
-
             {/* Apple-style Glassmorphic Card */}
             <div className="
               relative rounded-2xl border border-white/10 
