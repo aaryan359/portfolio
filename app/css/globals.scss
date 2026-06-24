@@ -850,3 +850,93 @@ html.light {
     color: #e4e4e7 !important;
   }
 }
+
+// Pagination buttons
+.pagination-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #ffffff !important;
+  }
+
+  &:disabled {
+    opacity: 0.4 !important;
+    cursor: not-allowed !important;
+  }
+}
+
+.pagination-btn-active {
+  background: #9333ea !important;
+  border-color: #a855f7 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.25) !important;
+}
+
+html.light {
+  .pagination-btn {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    background: rgba(0, 0, 0, 0.03) !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+
+    &:hover:not(:disabled) {
+      background: rgba(0, 0, 0, 0.06) !important;
+      border-color: rgba(0, 0, 0, 0.15) !important;
+      color: #000000 !important;
+    }
+  }
+
+  .pagination-btn-active {
+    background: #7e22ce !important;
+    border-color: #9333ea !important;
+    color: #ffffff !important;
+  }
+}
+
+// Blog Card Custom Styling Overrides
+.blog-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  background: #0f0f0f !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+
+  &:hover {
+    border: 1.5px solid rgba(168, 85, 247, 0.6) !important; /* Clearly visible purple border hover */
+    transform: scale(1.008) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+  }
+}
+
+html.light {
+  .blog-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1.5px solid rgba(0, 0, 0, 0.06) !important;
+
+    h3 {
+      color: #0f172a !important;
+    }
+
+    p {
+      color: #475569 !important;
+    }
+
+    span, div {
+      color: #475569 !important;
+    }
+
+    &:hover {
+      border: 1.5px solid rgba(147, 51, 234, 0.55) !important; /* Visible purple border hover in light mode */
+      background: rgba(147, 51, 234, 0.02) !important;
+      transform: scale(1.008) !important;
+    }
+  }
+}
