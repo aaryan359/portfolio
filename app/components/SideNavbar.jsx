@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HomeIcon, PencilIcon, CalendarIcon, MailIcon, MoonIcon, SunIcon, Phone, FileText, User, Dumbbell } from 'lucide-react';
+import { HomeIcon, PencilIcon, CalendarIcon, MailIcon, MoonIcon, SunIcon, Phone, FileText, User, Dumbbell, BookOpen, Atom } from 'lucide-react';
 import { contactsData } from "@/utils/data/contactsData";
 
 // Define icons
@@ -15,6 +15,8 @@ const Icons = {
   blog: PencilIcon,
   calendar: CalendarIcon,
   email: MailIcon,
+  bookOpen: BookOpen,
+  atom: Atom,
   linkedin: (props) => (
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
@@ -46,6 +48,9 @@ const DATA = {
   navbar: [
     { href: "#", icon: "home", label: "Home" },
     { href: "#projects", icon: "fileText", label: "Projects" },
+    { href: "#research-projects", icon: "atom", label: "Research Projects" },
+    { href: "#papers", icon: "bookOpen", label: "Papers" },
+    { href: "#blogs", icon: "blog", label: "Blogs" },
     { href: "#skills", icon: "skills", label: "Skills" },
     { href: "#contact", icon: "phone", label: "Contact" },
   ],

@@ -8,7 +8,16 @@ import { personalData } from "@/utils/data/personal-data";
 import { Menu, X } from "lucide-react";
 import profileImg from "@/public/profile.jpg";
 
-const NAV_ITEMS = ["about", "experience", "skills", "education", "projects", "blogs"];
+const NAV_ITEMS = [
+	{ id: "about", label: "About" },
+	{ id: "experience", label: "Experience" },
+	{ id: "skills", label: "Skills" },
+	{ id: "education", label: "Education" },
+	{ id: "projects", label: "Projects" },
+	{ id: "research-projects", label: "Research Projects" },
+	{ id: "papers", label: "Papers" },
+	{ id: "blogs", label: "Blogs" }
+];
 
 function Navbar() {
 	const [open, setOpen] = useState(false);
@@ -52,11 +61,11 @@ function Navbar() {
 						/>
 						<span className='hidden sm:block text-sm font-medium text-white/80'>{personalData.name}</span>
 					</Link>
-					<ul className='hidden md:flex items-center gap-6'>
+					<ul className='hidden lg:flex items-center gap-5'>
 						{NAV_ITEMS.map((item) => (
-							<li key={item}>
+							<li key={item.id}>
 								<Link
-									href={`/#${item}`}
+									href={`/#${item.id}`}
 									className='
                     group relative text-sm
                     text-white/60
@@ -64,7 +73,7 @@ function Navbar() {
                     hover:text-white
                     focus-visible:outline-none
                   '>
-									{item}
+									{item.label}
 									<span
 										className='
                       absolute -bottom-1 left-0 h-px w-full
@@ -83,7 +92,7 @@ function Navbar() {
 						onClick={() => setOpen((v) => !v)}
 						aria-label='Toggle menu'
 						className='
-              md:hidden
+              lg:hidden
               rounded-lg p-2
               text-white/70
               transition
@@ -98,15 +107,15 @@ function Navbar() {
 
 				<div
 					className={`
-            md:hidden overflow-hidden
+            lg:hidden overflow-hidden
             transition-all duration-300
-            ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+            ${open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
           `}>
 					<ul className='mt-4 space-y-2 border-t border-white/10 pt-4'>
 						{NAV_ITEMS.map((item) => (
-							<li key={item}>
+							<li key={item.id}>
 								<Link
-									href={`/#${item}`}
+									href={`/#${item.id}`}
 									onClick={() => setOpen(false)}
 									className='
                     block rounded-lg px-3 py-2
@@ -114,7 +123,7 @@ function Navbar() {
                     transition
                     hover:bg-white/10 hover:text-white
                   '>
-									{item.toUpperCase()}
+									{item.label.toUpperCase()}
 								</Link>
 							</li>
 						))}
