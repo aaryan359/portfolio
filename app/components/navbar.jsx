@@ -10,13 +10,13 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import profileImg from "@/public/profile.jpg";
 
 const NAV_ITEMS = [
-  { id: "home", label: "Home", href: "/" },
   { id: "experience", label: "Experience", href: "/#experience" },
   { id: "projects", label: "Projects", href: "/projects" },
   { id: "research-projects", label: "Hackathons", href: "/research-projects" },
   { id: "papers", label: "Papers", href: "/papers" },
   { id: "blogs", label: "Blogs", href: "/blogs" },
-  { id: "upcoming-projects", label: "Upcoming", href: "/upcoming-projects" }
+  { id: "upcoming-projects", label: "Upcoming", href: "/upcoming-projects" },
+  { id: "gallery", label: "Gallery", href: "/gallery" }
 ];
 
 function Navbar() {

@@ -7,16 +7,9 @@ import { Sparkles } from "lucide-react";
 const UpcomingProjects = () => {
 	return (
 		<section
-			id='upcomingprojects'
-			className='mt-20'>
-			{/* Section Header */}
-
-			<h2 className='text-3xl mb-2 font-semibold text-white'>
-				Upcoming Projects
-			</h2>
-
+			id='upcomingprojects'>
 			{/* Subtext */}
-			<p className='mb-8 max-w-2xl text-sm text-white/60'>
+			<p className='mb-8 text-md text-white project-card-text'>
 				Concepts I’m actively designing and building next — focused on AI, productivity, and real-world problem solving.
 			</p>
 
@@ -43,18 +36,18 @@ const UpcomingProjects = () => {
 						<div className='absolute top-0 left-1/2 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition' />
 
 						{/* Header */}
-						<div className='flex items-start gap-3 mb-2'>
+						<div className='flex items-start gap-3 mb-2 project-card-text'>
 							<span className='mt-1 text-purple-400'>
 								<Sparkles size={16} />
 							</span>
-							<h4 className='text-lg font-semibold text-white leading-snug'>{proj.title}</h4>
+							<h4 className='text-lg font-semibold text-white leading-snug project-card-text'>{proj.title}</h4>
 						</div>
 
 						{/* Description */}
-						<p className='text-sm text-white/60 leading-relaxed'>{proj.description}</p>
+						<p className='text-sm text-white/60 leading-relaxed project-card-text'>{proj.description}</p>
 
 						{/* Status */}
-						<div className='mt-4 text-xs text-purple-400/80'>Planned · In Design</div>
+						<div className='mt-4 text-xs text-purple-400/80 project-card-text'>Planned · In Design</div>
 					</div>
 				))}
 			</div>

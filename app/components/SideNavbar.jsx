@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HomeIcon, PencilIcon, CalendarIcon, MailIcon, MoonIcon, SunIcon, Phone, FileText, User, Dumbbell, BookOpen, Atom } from 'lucide-react';
+import { HomeIcon, PencilIcon, CalendarIcon, MailIcon, MoonIcon, SunIcon, Phone, FileText, User, Dumbbell, BookOpen, Atom, Image } from 'lucide-react';
 import { contactsData } from "@/utils/data/contactsData";
 
 // Define icons
@@ -18,11 +18,12 @@ const Icons = {
   email: MailIcon,
   bookOpen: BookOpen,
   atom: Atom,
+  gallery: Image,
   linkedin: (props) => (
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
       <path
         fill="currentColor"
-        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 12.297c0-6.627-5.373-12-12-12"
       />
     </svg>
   ),
@@ -47,12 +48,12 @@ const Icons = {
 // Data for navbar and social links
 const DATA = {
   navbar: [
-    { href: "/", icon: "home", label: "Home" },
     { href: "/projects", icon: "fileText", label: "Projects" },
     { href: "/research-projects", icon: "atom", label: "Hackathons" },
     { href: "/papers", icon: "bookOpen", label: "Papers" },
     { href: "/blogs", icon: "blog", label: "Blogs" },
     { href: "/upcoming-projects", icon: "calendar", label: "Upcoming" },
+    { href: "/gallery", icon: "gallery", label: "Gallery" },
     { href: "/#contact", icon: "phone", label: "Contact" },
   ],
   contact: {
