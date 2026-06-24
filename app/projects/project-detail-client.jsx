@@ -20,7 +20,7 @@ export default function ProjectDetailClient({ project }) {
       <div className="mx-auto max-w-5xl space-y-6">
         {/* BACK TO PROJECTS */}
         <Link
-          href="/#projects"
+          href="/projects"
           className="
             inline-flex items-center gap-2 text-sm font-semibold
             text-white/60 hover:text-white transition duration-200

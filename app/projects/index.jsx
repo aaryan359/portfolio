@@ -15,8 +15,8 @@ export default function Projects() {
 				<span className='ml-2 text-sm text-white/50'>({projects.length} projects)</span>
 			</h2>
 
-			{/* GRID */}
-			<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+			{/* LIST */}
+			<div className='flex flex-col gap-8'>
 				{projects.map((project) => (
 					<ProjectCard
 						key={project.id}
