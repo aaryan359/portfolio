@@ -1,24 +1,29 @@
 export const papers = [
   {
     id: 1,
-    title: "An Empirical Study of Data Preprocessing and Feature Scaling in Supervised Machine Learning",
-    authors: "Aryan Meena",
-    venue: "International Journal of Computer Applications & Machine Learning (IJCAML)",
-    date: "2025-06-15",
-    abstract: "This paper analyzes the effect of scaling methods like Standardization, MinMax Scaling, and Robust Scaling on classic supervised learning models (KNN, SVM, Logistic Regression). We demonstrate how preprocessing choices significantly influence convergence rate and accuracy boundaries across standard datasets.",
-    conclusion: "Our benchmarks show that MinMax scaling consistently yields faster convergence for distance-based models (KNN, SVM), whereas Standardization is crucial for models relying on gradient descent optimization to avoid local minima.",
-    url: "https://dev-aaryan.hashnode.dev/the-effect-of-preprocessing-on-supervised-learning",
-    tags: ["Machine Learning", "Data Preprocessing", "Supervised Learning"]
+    title:
+      "A Fuzzy Convolutional Neural Network for Enhancing Multi-Focus Image Fusion: Implementation and Analysis",
+    authors: "Aryan Meena, Arzoo Gill",
+    venue: "Research Preprint",
+    date: "2025-01-01",
+    abstract:
+      "Multi-focus image fusion (MFIF) addresses the limitation of digital cameras where only a small depth region appears sharp due to restricted depth of field. This project implements an enhanced Fuzzy Convolutional Neural Network (FCNN) that combines fuzzy logic with a Siamese CNN to automatically merge partially focused image pairs into a single all-in-focus result. The method uses S-type fuzzy membership functions to handle uncertainty in blurred regions and an optimized Siamese CNN with around 300,000 parameters to classify focused versus unfocused patches efficiently. A synthetic training dataset is created using five levels of Gaussian blur to simulate realistic defocus, since obtaining real multi-focus training data with ground-truth labels is nearly impossible. Gaussian blur provides a controlled and mathematically consistent way to mimic different degrees of defocus, allowing the network to learn how focus changes across varying blur intensities, enabling the network to achieve 99.75% classification accuracy. The fusion pipeline includes guided filtering (radius = 7, epsilon = 0.2) and adaptive thresholding (0.4) to refine the decision map before blending. Experimental evaluation shows strong performance, with MI = 6.9244, EI = 0.8781, and SS = 0.8263, and a fusion time of approximately 470 seconds per image pair.",
+    conclusion:
+      "This project introduced an effective pixel-based FCNN approach that combines fuzzy logic with a lightweight CNN to perform multi-focus image fusion. The fuzzy preprocessing step handles uncertainty in blurry regions, while the CNN automatically learns the most useful features for distinguishing focused and unfocused patches. This makes the entire fusion process more flexible, accurate, and reliable compared to traditional rule-based methods. Experiments across multiple metrics show strong performance, including high information retention (MI = 6.9244), improved edge quality (EI = 0.8781), and competitive structural similarity (SS = 0.8263). These values indicate that combining fuzzy sets with CNNs results in a practical and well-balanced solution for multi-focus image fusion. Although this model currently supports only two input images and uses synthetic blur for training, it opens several future research directions. Overall, the FCNN approach provides a robust, efficient, and computationally manageable framework that produces visually clear and information-rich fused images.",
+    url: "https://drive.google.com/file/d/11TtVQo-0OF3sfD61unhs6KR5zi8sKe12/view?usp=sharing",
+    tags: ["Fuzzy Logic", "CNN", "Image Fusion", "Computer Vision", "Siamese Network"]
   },
   {
     id: 2,
-    title: "Optimizing Weights Regularization Techniques in Deep Neural Networks",
-    authors: "Aryan Meena",
-    venue: "arXiv Preprint",
-    date: "2025-08-20",
-    abstract: "Weights regularization is essential to combat overfitting in deep architectures. This research focuses on the mathematical foundations and comparative performance of L1 (Lasso) and L2 (Ridge) regularization, showing how proper tuning mitigates gradient explosion and stabilizes learning curves in multi-layer perceptrons.",
-    conclusion: "We conclude that combining L1 and L2 regularization (Elastic Net penalty) inside deep neural layers provides the most robust generalization on noisy tabular datasets, successfully keeping weight vectors sparse while preventing dead neurons.",
-    url: "https://dev-aaryan.hashnode.dev/weights-regularization",
-    tags: ["Deep Learning", "Regularization", "Optimization"]
+    title: "IT2 Fuzzy CNN: High Accuracy Forecasting Model on the Indian Stock Market",
+    authors: "Aryan Meena, Arzoo Gill, Avadh Khandelwal, Chandra Shekhar Reddy",
+    venue: "Research Preprint",
+    date: "2025-06-01",
+    abstract:
+      "Accurately predicting price in the Indian stock market is difficult because of its highly volatile, irregular trend behaviour, and sensitivity to both domestic and global events. To solve challenges, our study develops a forecasting framework that combines MACD-based trend segmentation, fuzzy representation of trend characteristics, and a compact 1D-CNN classifier. Ten years of daily data from twenty NSE stocks were processed by identifying local trend segments from the MACD histogram and extracting three descriptive measures—duration, slope, and deviation from the trend line. These features were converted into fuzzy membership values using multiple Type-1 and Type-2 partitioning methods, and the resulting fuzzy trend windows were used as inputs to the CNN model. Across all stocks and configurations, the proposed approach achieved an average accuracy of 76.23%, with consistent performance across major sectors such as banking, IT, and pharmaceuticals. The deeper CNN design showed clear improvement over the shallow architecture used in earlier fuzzy-CNN work, and the fuzzy representation helped the model handle uncertainty present in volatile price movements.",
+    conclusion:
+      "This research examined whether the combination of MACD-based trend segmentation, fuzzy feature engineering, and a 1D-CNN model could enhance forecasting of next-day Indian stock movements. The methodology applied to 20 NSE companies over 10 years yielded a 76.23% mean accuracy, sufficient to show fuzzy representations assist the CNN in addressing uncertainty and erratic movement within the Indian market. The findings also indicate that segmentation of the price series based on MACD trends produces smoother patterns for the model and eliminates some noise typically found in time series data. An extension of the fuzzy-CNN model proposed for the Turkish BIST market to the Indian market with greater volatility, more retail participation, and rapid price changes is also a significant contribution of this study. The proposed model with ReLU activations, batch normalisation, and dropout layers showed more stable learning behaviour than the shallow baseline CNN used in the earlier study. The experiments also assessed three variations on fuzzy partitioning - EP, FCM, and IT2-FCM, providing reasonable criteria for the selection of the most appropriate fuzzy model for financial data. Although the study shows good results, there remain avenues for improvement, including expanding beyond 20 stocks, exploring volatility-based segmentation, incorporating news sentiment or macroeconomic variables, and experimenting with architectures like LSTMs, GRUs, and Transformers. This approach worked reliably across different NSE sectors, even though the Indian market often behaves unpredictably, supporting the view that uncertainty-aware feature engineering, paired with compact neural architectures, can serve as a solid base for better forecasting tools in financial markets.",
+    url: "https://drive.google.com/file/d/12iaQcdXkmygyvjqrOZzkTnIoWTPEVlIs/view?usp=sharing",
+    tags: ["Fuzzy Logic", "CNN", "Stock Market Forecasting", "Type-2 Fuzzy Systems", "MACD"]
   }
 ];
