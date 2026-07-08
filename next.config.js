@@ -7,7 +7,7 @@ module.exports = {
   // Required for GitHub Pages
   output: 'export',
   basePath: isProd ? `/${repoName}` : '',
-  assetPrefix: isProd ? `/${repoName}/` : '',
+  assetPrefix: isProd ? `/${repoName}` : '',
 
   // Optimize package imports to drastically reduce memory usage and speed up dev compiling
   experimental: {
