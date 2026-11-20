@@ -11,8 +11,6 @@ import "./css/globals.scss";
 import "./css/liquid-glass.scss";
 import ScrollToTop from "./components/helper/scroll-to-top";
 
-const assetBase = process.env.NODE_ENV === "production" ? "/portfolio" : "";
-
 export const metadata = {
   title: "Aaryan Meena – Freelance Web & App Developer",
   description:
@@ -108,12 +106,6 @@ export default function RootLayout({ children }) {
       </head>
 
       <body>
-        <div className="glass-backdrop" aria-hidden="true">
-          <picture className="glass-photo">
-            <source media="(max-width: 640px)" srcSet={`${assetBase}/image/backgrounds/circuit-mobile-small.webp 640w, ${assetBase}/image/backgrounds/circuit-mobile.webp 1000w`} sizes="100vw" />
-            <img src={`${assetBase}/image/backgrounds/circuit-tablet.webp`} srcSet={`${assetBase}/image/backgrounds/circuit-tablet.webp 1600w, ${assetBase}/image/backgrounds/circuit-desktop.webp 2560w`} sizes="100vw" alt="" width="1600" height="1000" fetchPriority="high" decoding="async" />
-          </picture>
-        </div>
         <GlassVisibility />
         <ToastContainer />
         <main className="portfolio-shell min-h-screen w-full relative mx-auto text-white">

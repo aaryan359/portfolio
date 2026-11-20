@@ -3,7 +3,7 @@ export function buildTimelineLayout(width, sections) {
   const left = Math.max(4, Math.min(...sections.map((section) => section.left)) - 14);
   const right = Math.min(width - 4, Math.max(...sections.map((section) => section.right)) + 14);
   const radius = Math.min(32, (right - left) / 8);
-  const start = 0;
+  const start = sections[0].top;
   const end = sections[sections.length - 1].bottom;
   const boundaries = sections.slice(0, -1).map((section, index) => (section.bottom + sections[index + 1].top) / 2);
   let path = `M ${left} ${start}`;

@@ -21,10 +21,11 @@ export function TimelineFlow({ parentRef }) {
     let previousBottom = false;
 
     function syncScroll() {
-      const { start, end, top, pageHeight, width, boundaries } = bounds.current;
+      const { start, end, pageHeight, width, boundaries } = bounds.current;
       const scroll = window.scrollY;
       const atBottom = scroll + window.innerHeight >= pageHeight - 4;
-      const next = Math.round(atBottom ? end : scroll < 30 ? start + 24 : Math.max(start, Math.min(end, scroll + window.innerHeight * 0.65 - top)));
+      const progress = Math.max(0, Math.min(1, scroll / Math.max(1, pageHeight - window.innerHeight)));
+      const next = Math.round(start + (end - start) * progress);
       if ((next !== previousHeight || atBottom !== previousBottom) && clipMask.current) {
         // Retain the original diagonal reveal so horizontal sections fill across as you scroll.
         let tilt = 25;
@@ -33,8 +34,9 @@ export function TimelineFlow({ parentRef }) {
         else if (next > experience) tilt = 25 - (next - experience) / (education - experience || 1) * 50;
         else if (next > skills) tilt = -25 + (next - skills) / (experience - skills || 1) * 50;
         else if (next > about) tilt = 25 - (next - about) / (skills - about || 1) * 50;
+        tilt *= Math.min(1, (next - start) / 50);
         const bottom = atBottom ? end + 50 : next;
-        clipMask.current.setAttribute("d", `M -100 -1000 L ${width + 100} -1000 L ${width + 100} ${bottom - tilt} L -100 ${bottom + tilt} Z`);
+        clipMask.current.setAttribute("d", progress === 0 ? "" : `M -100 -1000 L ${width + 100} -1000 L ${width + 100} ${bottom - tilt} L -100 ${bottom + tilt} Z`);
         previousHeight = next;
         previousBottom = atBottom;
       }
