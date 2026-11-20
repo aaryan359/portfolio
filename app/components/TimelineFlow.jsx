@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { buildTimelineLayout } from "@/utils/timeline-layout";
 
 export function TimelineFlow({ parentRef }) {
   const unique = useId().replace(/:/g, "");
@@ -23,7 +24,7 @@ export function TimelineFlow({ parentRef }) {
       const { start, end, top, pageHeight, width, boundaries } = bounds.current;
       const scroll = window.scrollY;
       const atBottom = scroll + window.innerHeight >= pageHeight - 4;
-      const next = Math.round(atBottom ? end : scroll < 30 ? start : Math.max(start, Math.min(end, scroll + window.innerHeight * 0.65 - top)));
+      const next = Math.round(atBottom ? end : scroll < 30 ? start + 24 : Math.max(start, Math.min(end, scroll + window.innerHeight * 0.65 - top)));
       if ((next !== previousHeight || atBottom !== previousBottom) && clipMask.current) {
         // Retain the original diagonal reveal so horizontal sections fill across as you scroll.
         let tilt = 25;
@@ -42,23 +43,13 @@ export function TimelineFlow({ parentRef }) {
       const rect = container.getBoundingClientRect();
       const coords = sections.map((section) => {
         const box = section.getBoundingClientRect();
-        return { top: box.top - rect.top, bottom: box.bottom - rect.top };
+        return { top: box.top - rect.top, bottom: box.bottom - rect.top, left: box.left - rect.left, right: box.right - rect.left };
       });
-      const left = 8;
-      const right = rect.width - 8;
-      const radius = Math.min(32, rect.width / 8);
-      const start = coords[0].top + 100;
-      const end = coords[4].bottom;
-      let path = `M ${left} ${start}`;
-      // Follow the left and right section edges, retaining the original zig-zag flow.
-      for (let i = 0; i < 4; i++) {
-        const y = coords[i].bottom;
-        if (i % 2 === 0) path += ` L ${left} ${y - radius} A ${radius} ${radius} 0 0 0 ${left + radius} ${y} L ${right - radius} ${y} A ${radius} ${radius} 0 0 1 ${right} ${y + radius}`;
-        else path += ` L ${right} ${y - radius} A ${radius} ${radius} 0 0 1 ${right - radius} ${y} L ${left + radius} ${y} A ${radius} ${radius} 0 0 0 ${left} ${y + radius}`;
-      }
-      path += ` L ${left} ${end}`;
-      bounds.current = { start, end, top: rect.top + window.scrollY, pageHeight: document.documentElement.scrollHeight, width: rect.width, boundaries: coords.slice(0, 4).map(({ bottom }) => bottom) };
+      const geometry = buildTimelineLayout(rect.width, coords);
+      const { path } = geometry;
+      bounds.current = { ...geometry, top: rect.top + window.scrollY, pageHeight: document.documentElement.scrollHeight, width: rect.width };
       setLayout((current) => current.path === path && current.width === rect.width && current.height === rect.height ? current : { path, width: rect.width, height: rect.height });
+      previousHeight = -1;
       syncScroll();
     }
     function schedule(measureLayout = false) {

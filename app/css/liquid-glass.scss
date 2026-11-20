@@ -17,17 +17,17 @@
 }
 html.light {
   color-scheme: light;
-  --glass-page: #153b35;
+  --glass-page: #142837;
   --glass-ink: #f2f7fc;
   --glass-muted: #d9e5ed;
-  --glass-surface: rgb(8 26 28 / 36%);
+  --glass-surface: rgb(8 22 36 / 36%);
   --glass-border: rgb(255 255 255 / 24%);
   --glass-rim: rgb(255 255 255 / 45%);
   --glass-shadow: rgb(34 64 89 / 10%);
   --glass-control-fill: rgb(255 255 255 / 4%);
-  --glass-nav-fill: rgb(8 26 28 / 40%);
+  --glass-nav-fill: rgb(8 22 36 / 40%);
   --glass-focus: #d4bfff;
-  --glass-opaque: #163331;
+  --glass-opaque: #182b3c;
   --muted-foreground: #d9e5ed;
 }
 html[data-theme] body { background: var(--glass-page) !important; color: var(--glass-ink); }
@@ -103,25 +103,25 @@ html[data-theme] body main .theme-toggle {
 .theme-moon { display: none; }
 html.light .theme-sun { display: none; }
 html.light .theme-moon { display: block; }
-.home-timeline { display: flow-root; padding-inline: 18px; }
+.home-timeline { display: flow-root; padding-inline: 28px; }
 .home-timeline > section { margin-top: 24px; }
 .timeline-glass-flow {
   position: absolute; inset: 0; z-index: 30; pointer-events: none;
-  --timeline-purple: #a855f7; --timeline-indigo: #6366f1;
-  --timeline-cyan: #06b6d4; --timeline-green: #10b981;
+  --timeline-purple: #9333ea; --timeline-indigo: #4f46e5;
+  --timeline-cyan: #0891b2; --timeline-green: #059669;
   --timeline-track: rgb(195 209 242 / 12%); --timeline-rim: rgb(232 242 255 / 38%);
 }
 html.light .timeline-glass-flow {
-  --timeline-track: rgb(123 139 176 / 15%); --timeline-rim: rgb(255 255 255 / 90%);
+  --timeline-track: rgb(123 139 176 / 15%); --timeline-rim: rgb(255 255 255 / 22%);
 }
 .timeline-glass-flow svg { display: block; overflow: visible; }
 html body main .timeline-glass-flow path { fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: 1; }
 .timeline-glass-track { stroke: var(--timeline-track); stroke-width: 5; }
 .timeline-glass-rim { stroke: var(--timeline-rim); stroke-width: 0.7; transform: translateX(-1.8px); }
-.timeline-glass-fill { stroke-width: 3; }
-.timeline-glass-shine { stroke: rgb(255 255 255 / 26%); stroke-width: 0.4; transform: translateX(-0.7px); }
+.timeline-glass-fill { stroke-width: 3.5; }
+.timeline-glass-shine { stroke: rgb(255 255 255 / 12%); stroke-width: 0.3; transform: translateX(-0.7px); }
 @media (max-width: 640px) {
-  .home-timeline { padding-inline: 12px; }
+  .home-timeline { padding-inline: 20px; }
   html[data-theme] body main .liquid-glass.glass-in-view { -webkit-backdrop-filter: blur(2px) !important; backdrop-filter: blur(2px) !important; }
   html[data-theme] body main > header > nav.liquid-glass { -webkit-backdrop-filter: blur(2px) !important; backdrop-filter: blur(2px) !important; }
 }
@@ -186,7 +186,7 @@ html.light[data-theme] body main .liquid-glass [class*="text-white/"] { color: v
 }
 html.light .glass-tooltip { background: #f4f8fc; color: #142131; border-color: rgb(20 40 60 / 18%); }
 @media (max-width: 767px) {
-  .home-timeline { padding-inline: 10px; }
+  .home-timeline { padding-inline: 20px; }
   .home-timeline > section { margin-top: 20px; }
   .portfolio-shell > header nav { padding: 8px 10px; }
   .portfolio-shell footer { padding-inline: 18px; }
@@ -226,3 +226,7 @@ html.light[data-theme] body main .text-cyan-100\/90 { color: #cffafe !important;
 html.light[data-theme] body main .text-fuchsia-100\/90 { color: #fae8ff !important; }
 
 html.light[data-theme] body main .text-white { color: var(--glass-ink) !important; }
+
+/* Reserve actual empty space for the rail, including both rounded bends. */
+.home-timeline > section + section { margin-top: 32px; }
+@media (max-width: 767px) { .home-timeline > section + section { margin-top: 28px; } }
