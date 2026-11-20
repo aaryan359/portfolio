@@ -1,560 +1,477 @@
+const basePath = process.env.NODE_ENV === "production" ? "/portfolio" : "";
+
 export const projects = [
-	{
-		id: 1,
-		slug: "xpresspp",
-		name: "Xpress++",
-		tagline: "Express-style C++ web framework on top of Drogon",
-		description:
-			"A C++ web framework that gives you Express-style simplicity on top of Drogon — one of the fastest HTTP servers ever benchmarked. Wraps complex Drogon API in a familiar minimal interface.",
-
-		role: "Backend Developer",
-		duration: "3 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"Drogon is extremely fast but has complex API",
-			"Too much boilerplate for simple routes",
-			"Hard for developers to adopt Drogon",
-		],
-
-		solution: [
-			"Built Express-like routing interface for Drogon",
-			"Added middleware support (logger, CORS, etc.)",
-			"Simplified server setup with minimal code",
-		],
-
-		features: [
-			"Express-style routing syntax",
-			"Built-in middleware chain",
-			"Path parameter support",
-			"JSON response helpers",
-			"One-line server bootstrapping"
-		],
-
-		techStack: [
-			"C++",
-			"Drogon",
-		],
-
-		impact: [
-			"Reduced C++ web boilerplate by 80%",
-			"Learned high-performance HTTP server internals",
-			"Made Drogon accessible to more developers"
-		],
-
-		futurePlans: [
-			"Add middleware ecosystem",
-			"Implement WebSockets support",
-			"Create template engine integration",
-		],
-
-		images: [
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/Xpresspp/xpresspp1.png?updatedAt=1751228228100",
-		],
-		liveUrl: "https://github.com/aaryan359/xpresspp",
-		githubUrl: "https://github.com/aaryan359/xpresspp",
-	},
-	{
-		id: 2,
-		slug: "open-course",
-		name: "Open Course",
-		tagline: "Crowdsourced learning platform for collaborative education",
-		description:
-			"A crowdsourced learning platform where anyone can create or expand courses by adding videos or lessons to existing curricula.",
-
-		role: "Frontend Developer",
-		duration: "3 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"Learning resources are scattered across platforms",
-			"Students cannot easily contribute to course content",
-			"No unified system for expanding existing courses"
-		],
-
-		solution: [
-			"Built a modular course architecture",
-			"Enabled user-generated lessons and videos",
-			"Designed a scalable content contribution flow"
-		],
-
-		features: [
-			"Course creation & expansion",
-			"Video + lesson based curriculum",
-			"Community-driven contributions",
-			"Responsive UI for learners"
-		],
-
-		techStack: [
-			"React",
-			"Node.js",
-			"MongoDB",
-			"Redux"
-		],
-
-		impact: [
-			"Improved content discoverability",
-			"Enabled collaborative learning",
-			"Learned scalable state management"
-		],
-
-		futurePlans: [
-			"Add instructor verification",
-			"Introduce course ratings",
-			"Implement progress tracking"
-		],
-
-		images: [
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/OpenCourse/Screenshot%20from%202025-06-15%2017-10-31.png?updatedAt=1749987668179&tr=w-1104%2Ch-736%2Cfo-auto",
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/OpenCourse/image.png?updatedAt=1749987652155&tr=w-1104%2Ch-736%2Cfo-auto",
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/OpenCourse/Screenshot%20from%202025-06-15%2016-42-46.png?updatedAt=1749987470570&tr=w-1104%2Ch-736%2Cfo-auto",
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/OpenCourse/Screenshot%20from%202025-06-15%2016-43-07.png?updatedAt=1749987180334&tr=w-1104%2Ch-736%2Cfo-auto",
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/OpenCourse/Screenshot%20from%202025-06-15%2016-43-16.png?updatedAt=1749986793791&tr=w-1104%2Ch-736%2Cfo-auto",
-		],
-		liveUrl: "https://opencoursem.netlify.app/",
-		githubUrl: "https://github.com/aaryan359/opencoursefrontend",
-	},
-	{
-		id: 3,
-		slug: "pulse",
-		name: "Pulse",
-		tagline: "Mobile-first infrastructure monitoring platform",
-		description:
-			"Open-source monitoring platform providing real-time visibility into Linux servers and Docker workloads through a lightweight Go agent, centralized backend, and modern client interface.",
-
-		role: "Full Stack Developer",
-		duration: "4 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"Existing monitoring tools are complex and expensive",
-			"Need mobile-first visibility for server metrics",
-			"Secure, lightweight solution for small teams",
-		],
-
-		solution: [
-			"Built lightweight Go agent for metric collection",
-			"Created centralized Node.js/TypeScript backend",
-			"Developed mobile-first UI for real-time monitoring",
-		],
-
-		features: [
-			"CPU, memory, disk monitoring",
-			"Docker container metrics",
-			"Historical metrics & trends",
-			"Secure API key authentication"
-		],
-
-		techStack: [
-			"Go",
-			"Node.js",
-			"TypeScript",
-			"PostgreSQL"
-		],
-
-		impact: [
-			"Simplified server monitoring for teams",
-			"Learned distributed system design",
-			"Built production-ready agent architecture"
-		],
-
-		futurePlans: [
-			"Alert notifications",
-			"Custom dashboard widgets",
-			"Multi-server comparison"
-		],
-
-		images: [
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/Pulse/pulse1.png?updatedAt=1751228228100",
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/Pulse/pulse2.png?updatedAt=1751228228100",
-		],
-		liveUrl: "http://aaryan359.github.io/pulse-website/",
-		githubUrl: "https://github.com/aaryan359/pulse",
-	},
-	{
-		id: 4,
-		slug: "promptx",
-		name: "PromptX",
-		tagline: "Marketplace for AI prompts and task-based chat",
-		description:
-			"A marketplace for AI system and user prompts combined with a chatbot offering task-specific actions.",
-
-		role: "Full Stack Developer",
-		duration: "4 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"AI prompts are scattered and hard to reuse",
-			"Users struggle with prompt optimization",
-			"No structured marketplace for prompts",
-		],
-
-		solution: [
-			"Built a prompt marketplace",
-			"Integrated task-based chatbot actions",
-			"Implemented authentication and payments-ready architecture",
-		],
-
-		features: [
-			"Prompt marketplace",
-			"Task-specific chatbot buttons",
-			"Google OAuth authentication",
-			"Prompt categorization and search",
-		],
-
-		techStack: [
-			"React Native",
-			"Express",
-			"Deepseek-R1",
-			"Postgress",
-			"Prisma",
-			"Typescript",
-			"Javascript",
-			"Nodejs",
-			"redux",
-			"Redux toolkit",
-			"Google-Oauth"
-		],
-
-		impact: [
-			"Improved prompt reuse efficiency",
-			"Hands-on experience with LLM integration",
-			"Built scalable backend architecture",
-		],
-
-		futurePlans: [
-			"Paid prompt subscriptions",
-			"Creator analytics",
-			"Prompt versioning",
-		],
-
-		images: [
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219792.png?updatedAt=1751227865413',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219783.png?updatedAt=1751227863497',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219879.png?updatedAt=1751227865815',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219821.png?updatedAt=1751227872546',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219909.png?updatedAt=1751227884738',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219929.png?updatedAt=1751227883795',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219942.png?updatedAt=1751227880693',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219936.png?updatedAt=1751227878779',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219904.png?updatedAt=1751227877873',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219869.png?updatedAt=1751227867512',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219848.png?updatedAt=1751227862689',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219798.png?updatedAt=1751227862436',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219855.png?updatedAt=1751227861938',
-			'https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot%20from%202025-06-30%2001-44-49.png?updatedAt=1751228228100'
-		],
-		liveUrl: "https://drive.google.com/file/d/1JPOGCUPsh-abcE7WhQtILiSD1r3z8aev/view?usp=sharing",
-		githubUrl: "https://github.com/aaryan359/PromptX",
-	},
-	{
-		id: 5,
-		slug: "quick-drop",
-		name: "Quick Drop",
-		tagline: "Quick access notes, images, and tasks",
-		description:
-			"A Chrome extension that lets users quickly save images, links, notes, and manage daily tasks.",
-
-		role: "Full Stack Developer",
-		duration: "1.5 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"Users lose important links and images",
-			"Too many tools for simple note-taking",
-			"Task tracking is fragmented",
-		],
-
-		solution: [
-			"Built a lightweight Chrome extension",
-			"Centralized notes, links, and images",
-			"Integrated simple task management",
-		],
-
-		features: [
-			"Quick image and link saving",
-			"Notes and bookmarks",
-			"Task management",
-			"Fast and minimal UI",
-		],
-
-		techStack: [
-			"React",
-			"Node.js",
-			"Express",
-			"MongoDB",
-			"TypeScript",
-		],
-
-		impact: [
-			"Improved personal productivity",
-			"Learned Chrome extension APIs",
-			"Optimized lightweight UI performance",
-		],
-
-		futurePlans: [
-			"Cloud sync",
-			"Cross-device support",
-			"Tag-based organization",
-		],
-		images: [
-			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-44-26.png?updatedAt=1756230582960',
-			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-43-51.png?updatedAt=1756230582926',
-			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-43-43.png?updatedAt=1756230582954',
-			'https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Quick%20Drop/Screenshot%20from%202025-08-23%2001-44-12.png?updatedAt=1756230582890'
-		],
-		liveUrl: "https://github.com/aaryan359/QuickDrop",
-		githubUrl: "https://github.com/aaryan359/QuickDrop",
-	},
-	{
-		id: 6,
-		slug: "every-penny",
-		name: "Every Penny",
-		tagline: "Smart expense tracking via SMS & custom labels",
-		description:
-			"A mobile app built with Expo that extracts transaction details from SMS and allows users to label expenses at payment time.",
-
-		role: "Mobile App Developer",
-		duration: "2 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"Users forget where money is spent",
-			"Bank apps lack contextual labeling",
-			"Manual expense tracking is tedious"
-		],
-
-		solution: [
-			"SMS parsing for automatic transactions",
-			"Custom labels during payment",
-			"Simple, focused mobile UI"
-		],
-
-		features: [
-			"Automatic SMS parsing",
-			"Custom expense titles",
-			"Daily & monthly summaries",
-			"Offline-friendly storage"
-		],
-
-		techStack: [
-			"React Native",
-			"Express",
-			"MongoDB",
-			"TypeScript"
-		],
-
-		impact: [
-			"Improved personal finance awareness",
-			"Hands-on experience with SMS parsing",
-			"Learned mobile UX constraints"
-		],
-
-		futurePlans: [
-			"Cloud sync",
-			"Category analytics",
-			"Export to CSV"
-		],
-
-		images: [
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenney.jpeg?updatedAt=1749988519859",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/evreryPenny5.jpeg?updatedAt=1749988525437",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny.jpeg?updatedAt=1749988521298",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenny3.jpeg?updatedAt=1749988521247",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny6.jpeg?updatedAt=1749988521251",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everypenny4.jpeg?updatedAt=1749988521221",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everrypenny2.jpeg?updatedAt=1749988521036",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny7.jpeg?updatedAt=1749988520974",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/EveryPenny/everyPenny1.jpeg?updatedAt=1749988520735"
-		],
-		liveUrl: "hhttps://drive.google.com/file/d/1WuC29NH3BPawQrvmq9vHsuShRHj5RxJ-/view",
-		githubUrl: "https://github.com/aaryan359/EveryPenny-1",
-	},
-	{
-		id: 7,
-		slug: "vehicle-rental-app",
-		name: "Vehicle Rental App",
-		tagline: "Effortless vehicle renting and invoicing",
-		description:
-			"A mobile application that enables vehicle rentals with integrated invoicing and admin management.",
-
-		role: "Full Stack Developer",
-		duration: "3 months",
-		team: "Small Team",
-		status: "Completed",
-
-		problem: [
-			"Manual vehicle rental tracking",
-			"Inefficient invoice generation",
-			"No centralized admin dashboard",
-		],
-
-		solution: [
-			"Built a mobile-first rental flow",
-			"Automated invoice generation",
-			"Centralized admin management system",
-		],
-
-		features: [
-			"Vehicle listing and booking",
-			"Automated invoicing",
-			"Admin dashboard",
-			"Customer management",
-		],
-
-		techStack: [
-			"React Native",
-			"Node.js",
-			"Express",
-			"MongoDB",
-			"TypeScript",
-		],
-
-		impact: [
-			"Simplified vehicle rental operations",
-			"Reduced manual paperwork",
-			"Improved admin efficiency",
-		],
-
-		futurePlans: [
-			"Online payments",
-			"Customer ratings",
-			"Fleet analytics",
-		],
-
-		images: [
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM.jpeg?updatedAt=1750001977148",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM(1).jpeg?updatedAt=1750001977695",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM(2).jpeg?updatedAt=1750001977551",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.34%20PM.jpeg?updatedAt=1750001977629",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.35%20PM.jpeg?updatedAt=1750001977282",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.34%20PM(1).jpeg?updatedAt=1750001977166",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.35%20PM(1).jpeg?updatedAt=1750001976731",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.33%20PM.jpeg?updatedAt=1750001975535",
-			"https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.34%20PM(2).jpeg?updatedAt=1750001972468"
-		],
-		liveUrl: "https://drive.google.com/file/d/1IvF-0Cptd6FGrzVFFltJM4fRZiqYPKij/view",
-		githubUrl: "https://github.com/aaryan359/GoAmigo-Admin-Frontend",
-	},
-	{
-		id: 8,
-		slug: "driveshare",
-		name: "DriveShare",
-		tagline: "Decentralized P2P cloud storage for India",
-		description:
-			"A decentralized, high-performance, secure Peer-to-Peer storage ledger mesh built for Indian startups, using WASM-based encryption, WebRTC direct tunnels, and geo-fenced Indian node storage.",
-
-		role: "Full Stack Developer",
-		duration: "4 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"Traditional storage relies on expensive centralized providers",
-			"High egress charges and data compliance issues",
-			"Data leaving Indian borders for storage",
-		],
-
-		solution: [
-			"Built client-side WASM for file encryption & sharding",
-			"Implemented WebRTC for P2P data channels",
-			"Created geo-fenced storage within India",
-		],
-
-		features: [
-			"WASM-based encryption & Reed-Solomon sharding",
-			"WebRTC P2P data transfer",
-			"Geofenced Indian node network",
-			"Fault-tolerant reconstruction",
-			"Compliance with DPDP laws"
-		],
-
-		techStack: [
-			"TypeScript",
-			"React",
-			"WebRTC",
-			"WebAssembly",
-		],
-
-		impact: [
-			"Addressed data sovereignty for Indian startups",
-			"Learned WebRTC and WASM integration",
-			"Built production P2P architecture"
-		],
-
-		futurePlans: [
-			"Incentive system for node providers",
-			"File versioning support",
-			"Audit trail feature",
-		],
-
-		images: [
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/DriveShare/driveshare1.png?updatedAt=1751228228100",
-		],
-		liveUrl: "https://github.com/aaryan359/driveShare",
-		githubUrl: "https://github.com/aaryan359/driveShare",
-	},
-	{
-		id: 9,
-		slug: "pdf-chat-rag",
-		name: "PDF Chat RAG",
-		tagline: "Production-ready PDF document Q&A workspace",
-		description:
-			"Retrieval-Augmented Generation workspace for PDF documents with multi-PDF upload, explicit status lifecycle, streaming chat responses, and source-backed answers.",
-
-		role: "Full Stack Developer",
-		duration: "2 months",
-		team: "Solo",
-		status: "Completed",
-
-		problem: [
-			"Existing PDF chat apps mix ingestion and chat in one path",
-			"No clear document processing states",
-			"Retrieval evidence is hidden from users",
-		],
-
-		solution: [
-			"Separated ingestion from chat pathways",
-			"Implemented status lifecycle: queued, processing, ready, failed",
-			"Added source snippets and similarity evidence",
-		],
-
-		features: [
-			"Multi-PDF upload and indexing",
-			"Streamed chat responses",
-			"Source citations with answers",
-			"Top-K retrieval control",
-			"Document-level filtering"
-		],
-
-		techStack: [
-			"TypeScript",
-			"Next.js",
-			"Express",
-		],
-
-		impact: [
-			"Learned RAG architecture fundamentals",
-			"Built reliable async document processing",
-			"Created inspectable retrieval system"
-		],
-
-		futurePlans: [
-			"Add user authentication",
-			"Implement chat history",
-			"Multi-user support",
-		],
-
-		images: [
-			"https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PDFChatRAG/pdf1.png?updatedAt=1751228228100",
-		],
-		liveUrl: "https://github.com/aaryan359/PDF-chat-RAG",
-		githubUrl: "https://github.com/aaryan359/PDF-chat-RAG",
-	}
-];
+  {
+    "id": 1,
+    "slug": "xpresspp",
+    "name": "Xpress++",
+    "tagline": "Express-style C++ web framework on top of Drogon",
+    "description": "An Express-style C++20 web framework built on Drogon, with a header-only core and an xp CLI for scaffolding, builds, development reloads, and dependency checks.",
+    "role": "Backend Developer",
+    "duration": "3 months",
+    "team": "Solo",
+    "status": "Completed",
+    "problem": [
+      "Drogon is extremely fast but has complex API",
+      "Too much boilerplate for simple routes",
+      "Hard for developers to adopt Drogon"
+    ],
+    "solution": [
+      "Wrapped Drogon with request, response, and routing helpers.",
+      "Built an xp CLI for project creation, code generation, builds, and dependency diagnostics.",
+      "Added composable middleware and centralized typed HTTP error handling."
+    ],
+    "features": [
+      "Express-style routes and route groups",
+      "CLI scaffolding and development reloads",
+      "CORS, rate limiting, and security middleware",
+      "Typed HTTP errors and JSON responses"
+    ],
+    "techStack": [
+      "C++20",
+      "Drogon",
+      "CMake",
+      "jsoncpp"
+    ],
+    "impact": [
+      "Made common HTTP handlers concise through an Express-style API.",
+      "Packaged a header-only framework with scaffolded example applications.",
+      "Documented routing, configuration, middleware, and error handling."
+    ],
+    "futurePlans": [
+      "Expand examples and framework documentation",
+      "Extend middleware integrations",
+      "Explore WebSocket support"
+    ],
+    "images": [
+      "/image/projects/xpresspp-0.webp"
+    ],
+    "liveUrl": null,
+    "githubUrl": "https://github.com/aaryan359/xpresspp",
+    "sourceUrl": "https://github.com/aaryan359/xpresspp/blob/main/README.md",
+    "imageAlt": "Coding photograph illustrating the Xpress++ C++ framework"
+  },
+  {
+    "id": 2,
+    "slug": "open-course",
+    "name": "Open Course",
+    "tagline": "Crowdsourced learning platform for collaborative education",
+    "description": "A community-driven React learning interface where people can create, expand, and improve courses together. Includes exploration and contribution views, with backend services and moderation planned.",
+    "role": "Frontend Developer",
+    "duration": "3 months",
+    "team": "Solo",
+    "status": "In development",
+    "problem": [
+      "Learning resources are scattered across platforms",
+      "Students cannot easily contribute to course content",
+      "No unified system for expanding existing courses"
+    ],
+    "solution": [
+      "Built reusable React components for course exploration and contribution.",
+      "Designed a responsive learning interface with Tailwind CSS.",
+      "Outlined backend authentication and contribution moderation as next steps."
+    ],
+    "features": [
+      "Community course contribution interface",
+      "Course exploration views",
+      "Responsive React components",
+      "Dark learning interface"
+    ],
+    "techStack": [
+      "React",
+      "Tailwind CSS"
+    ],
+    "impact": [
+      "Created a frontend for collaborative course discovery and contribution.",
+      "Organized the interface around evolving, community-owned learning resources.",
+      "Kept planned backend work distinct from the current frontend."
+    ],
+    "futurePlans": [
+      "Build the Node.js API",
+      "Add authentication and authorization",
+      "Implement contribution review and moderation"
+    ],
+    "images": [
+      "/image/projects/open-course-0.webp",
+      "/image/projects/open-course-1.webp",
+      "/image/projects/open-course-2.webp"
+    ],
+    "liveUrl": "https://opencoursem.netlify.app/",
+    "githubUrl": "https://github.com/aaryan359/opencourse",
+    "sourceUrl": "https://github.com/aaryan359/opencourse/blob/dev/README.md",
+    "imageAlt": "Open Course project preview"
+  },
+  {
+    "id": 3,
+    "slug": "pulse",
+    "name": "Pulse",
+    "tagline": "Mobile-first infrastructure monitoring platform",
+    "description": "A React Native and Expo app for checking server health and Docker workloads from a phone. Provides infrastructure metrics, container controls, historical charts, and configurable alerts.",
+    "role": "Full Stack Developer",
+    "duration": "4 months",
+    "team": "Solo",
+    "status": "Completed",
+    "problem": [
+      "Existing monitoring tools are complex and expensive",
+      "Need mobile-first visibility for server metrics",
+      "Secure, lightweight solution for small teams"
+    ],
+    "solution": [
+      "Built mobile dashboards for infrastructure metrics and historical trends.",
+      "Added container health views, logs, and start/stop/restart controls.",
+      "Organized multi-server monitoring with JWT authentication and configurable alerts."
+    ],
+    "features": [
+      "CPU, memory, disk, and network metrics",
+      "Docker status, controls, and logs",
+      "Historical charts and date ranges",
+      "Multi-server views and threshold alerts"
+    ],
+    "techStack": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Redux Toolkit",
+      "RTK Query",
+      "Socket.io"
+    ],
+    "impact": [
+      "Brought server and container health into a mobile interface.",
+      "Combined metric visualization, container actions, and alert workflows.",
+      "Used Redux Toolkit and RTK Query for client state and data access."
+    ],
+    "futurePlans": [
+      "Expand monitoring integrations",
+      "Improve reporting workflows",
+      "Refine server comparison views"
+    ],
+    "images": [
+      "/image/projects/pulse-0.webp",
+      "/image/projects/pulse-1.webp",
+      "/image/projects/pulse-2.webp"
+    ],
+    "liveUrl": "http://aaryan359.github.io/pulse-website/",
+    "githubUrl": "https://github.com/aaryan359/pulse",
+    "sourceUrl": "https://github.com/aaryan359/pulse/blob/main/README.md",
+    "imageAlt": "Pulse project preview"
+  },
+  {
+    "id": 4,
+    "slug": "promptx",
+    "name": "PromptX",
+    "tagline": "Marketplace for AI prompts and task-based chat",
+    "description": "A React Native marketplace for discovering and sharing AI prompts, paired with task-specific chat. Includes JWT and Google sign-in, prompt search and categories, and PostgreSQL persistence through Prisma.",
+    "role": "Full Stack Developer",
+    "duration": "4 months",
+    "team": "Solo",
+    "status": "Completed",
+    "problem": [
+      "AI prompts are scattered and hard to reuse",
+      "Users struggle with prompt optimization",
+      "No structured marketplace for prompts"
+    ],
+    "solution": [
+      "Built prompt discovery with search, filtering, and category selection.",
+      "Integrated task-specific system prompts and conversational context.",
+      "Connected authentication, user profiles, and prompt data through an Express backend and Prisma."
+    ],
+    "features": [
+      "Prompt search, filters, and categories",
+      "Task-specific AI conversations",
+      "JWT and Google authentication",
+      "Profiles with liked and purchased prompts"
+    ],
+    "techStack": [
+      "React Native",
+      "Express",
+      "PostgreSQL",
+      "Prisma",
+      "Cloudinary",
+      "Google OAuth"
+    ],
+    "impact": [
+      "Combined reusable prompt discovery with task-specific chat.",
+      "Implemented mobile authentication with JWT and Google OAuth.",
+      "Modeled prompt and profile data using PostgreSQL and Prisma."
+    ],
+    "futurePlans": [
+      "Paid prompt subscriptions",
+      "Creator analytics",
+      "Prompt versioning"
+    ],
+    "images": [
+      "/image/projects/promptx-0.webp",
+      "/image/projects/promptx-1.webp",
+      "/image/projects/promptx-2.webp"
+    ],
+    "liveUrl": "https://drive.google.com/file/d/1JPOGCUPsh-abcE7WhQtILiSD1r3z8aev/view?usp=sharing",
+    "githubUrl": "https://github.com/aaryan359/PromptX",
+    "sourceUrl": "https://github.com/aaryan359/PromptX/blob/main/README.md",
+    "imageAlt": "PromptX project preview"
+  },
+  {
+    "id": 5,
+    "slug": "quick-drop",
+    "name": "Quick Drop",
+    "tagline": "Private, offline browser sidebar for notes, files, links, and tasks",
+    "description": "A local-first Chrome sidebar extension for dropping files, saving links and snippets, writing autosaved notes, and managing a task checklist. Data stays in local extension storage without cloud sync.",
+    "role": "Full Stack Developer",
+    "duration": "1.5 months",
+    "team": "Solo",
+    "status": "Completed",
+    "problem": [
+      "Switching tabs interrupts note-taking and quick capture.",
+      "Temporary files, links, and snippets get scattered.",
+      "Quick capture should work without a cloud account."
+    ],
+    "solution": [
+      "Built a browser sidebar with a file drop zone and link capture.",
+      "Added persistent scratchpad notes and a session task checklist.",
+      "Kept extension data in local Chrome storage with light and dark themes."
+    ],
+    "features": [
+      "Drag-and-drop file capture",
+      "Autosaved scratchpad notes",
+      "Links, text, and code snippets",
+      "Offline tasks and light/dark themes"
+    ],
+    "techStack": [
+      "React",
+      "Vite",
+      "Chrome Extension APIs",
+      "Local Storage"
+    ],
+    "impact": [
+      "Centralized quick capture within the active browser workflow.",
+      "Kept saved data available offline in extension storage.",
+      "Provided a packaged installer and GitHub Actions deployment for the landing page."
+    ],
+    "futurePlans": [
+      "Improve search and organization",
+      "Add local export and import",
+      "Expand keyboard shortcuts"
+    ],
+    "images": [
+      "/image/projects/quick-drop-0.webp",
+      "/image/projects/quick-drop-1.webp",
+      "/image/projects/quick-drop-2.webp"
+    ],
+    "liveUrl": "https://aaryan359.github.io/QuickDrop/",
+    "githubUrl": "https://github.com/aaryan359/QuickDrop",
+    "sourceUrl": "https://github.com/aaryan359/QuickDrop/blob/main/README.md",
+    "imageAlt": "Quick Drop project preview"
+  },
+  {
+    "id": 6,
+    "slug": "every-penny",
+    "name": "Every Penny",
+    "tagline": "Expo personal finance app prototype",
+    "description": "A React Native and Expo personal finance prototype with transaction views, income and expense entry screens, authentication flows, and profile settings. Analytics and automated transaction capture remain future work.",
+    "role": "Mobile App Developer",
+    "duration": "2 months",
+    "team": "Solo",
+    "status": "Prototype",
+    "problem": [
+      "Personal finance needs a clear mobile overview.",
+      "Income and expense entry should be easy to reach.",
+      "Account and transaction screens need consistent navigation."
+    ],
+    "solution": [
+      "Created transaction and income/expense entry interfaces.",
+      "Structured authentication, finance, and profile screens with Expo Router.",
+      "Used reusable mobile UI elements and Redux state management."
+    ],
+    "features": [
+      "Transaction overview screens",
+      "Income and expense entry interface",
+      "Login and registration flows",
+      "Profile and account settings"
+    ],
+    "techStack": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Expo Router",
+      "Redux Toolkit",
+      "Clerk"
+    ],
+    "impact": [
+      "Built a navigable mobile finance prototype.",
+      "Practiced file-based routing and mobile authentication interfaces.",
+      "Established screens for future transaction persistence and analytics."
+    ],
+    "futurePlans": [
+      "Connect transaction entry to persistent storage",
+      "Implement analytics and summaries",
+      "Explore SMS-based transaction capture"
+    ],
+    "images": [
+      "/image/projects/every-penny-0.webp",
+      "/image/projects/every-penny-1.webp"
+    ],
+    "liveUrl": "https://drive.google.com/file/d/1WuC29NH3BPawQrvmq9vHsuShRHj5RxJ-/view",
+    "githubUrl": "https://github.com/aaryan359/EveryPenny-1",
+    "sourceUrl": "https://github.com/aaryan359/EveryPenny-1/blob/main/README.md",
+    "imageAlt": "Every Penny project preview"
+  },
+  {
+    "id": 7,
+    "slug": "vehicle-rental-app",
+    "name": "GoAmigo — Vehicle Rental App",
+    "tagline": "Effortless vehicle renting and invoicing",
+    "description": "A mobile vehicle rental project with booking flows, automated invoice generation, customer management, and an admin dashboard for rental operations.",
+    "role": "Full Stack Developer",
+    "duration": "3 months",
+    "team": "Small Team",
+    "status": "Completed",
+    "problem": [
+      "Manual vehicle rental tracking",
+      "Inefficient invoice generation",
+      "No centralized admin dashboard"
+    ],
+    "solution": [
+      "Built mobile vehicle listing and booking flows.",
+      "Added invoice generation and customer management workflows.",
+      "Centralized rental operations in an admin dashboard."
+    ],
+    "features": [
+      "Vehicle listing and booking",
+      "Automated invoicing",
+      "Admin dashboard",
+      "Customer management"
+    ],
+    "techStack": [
+      "React Native",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "TypeScript"
+    ],
+    "impact": [
+      "Brought booking, customer, and invoice workflows into one application.",
+      "Gained experience building mobile interfaces for rental operations.",
+      "Connected customer-facing flows with administrative tools."
+    ],
+    "futurePlans": [
+      "Online payments",
+      "Customer ratings",
+      "Fleet analytics"
+    ],
+    "images": [
+      "/image/projects/vehicle-rental-app-0.webp",
+      "/image/projects/vehicle-rental-app-1.webp",
+      "/image/projects/vehicle-rental-app-2.webp"
+    ],
+    "liveUrl": "https://drive.google.com/file/d/1IvF-0Cptd6FGrzVFFltJM4fRZiqYPKij/view",
+    "githubUrl": "https://github.com/aaryan359/GoAmigo-Admin-Frontend",
+    "sourceUrl": null,
+    "imageAlt": "GoAmigo — Vehicle Rental App project preview"
+  },
+  {
+    "id": 8,
+    "slug": "driveshare",
+    "name": "DriveShare",
+    "tagline": "P2P storage console and transfer simulator",
+    "description": "A React and TypeScript console for a decentralized storage concept aimed at Indian users. Includes storage telemetry, node lease views, a WASM/WebRTC transfer simulation, bucket management, and simulated INR wallet billing.",
+    "role": "Full Stack Developer",
+    "duration": "4 months",
+    "team": "Solo",
+    "status": "Prototype",
+    "problem": [
+      "Decentralized storage workflows are difficult to inspect.",
+      "Users need visibility into capacity, node leases, and storage buckets.",
+      "A storage console needs clear transfer and billing feedback."
+    ],
+    "solution": [
+      "Built a modular console with shared UI and TypeScript models.",
+      "Visualized the proposed sharding and P2P transfer lifecycle in a simulator.",
+      "Added bucket management, node lease views, and simulated wallet payments."
+    ],
+    "features": [
+      "Storage telemetry and node lease views",
+      "WASM/WebRTC transfer simulation",
+      "Bucket management interface",
+      "Simulated INR wallet and billing"
+    ],
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Redux Toolkit",
+      "Vite"
+    ],
+    "impact": [
+      "Made a proposed P2P storage workflow inspectable through a client console.",
+      "Organized the frontend into application, UI, and shared-model packages.",
+      "Prototyped INR billing and storage management interactions."
+    ],
+    "futurePlans": [
+      "Integrate real storage nodes and transfer services",
+      "Replace simulated billing with a payment backend",
+      "Validate encryption, recovery, and regional storage guarantees"
+    ],
+    "images": [
+      "/image/projects/driveshare-0.webp"
+    ],
+    "liveUrl": null,
+    "githubUrl": "https://github.com/aaryan359/driveShare",
+    "sourceUrl": "https://github.com/aaryan359/driveShare/blob/main/README.md",
+    "imageAlt": "DriveShare project preview"
+  },
+  {
+    "id": 9,
+    "slug": "pdf-chat-rag",
+    "name": "PDF Chat RAG",
+    "tagline": "Production-ready PDF document Q&A workspace",
+    "description": "A PDF question-answering workspace with asynchronous BullMQ ingestion, Redis queues, Qdrant vector search, and streaming chat. Answers expose source snippets and similarity scores for the selected document.",
+    "role": "Full Stack Developer",
+    "duration": "2 months",
+    "team": "Solo",
+    "status": "Completed",
+    "problem": [
+      "Existing PDF chat apps mix ingestion and chat in one path",
+      "No clear document processing states",
+      "Retrieval evidence is hidden from users"
+    ],
+    "solution": [
+      "Separated PDF ingestion workers from API and chat request paths.",
+      "Generated chunk embeddings and indexed document-scoped vectors in Qdrant.",
+      "Streamed grounded answers with source snippets and similarity metadata."
+    ],
+    "features": [
+      "Multi-PDF upload and background indexing",
+      "Queued, processing, ready, and failed states",
+      "Document-scoped vector retrieval",
+      "Streaming answers with source evidence",
+      "Configurable top-K retrieval"
+    ],
+    "techStack": [
+      "Next.js",
+      "Express",
+      "BullMQ",
+      "Redis",
+      "Qdrant",
+      "Gemini",
+      "Docker"
+    ],
+    "impact": [
+      "Kept document processing separate from interactive chat.",
+      "Made retrieval evidence and processing failures visible to users.",
+      "Packaged the frontend, API, worker, Redis, and Qdrant with Docker Compose."
+    ],
+    "futurePlans": [
+      "Add role-based authentication",
+      "Add request tracing and queue monitoring",
+      "Harden retry policies and metadata backups"
+    ],
+    "images": [
+      "/image/projects/pdf-chat-rag-0.webp"
+    ],
+    "liveUrl": null,
+    "githubUrl": "https://github.com/aaryan359/PDF-chat-RAG",
+    "sourceUrl": "https://github.com/aaryan359/PDF-chat-RAG/blob/main/Readme.md",
+    "imageAlt": "PDF Chat RAG project preview"
+  }
+].map((project) => ({
+  ...project,
+  images: project.images.map((image) => `${basePath}${image}`),
+}));

@@ -6,6 +6,8 @@ const repoName = "portfolio";
 module.exports = {
   // Required for GitHub Pages
   output: 'export',
+  // Production builds must not overwrite a running development server's chunks.
+  distDir: isProd ? '.next' : '.next-dev',
   basePath: isProd ? `/${repoName}` : '',
   assetPrefix: isProd ? `/${repoName}` : '',
 

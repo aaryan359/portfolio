@@ -1,0 +1,102 @@
+[
+  {
+    "file": "image/projects/xpresspp-0.webp",
+    "source": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=85&fit=crop",
+    "kind": "illustrative photograph"
+  },
+  {
+    "file": "image/projects/open-course-0.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/opencourse/dev/image.png",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/open-course-1.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/opencourse/dev/image-2.png",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/open-course-2.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/opencourse/dev/image-1.png",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/pulse-0.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/pulse/main/img1.jpeg",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/pulse-1.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/pulse/main/img2.jpeg",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/pulse-2.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/pulse/main/img3.jpeg",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/promptx-0.webp",
+    "source": "https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219792.png?updatedAt=1751227865413",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/promptx-1.webp",
+    "source": "https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219783.png?updatedAt=1751227863497",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/promptx-2.webp",
+    "source": "https://ik.imagekit.io/moq2nlye8/Portfolio-project-images/PromptX/Screenshot_1751219879.png?updatedAt=1751227865815",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/quick-drop-0.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/QuickDrop/main/img4.png",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/quick-drop-1.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/QuickDrop/main/img1.png",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/quick-drop-2.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/QuickDrop/main/img3.png",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/every-penny-0.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/EveryPenny-1/main/src/assets/images/everyPenny8.jpeg",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/every-penny-1.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/EveryPenny-1/main/src/assets/images/everypenney.jpeg",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/vehicle-rental-app-0.webp",
+    "source": "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM.jpeg?updatedAt=1750001977148",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/vehicle-rental-app-1.webp",
+    "source": "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM(1).jpeg?updatedAt=1750001977695",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/vehicle-rental-app-2.webp",
+    "source": "https://ik.imagekit.io/moq2nlye8/tr:w-200,h-400/Portfolio-project-images/Go-amigo/WhatsApp%20Image%202025-06-15%20at%209.03.32%20PM(2).jpeg?updatedAt=1750001977551",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/driveshare-0.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/driveShare/main/apps/driveshare/src/assets/hero.png",
+    "kind": "project asset"
+  },
+  {
+    "file": "image/projects/pdf-chat-rag-0.webp",
+    "source": "https://raw.githubusercontent.com/aaryan359/PDF-chat-RAG/main/image.png",
+    "kind": "project asset"
+  }
+]

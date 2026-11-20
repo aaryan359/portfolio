@@ -1,0 +1,159 @@
+/* Native glass over a static photograph. Blur only visible outer panels.
+   No SVG displacement, canvas textures, nested blur or idle animation. */
+:root {
+  color-scheme: dark;
+  --glass-page: #0c131c;
+  --glass-ink: #eef3fa;
+  --glass-muted: #b5c2d1;
+  --glass-surface: rgb(12 24 38 / 26%);
+  --glass-border: rgb(230 241 255 / 19%);
+  --glass-rim: rgb(255 255 255 / 34%);
+  --glass-shadow: rgb(0 5 15 / 18%);
+  --glass-control-fill: rgb(255 255 255 / 4%);
+  --glass-nav-fill: rgb(17 28 39 / 58%);
+  --glass-focus: #bcadf3;
+  --glass-opaque: #202a35;
+  --muted-foreground: #b5c2d1;
+}
+html.light {
+  color-scheme: light;
+  --glass-page: #edf2f5;
+  --glass-ink: #192939;
+  --glass-muted: #46596c;
+  --glass-surface: rgb(255 255 255 / 28%);
+  --glass-border: rgb(255 255 255 / 64%);
+  --glass-rim: rgb(255 255 255 / 86%);
+  --glass-shadow: rgb(34 64 89 / 10%);
+  --glass-control-fill: rgb(255 255 255 / 14%);
+  --glass-nav-fill: rgb(241 247 251 / 62%);
+  --glass-focus: #7355b8;
+  --glass-opaque: #f4f7fa;
+  --muted-foreground: #46596c;
+}
+html[data-theme] body { background: var(--glass-page) !important; color: var(--glass-ink); }
+body > main { z-index: 1; }
+
+/* Radial gradients are already soft: no CSS blur, transforms or promoted layers. */
+.glass-backdrop { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.glass-photo, .glass-photo img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.glass-photo img { object-fit: cover; object-position: center; }
+.glass-backdrop::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgb(4 12 22 / 48%), rgb(4 12 22 / 65%));
+}
+html.light .glass-backdrop::after { background: rgb(241 247 252 / 58%); }
+.glass-blob {
+  position: absolute;
+  width: clamp(120px, 22vw, 260px);
+  aspect-ratio: 1;
+  background: radial-gradient(ellipse, rgb(var(--blob-rgb) / 25%), rgb(var(--blob-rgb) / 9%) 38%, transparent 72%);
+  border-radius: 50%;
+}
+.glass-blob-1 { --blob-rgb: 159 145 211; left: 1%; top: 3%; }
+.glass-blob-2 { --blob-rgb: 117 188 198; right: 5%; top: 21%; width: 180px; }
+.glass-blob-3 { --blob-rgb: 202 156 184; left: 33%; top: 42%; width: 140px; }
+.glass-blob-4 { --blob-rgb: 148 167 207; right: 0; top: 68%; }
+.glass-blob-5 { --blob-rgb: 134 195 173; left: 2%; top: 80%; width: 180px; }
+.glass-blob-6 { --blob-rgb: 166 154 212; left: 52%; top: -6%; width: 160px; }
+.glass-blob-7 { --blob-rgb: 124 179 203; left: 55%; top: 91%; width: 130px; }
+
+/* Small controls and nested panels share their parent material, without extra blur. */
+html[data-theme] body main [class*="backdrop-"],
+html[data-theme] body main :is(.liquid-glass, .glass-control, button, input, textarea, .tech-pill-tooltip, .course-pill-tooltip, .contact-tooltip) {
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+}
+html[data-theme] body main .liquid-glass {
+  position: relative;
+  background: linear-gradient(135deg, rgb(255 255 255 / 4%), transparent 48%), var(--glass-surface) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: inset 0 1px 0 var(--glass-rim), 0 8px 20px -16px var(--glass-shadow) !important;
+  transition: border-color 150ms ease;
+}
+html[data-theme] body main .liquid-glass:hover { border-color: var(--glass-rim) !important; }
+
+
+/* A single native blur pass per visible outer panel; the observer removes it offscreen. */
+html[data-theme] body main .liquid-glass.glass-in-view {
+  -webkit-backdrop-filter: blur(6px) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+/* The sticky navigation also blurs page content scrolling beneath it. */
+html[data-theme] body main > header > nav.liquid-glass {
+  background: var(--glass-nav-fill) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+}
+html[data-theme] body main :is(button, input, textarea, .glass-control, .btn-mono, .pagination-btn, .tech-pill-tooltip, .course-pill-tooltip, .contact-tooltip) {
+  background: var(--glass-control-fill) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: inset 0 1px 0 var(--glass-rim) !important;
+  border-radius: 12px;
+}
+html[data-theme] body main :is(.glass-control, .btn-mono, .pagination-btn):hover { border-color: var(--glass-rim) !important; }
+html[data-theme] body main :is(.glass-control, .btn-mono, .pagination-btn):focus-visible {
+  outline: 2px solid var(--glass-focus) !important;
+  outline-offset: 3px;
+}
+html[data-theme] body main :is(.project-demo-btn, .resume-btn, .pagination-btn, .tech-pill-tooltip, .course-pill-tooltip, .contact-tooltip) { color: var(--glass-ink) !important; }
+html[data-theme] body main :is(.project-demo-btn, .tech-pill-tooltip, .course-pill-tooltip, .contact-tooltip) :is(span, div, p, svg) { color: var(--glass-ink) !important; }
+html[data-theme] body main .pagination-btn-active,
+html[data-theme] body main form button.glass-control.bg-purple-500\/10 {
+  background: rgb(139 92 246 / 18%) !important;
+  border-color: var(--glass-focus) !important;
+  color: var(--glass-ink) !important;
+}
+html[data-theme] body main :is(input, textarea).glass-control { color: var(--glass-ink) !important; font-size: 1rem; }
+html[data-theme] body main :is(input, textarea).glass-control::placeholder { color: var(--glass-muted) !important; opacity: 1 !important; }
+html.light[data-theme] body main .glass-control,
+html.light[data-theme] body main .liquid-glass .text-white { color: var(--glass-ink); }
+html[data-theme] body main :is(.tech-pill-tooltip, .course-pill-tooltip, .contact-tooltip) { background: var(--glass-opaque) !important; }
+html[data-theme] body main .theme-toggle {
+  position: relative; z-index: 2; min-width: 36px; min-height: 36px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; touch-action: manipulation; pointer-events: auto;
+}
+.theme-moon { display: none; }
+html.light .theme-sun { display: none; }
+html.light .theme-moon { display: block; }
+.home-timeline { display: flow-root; padding-inline: 18px; }
+.home-timeline > section { margin-top: 24px; }
+.timeline-glass-flow {
+  position: absolute; inset: 0; z-index: 30; pointer-events: none;
+  --timeline-purple: #a855f7; --timeline-indigo: #6366f1;
+  --timeline-cyan: #06b6d4; --timeline-green: #10b981;
+  --timeline-track: rgb(195 209 242 / 12%); --timeline-rim: rgb(232 242 255 / 38%);
+}
+html.light .timeline-glass-flow {
+  --timeline-track: rgb(123 139 176 / 15%); --timeline-rim: rgb(255 255 255 / 90%);
+}
+.timeline-glass-flow svg { display: block; overflow: visible; }
+html body main .timeline-glass-flow path { fill: none; stroke-linecap: round; stroke-linejoin: round; opacity: 1; }
+.timeline-glass-track { stroke: var(--timeline-track); stroke-width: 5; }
+.timeline-glass-rim { stroke: var(--timeline-rim); stroke-width: 0.7; transform: translateX(-1.8px); }
+.timeline-glass-fill { stroke-width: 3; }
+.timeline-glass-shine { stroke: rgb(255 255 255 / 26%); stroke-width: 0.4; transform: translateX(-0.7px); }
+@media (max-width: 640px) {
+  .home-timeline { padding-inline: 12px; }
+  .glass-blob { width: 135px; }
+  html[data-theme] body main .liquid-glass.glass-in-view { -webkit-backdrop-filter: blur(4px) !important; backdrop-filter: blur(4px) !important; }
+  html[data-theme] body main > header > nav.liquid-glass { -webkit-backdrop-filter: blur(4px) !important; backdrop-filter: blur(4px) !important; }
+}
+@media (prefers-reduced-transparency: reduce), (forced-colors: active) {
+  html[data-theme] body main .liquid-glass,
+  html[data-theme] body main .liquid-glass.glass-in-view,
+  html[data-theme] body main > header > nav.liquid-glass {
+    background: var(--glass-opaque) !important;
+    -webkit-backdrop-filter: none !important; backdrop-filter: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body *, html body *::before, html body *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}
+@media (forced-colors: active) {
+  html[data-theme] body main :is(.liquid-glass, .glass-control) { background: Canvas !important; border-color: CanvasText !important; color: CanvasText !important; }
+}

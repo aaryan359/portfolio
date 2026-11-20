@@ -51,7 +51,7 @@ export function ContactForm() {
       className="
         relative rounded-2xl
         border border-white/10
-        bg-[#0a0815]/30 backdrop-blur-xl
+        liquid-glass bg-[#0a0815]/30 backdrop-blur-xl
         p-6 md:p-8
         transition-all duration-300
         hover:border-white/20
@@ -84,7 +84,7 @@ export function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               placeholder="Name"
-              className="
+              className="glass-control
                 w-full rounded-xl
                 border border-white/10
                 bg-black/20
@@ -110,7 +110,7 @@ export function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder="Email address"
-              className="
+              className="glass-control
                 w-full rounded-xl
                 border border-white/10
                 bg-black/20
@@ -169,7 +169,7 @@ export function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell me about the problem you're trying to solve..."
-              className="
+              className="glass-control
                 w-full rounded-xl
                 border border-white/10
                 bg-black/20
@@ -191,7 +191,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="
+          className="glass-control
             group inline-flex w-full items-center justify-center gap-2
             rounded-xl
             bg-gradient-to-r from-purple-500 to-blue-500

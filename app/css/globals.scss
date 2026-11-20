@@ -435,18 +435,6 @@ html.light {
     }
   }
 
-  // Tech pills in light mode
-  .relative.group>span {
-    background: rgba(0, 0, 0, 0.03) !important;
-    border-color: rgba(0, 0, 0, 0.08) !important;
-    color: #1e293b !important;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.06) !important;
-      border-color: rgba(0, 0, 0, 0.15) !important;
-    }
-  }
-
   // Contact form inputs
   input,
   textarea {

@@ -1,305 +1,116 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import { useSpring, useMotionValue, useMotionValueEvent, motion } from "framer-motion";
+import { useEffect, useId, useRef, useState } from "react";
 
 export function TimelineFlow({ parentRef }) {
-  const [pathD, setPathD] = useState("");
-  const [svgHeight, setSvgHeight] = useState(0);
-  const [containerWidth, setContainerWidth] = useState(1200);
-  const [clipD, setClipD] = useState("");
-  const pathRef = useRef(null);
+  const unique = useId().replace(/:/g, "");
+  const [layout, setLayout] = useState({ path: "", width: 0, height: 0 });
+  const clipMask = useRef(null);
+  const bounds = useRef({ start: 0, end: 0, top: 0, pageHeight: 0, width: 0, boundaries: [] });
 
-  // Store layout boundary heights to interpolate the mask tilt during scroll events
-  const boundariesRef = useRef({
-    yAbout: 0,
-    ySkills: 0,
-    yExperience: 0,
-    yEducation: 0
-  });
-
-  // Vertical trigger position coordinate in parent container space
-  const triggerY = useMotionValue(100);
-
-  // Smooth trigger spring for sub-frame scrolling layout updates
-  const smoothTriggerY = useSpring(triggerY, {
-    stiffness: 450,
-    damping: 38,
-    mass: 0.1,
-    restDelta: 0.001
-  });
-
-  const updatePath = () => {
-    const container = parentRef.current;
-    if (!container) return;
-
-    const about = document.getElementById("about");
-    const skills = document.getElementById("skills");
-    const experience = document.getElementById("experience");
-    const education = document.getElementById("education");
-    const contact = document.getElementById("contact");
-
-    if (!about || !skills || !experience || !education || !contact) return;
-
-    const rect = container.getBoundingClientRect();
-    const W = rect.width;
-    const H = rect.height;
-    setSvgHeight(H);
-    setContainerWidth(W);
-
-    // Get position of each section relative to the parent container
-    const getRelativeCoords = (el) => {
-      const elRect = el.getBoundingClientRect();
-      return {
-        top: elRect.top - rect.top,
-        bottom: elRect.bottom - rect.top,
-        height: elRect.height
-      };
-    };
-
-    const cAbout = getRelativeCoords(about);
-    const cSkills = getRelativeCoords(skills);
-    const cExperience = getRelativeCoords(experience);
-    const cEducation = getRelativeCoords(education);
-    const cContact = getRelativeCoords(contact);
-
-    // Save vertical boundaries for dynamic mask tilt interpolation
-    boundariesRef.current = {
-      yAbout: cAbout.bottom,
-      ySkills: cSkills.bottom,
-      yExperience: cExperience.bottom,
-      yEducation: cEducation.bottom
-    };
-
-    // Timeline Path constants
-    const R = 32;       // Corner radius for bends
-    const L = 8;        // Left padding offset
-    const R_Edge = W - 8; // Right padding offset
-
-    // Shift start down below the navbar (100px from top of About)
-    const startY = cAbout.top + 100;
-
-    // Path starts exactly at the start coordinate
-    let d = `M ${L} ${startY}`;
-
-    // 1. About section: vertical down left
-    d += ` L ${L} ${cAbout.bottom - R}`;
-    // Curve Right
-    d += ` A ${R} ${R} 0 0 0 ${L + R} ${cAbout.bottom}`;
-
-    // 2. Horizontal under About / above Skills: Line to Right
-    d += ` L ${R_Edge - R} ${cAbout.bottom}`;
-    // Curve Down
-    d += ` A ${R} ${R} 0 0 1 ${R_Edge} ${cAbout.bottom + R}`;
-
-    // 3. Skills section: vertical down right
-    d += ` L ${R_Edge} ${cSkills.bottom - R}`;
-    // Curve Left
-    d += ` A ${R} ${R} 0 0 1 ${R_Edge - R} ${cSkills.bottom}`;
-
-    // 4. Horizontal under Skills / above Experience: Line to Left
-    d += ` L ${L + R} ${cSkills.bottom}`;
-    // Curve Down
-    d += ` A ${R} ${R} 0 0 0 ${L} ${cSkills.bottom + R}`;
-
-    // 5. Experience section: vertical down left
-    d += ` L ${L} ${cExperience.bottom - R}`;
-    // Curve Right
-    d += ` A ${R} ${R} 0 0 0 ${L + R} ${cExperience.bottom}`;
-
-    // 6. Horizontal under Experience / above Education: Line to Right
-    d += ` L ${R_Edge - R} ${cExperience.bottom}`;
-    // Curve Down
-    d += ` A ${R} ${R} 0 0 1 ${R_Edge} ${cExperience.bottom + R}`;
-
-    // 7. Education section: vertical down right
-    d += ` L ${R_Edge} ${cEducation.bottom - R}`;
-    // Curve Left
-    d += ` A ${R} ${R} 0 0 1 ${R_Edge - R} ${cEducation.bottom}`;
-
-    // 8. Horizontal under Education / above Contact: Line to Left
-    d += ` L ${L + R} ${cEducation.bottom}`;
-    // Curve Down
-    d += ` A ${R} ${R} 0 0 0 ${L} ${cEducation.bottom + R}`;
-
-    // 9. Contact section: vertical down left
-    d += ` L ${L} ${cContact.bottom}`;
-
-    setPathD(d);
-
-    // Set initial clip path coordinates
-    const initialY = smoothTriggerY.get();
-    let initialTilt = 25;
-    const bounds = boundariesRef.current;
-    if (bounds && initialY > bounds.yAbout) {
-      if (initialY <= bounds.ySkills) {
-        const pct = (initialY - bounds.yAbout) / (bounds.ySkills - bounds.yAbout || 1);
-        initialTilt = 25 - pct * 50;
-      } else if (initialY <= bounds.yExperience) {
-        const pct = (initialY - bounds.ySkills) / (bounds.yExperience - bounds.ySkills || 1);
-        initialTilt = -25 + pct * 50;
-      } else if (initialY <= bounds.yEducation) {
-        const pct = (initialY - bounds.yExperience) / (bounds.yEducation - bounds.yExperience || 1);
-        initialTilt = 25 - pct * 50;
-      } else {
-        initialTilt = -25;
-      }
-    }
-    setClipD(`M -100 -1000 L ${W + 100} -1000 L ${W + 100} ${initialY - initialTilt} L -100 ${initialY + initialTilt} Z`);
-  };
-
-  // Reactively rebuild the clip path string when trigger coordinate updates
-  useMotionValueEvent(smoothTriggerY, "change", (latest) => {
-    const bounds = boundariesRef.current;
-    let tilt = 25;
-
-    if (bounds) {
-      const { yAbout, ySkills, yExperience, yEducation } = bounds;
-      
-      // Calculate tilt based on section context
-      if (latest <= yAbout) {
-        tilt = 25; // Left-to-right (About section bottom is L -> R)
-      } else if (latest <= ySkills) {
-        // Transitioning from L->R bottom of About, towards R->L bottom of Skills
-        const pct = (latest - yAbout) / (ySkills - yAbout || 1);
-        tilt = 25 - pct * 50; // Sweeps from +25 to -25
-      } else if (latest <= yExperience) {
-        // Transitioning from R->L bottom of Skills, towards L->R bottom of Experience
-        const pct = (latest - ySkills) / (yExperience - ySkills || 1);
-        tilt = -25 + pct * 50; // Sweeps from -25 to +25
-      } else if (latest <= yEducation) {
-        // Transitioning from L->R bottom of Experience, towards R->L bottom of Education
-        const pct = (latest - yExperience) / (yEducation - yExperience || 1);
-        tilt = 25 - pct * 50; // Sweeps from +25 to -25
-      } else {
-        tilt = -25; // Right-to-left
-      }
-    }
-
-    // A positive tilt (+25) tilts down on the left (reveals left first).
-    // A negative tilt (-25) tilts down on the right (reveals right first).
-    const d = `M -100 -1000 L ${containerWidth + 100} -1000 L ${containerWidth + 100} ${latest - tilt} L -100 ${latest + tilt} Z`;
-    setClipD(d);
-  });
-
-  // Unified hook to manage timeline coordinates, layout observations, and scroll viewport synchronization
   useEffect(() => {
-    const handleScroll = () => {
-      const container = parentRef.current;
-      if (!container) return;
-
-      const about = document.getElementById("about");
-      const contact = document.getElementById("contact");
-      if (!about || !contact) return;
-
-      const rect = container.getBoundingClientRect();
-      const containerTop = rect.top + window.scrollY;
-
-      const aboutRect = about.getBoundingClientRect();
-      const contactRect = contact.getBoundingClientRect();
-
-      const startY = aboutRect.top - rect.top + 100;
-      const endY = contactRect.bottom - rect.top;
-
-      // Lock to startY when user is at the very top of the page
-      if (window.scrollY < 30) {
-        triggerY.set(startY);
-        return;
-      }
-
-      // Current focus trigger point: 65% down the viewport
-      const triggerPointViewport = window.scrollY + window.innerHeight * 0.65;
-      const currentY = triggerPointViewport - containerTop;
-
-      // Clamp the active height between startY and endY
-      const clampedY = Math.max(startY, Math.min(currentY, endY));
-      triggerY.set(clampedY);
-    };
-
-    // Run initial calculations
-    updatePath();
-    handleScroll();
-
-    // Use ResizeObserver to detect dynamic client height changes
     const container = parentRef.current;
     if (!container) return;
+    const sections = ["about", "skills", "experience", "education", "contact"].map((id) => document.getElementById(id));
+    if (sections.some((section) => !section)) return;
+    let frame = 0;
+    let active = true;
+    let needsMeasure = false;
+    let previousHeight = -1;
+    let previousBottom = false;
 
-    const observer = new ResizeObserver(() => {
-      updatePath();
-      handleScroll();
-    });
-    observer.observe(container);
-
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("resize", updatePath);
-    window.addEventListener("resize", handleScroll);
-    
-    // Initial startup interval timer: fires every 100ms for 3 seconds to guarantee layout calculations
-    // align perfectly as image/text content hydrates and finishes loading.
-    const startTime = Date.now();
-    const timer = setInterval(() => {
-      handleScroll();
-      updatePath();
-      if (Date.now() - startTime > 3000) {
-        clearInterval(timer);
+    function syncScroll() {
+      const { start, end, top, pageHeight, width, boundaries } = bounds.current;
+      const scroll = window.scrollY;
+      const atBottom = scroll + window.innerHeight >= pageHeight - 4;
+      const next = Math.round(atBottom ? end : scroll < 30 ? start : Math.max(start, Math.min(end, scroll + window.innerHeight * 0.65 - top)));
+      if ((next !== previousHeight || atBottom !== previousBottom) && clipMask.current) {
+        // Retain the original diagonal reveal so horizontal sections fill across as you scroll.
+        let tilt = 25;
+        const [about, skills, experience, education] = boundaries;
+        if (next > education) tilt = -25;
+        else if (next > experience) tilt = 25 - (next - experience) / (education - experience || 1) * 50;
+        else if (next > skills) tilt = -25 + (next - skills) / (experience - skills || 1) * 50;
+        else if (next > about) tilt = 25 - (next - about) / (skills - about || 1) * 50;
+        const bottom = atBottom ? end + 50 : next;
+        clipMask.current.setAttribute("d", `M -100 -1000 L ${width + 100} -1000 L ${width + 100} ${bottom - tilt} L -100 ${bottom + tilt} Z`);
+        previousHeight = next;
+        previousBottom = atBottom;
       }
-    }, 100);
-
+    }
+    function measure() {
+      const rect = container.getBoundingClientRect();
+      const coords = sections.map((section) => {
+        const box = section.getBoundingClientRect();
+        return { top: box.top - rect.top, bottom: box.bottom - rect.top };
+      });
+      const left = 8;
+      const right = rect.width - 8;
+      const radius = Math.min(32, rect.width / 8);
+      const start = coords[0].top + 100;
+      const end = coords[4].bottom;
+      let path = `M ${left} ${start}`;
+      // Follow the left and right section edges, retaining the original zig-zag flow.
+      for (let i = 0; i < 4; i++) {
+        const y = coords[i].bottom;
+        if (i % 2 === 0) path += ` L ${left} ${y - radius} A ${radius} ${radius} 0 0 0 ${left + radius} ${y} L ${right - radius} ${y} A ${radius} ${radius} 0 0 1 ${right} ${y + radius}`;
+        else path += ` L ${right} ${y - radius} A ${radius} ${radius} 0 0 1 ${right - radius} ${y} L ${left + radius} ${y} A ${radius} ${radius} 0 0 0 ${left} ${y + radius}`;
+      }
+      path += ` L ${left} ${end}`;
+      bounds.current = { start, end, top: rect.top + window.scrollY, pageHeight: document.documentElement.scrollHeight, width: rect.width, boundaries: coords.slice(0, 4).map(({ bottom }) => bottom) };
+      setLayout((current) => current.path === path && current.width === rect.width && current.height === rect.height ? current : { path, width: rect.width, height: rect.height });
+      syncScroll();
+    }
+    function schedule(measureLayout = false) {
+      needsMeasure ||= measureLayout;
+      if (!frame) frame = requestAnimationFrame(() => {
+        frame = 0;
+        if (needsMeasure) { needsMeasure = false; measure(); }
+        else syncScroll();
+      });
+    }
+    const onScroll = () => schedule();
+    const onResize = () => schedule(true);
+    const resize = new ResizeObserver(onResize);
+    resize.observe(container);
+    sections.forEach((section) => resize.observe(section));
+    measure();
+    document.fonts?.ready.then(() => { if (active) measure(); });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
     return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", updatePath);
-      window.removeEventListener("resize", handleScroll);
-      clearInterval(timer);
+      active = false;
+      cancelAnimationFrame(frame);
+      resize.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, [parentRef]);
 
+  const gradient = `timeline-gradient-${unique}`;
+  const clip = `timeline-clip-${unique}`;
   return (
-    <div className="absolute inset-y-0 left-0 w-full pointer-events-none z-20">
-      <svg
-        width="100%"
-        height={svgHeight}
-        className="absolute inset-0 overflow-visible"
-        style={{ height: svgHeight }}
-      >
+    <div className="timeline-glass-flow" aria-hidden="true">
+      <svg width="100%" height={layout.height} viewBox={`0 0 ${layout.width || 1} ${layout.height || 1}`}>
         <defs>
-          {/* Neon gradient for the active timeline line */}
-          <linearGradient id="timeline-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#a855f7" /> {/* Purple */}
-            <stop offset="35%" stopColor="#6366f1" /> {/* Indigo */}
-            <stop offset="70%" stopColor="#06b6d4" /> {/* Cyan */}
-            <stop offset="100%" stopColor="#10b981" /> {/* Emerald */}
+          <linearGradient id={gradient} x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="var(--timeline-purple)" />
+            <stop offset="35%" stopColor="var(--timeline-indigo)" />
+            <stop offset="70%" stopColor="var(--timeline-cyan)" />
+            <stop offset="100%" stopColor="var(--timeline-green)" />
           </linearGradient>
-
-          {/* Standard SVG Clip Path containing reactive path for 100% browser compatibility */}
-          <clipPath id="timeline-clip">
-            {clipD && <path d={clipD} />}
+          <clipPath id={clip} clipPathUnits="userSpaceOnUse">
+            <path ref={clipMask} />
           </clipPath>
         </defs>
-
-        {/* 1. Background static rail path */}
-        {pathD && (
-          <path
-            d={pathD}
-            fill="none"
-            stroke="rgba(255, 255, 255, 0.06)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-          />
-        )}
-
-        {/* 2. Scroll-Linked active path (Clipped to triggerY reveal height) */}
-        {pathD && (
-          <path
-            ref={pathRef}
-            d={pathD}
-            fill="none"
-            stroke="url(#timeline-gradient)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            clipPath="url(#timeline-clip)"
-          />
-        )}
+        {layout.path && <>
+          <path className="timeline-glass-track" d={layout.path} />
+          <path className="timeline-glass-rim" d={layout.path} />
+          <g clipPath={`url(#${clip})`}>
+            <path className="timeline-glass-fill" d={layout.path} stroke={`url(#${gradient})`} />
+            <path className="timeline-glass-shine" d={layout.path} />
+          </g>
+        </>}
       </svg>
     </div>
   );

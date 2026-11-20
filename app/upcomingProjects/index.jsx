@@ -20,7 +20,7 @@ const UpcomingProjects = () => {
 						key={idx}
 						tabIndex={0}
 						className='
-						group relative overflow-hidden rounded-xl
+						liquid-glass group relative overflow-hidden rounded-xl
 						border border-white/10
 						bg-white/[0.03]
 						p-5

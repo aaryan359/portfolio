@@ -1,22 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { ProjectImage } from "./project-image";
 import { ExternalLink, Github, ArrowLeft, Check, ShieldAlert, CheckCircle2, Award, Calendar, Users, Cpu, Compass } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function ProjectDetailClient({ project }) {
   // Determine if this project is primarily web/desktop or mobile
-  const isMobile = project.slug === "every-penny" || project.slug === "vehicle-rental-app" || project.slug === "promptx";
+  const isMobile = project.slug === "pulse" || project.slug === "every-penny" || project.slug === "vehicle-rental-app" || project.slug === "promptx";
 
   return (
     <section className="px-4 sm:px-6 lg:px-8 py-6 relative z-10">
-      {/* Background radial overlays */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10 select-none">
-        <div className="absolute top-[10%] left-[5%] h-[300px] w-[300px] rounded-full bg-purple-500/[0.01] blur-[100px] animate-pulse duration-[9000ms]" />
-        <div className="absolute bottom-[20%] right-[5%] h-[350px] w-[350px] rounded-full bg-blue-500/[0.01] blur-[110px] animate-pulse duration-[11000ms]" />
-      </div>
-
       <div className="mx-auto max-w-5xl space-y-6">
         {/* BACK TO PROJECTS */}
         <Link
@@ -58,7 +53,7 @@ export default function ProjectDetailClient({ project }) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
+                  className="glass-control
                     inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
                     bg-gradient-to-r from-purple-500 to-blue-500
                     text-sm font-semibold text-white transition duration-300
@@ -74,7 +69,7 @@ export default function ProjectDetailClient({ project }) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
+                  className="glass-control
                     inline-flex items-center gap-2 px-5 py-2.5 rounded-xl
                     bg-white/5 border border-white/10 hover:border-white/20
                     text-sm font-semibold text-white/90 hover:text-white transition duration-300
@@ -90,7 +85,7 @@ export default function ProjectDetailClient({ project }) {
             {/* METADATA GRID */}
             <div className="
               rounded-xl border border-white/10
-              bg-[#0a0815]/30 backdrop-blur-xl p-4 space-y-3
+              liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-4 space-y-3
             ">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="space-y-0.5">
@@ -155,7 +150,7 @@ export default function ProjectDetailClient({ project }) {
           {/* CHALLENGE & SOLUTION */}
           <div className="grid sm:grid-cols-2 gap-4">
             {/* Challenge */}
-            <div className="rounded-xl border border-rose-500/20 bg-rose-500/[0.02] p-5 space-y-3 shadow-[0_4px_20px_rgba(244,63,94,0.04)]">
+            <div className="liquid-glass rounded-xl border border-rose-500/20 bg-rose-500/[0.02] p-5 space-y-3 shadow-[0_4px_20px_rgba(244,63,94,0.04)]">
               <h3 className="text-sm md:text-base font-extrabold text-rose-400 uppercase tracking-wider flex items-center gap-2">
                 <ShieldAlert size={16} className="text-rose-400 shrink-0" />
                 The Challenge
@@ -171,7 +166,7 @@ export default function ProjectDetailClient({ project }) {
             </div>
 
             {/* Solution */}
-            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.02] p-5 space-y-3 shadow-[0_4px_20px_rgba(16,185,129,0.04)]">
+            <div className="liquid-glass rounded-xl border border-emerald-500/20 bg-emerald-500/[0.02] p-5 space-y-3 shadow-[0_4px_20px_rgba(16,185,129,0.04)]">
               <h3 className="text-xs md:text-base font-extrabold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
                 <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
                 The Solution
@@ -190,7 +185,7 @@ export default function ProjectDetailClient({ project }) {
           {/* IMPACT & FUTURE PLANS */}
           <div className="grid sm:grid-cols-2 gap-4">
             {/* Impact */}
-            <div className="space-y-3 rounded-xl border border-cyan-500/10 bg-cyan-950/[0.08] p-5">
+            <div className="liquid-glass space-y-3 rounded-xl border border-cyan-500/10 bg-cyan-950/[0.08] p-5">
               <h3 className="text-sm md:text-base font-bold text-cyan-400 uppercase tracking-wider flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
                 Impact & Learnings
@@ -206,7 +201,7 @@ export default function ProjectDetailClient({ project }) {
             </div>
 
             {/* Future plans */}
-            <div className="space-y-3 rounded-xl border border-fuchsia-500/10 bg-fuchsia-950/[0.08] p-5">
+            <div className="liquid-glass space-y-3 rounded-xl border border-fuchsia-500/10 bg-fuchsia-950/[0.08] p-5">
               <h3 className="text-sm md:text-base font-bold text-fuchsia-400 uppercase tracking-wider flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-fuchsia-400" />
                 Future Roadmap
@@ -260,7 +255,8 @@ function DeviceMockup({ isMobile, images, name }) {
           {/* Image content */}
           <div className="relative w-full h-full rounded-[23px] overflow-hidden bg-black z-10 border border-white/5">
             <AnimatePresence mode="wait">
-              <motion.img
+              <ProjectImage
+                as={motion.img}
                 key={index}
                 src={images[index]}
                 alt={`${name} screen ${index + 1}`}
@@ -292,7 +288,8 @@ function DeviceMockup({ isMobile, images, name }) {
           {/* Image content */}
           <div className="relative aspect-[16/10] bg-black">
             <AnimatePresence mode="wait">
-              <motion.img
+              <ProjectImage
+                as={motion.img}
                 key={index}
                 src={images[index]}
                 alt={`${name} screen ${index + 1}`}

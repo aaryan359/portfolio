@@ -8,7 +8,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full px-4 md:px-8 mt-12 pb-12 border-t border-white/10">
+    <footer className="liquid-glass relative rounded-2xl w-full px-4 md:px-8 mt-12 pb-12 border-t border-white/10">
       {/* Visual Top Glow */}
       <div className="pointer-events-none absolute -top-px left-1/2 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-purple-500/50 to-transparent" />
 
@@ -26,10 +26,10 @@ export default function Footer() {
           {/* Availability Status Badge */}
           <div className="inline-flex items-center gap-2 rounded-lg border border-green-500/30 bg-green-500/5 px-3 py-1 text-xs text-green-400 select-none project-card-text">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
-            Available for Freelance & Collaborations
+            Open to six-month SWE internships
           </div>
         </div>
 
@@ -81,7 +81,7 @@ export default function Footer() {
               href={personalData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center social-icon-github transition-all duration-300 hover:-translate-y-0.5"
+              className="glass-control flex h-10 w-10 items-center justify-center social-icon-github transition-all duration-300 hover:-translate-y-0.5"
               aria-label="GitHub Profile"
             >
               <Github size={22} />
@@ -90,7 +90,7 @@ export default function Footer() {
               href={personalData.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center social-icon-linkedin transition-all duration-300 hover:-translate-y-0.5"
+              className="glass-control flex h-10 w-10 items-center justify-center social-icon-linkedin transition-all duration-300 hover:-translate-y-0.5"
               aria-label="LinkedIn Profile"
             >
               <Linkedin size={22} />
@@ -99,7 +99,7 @@ export default function Footer() {
               href={personalData.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center social-icon-twitter transition-all duration-300 hover:-translate-y-0.5"
+              className="glass-control flex h-10 w-10 items-center justify-center social-icon-twitter transition-all duration-300 hover:-translate-y-0.5"
               aria-label="Twitter Profile"
             >
               <Twitter size={22} />
@@ -114,7 +114,7 @@ export default function Footer() {
           © {currentYear} {personalData.name}. All rights reserved.
         </div>
         <div className="flex items-center gap-1.5 mt-4 sm:mt-0 select-none project-card-text">
-          <Sparkles size={12} className="text-purple-400 animate-pulse" />
+          <Sparkles size={12} className="text-purple-400" />
           Designed & crafted dynamically
         </div>
       </div>

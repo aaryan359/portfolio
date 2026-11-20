@@ -63,13 +63,6 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="pt-8 pb-8 pl-6 md:pl-8 relative">
-      {/* Apple-style background blur helper elements */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
-        <div className="absolute top-[20%] right-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
-        <div className="absolute bottom-[20%] left-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.03] blur-[120px] animate-pulse duration-[10000ms]" />
-        <div className="absolute top-[35%] left-[45%] w-28 h-28 rounded-full bg-gradient-to-tr from-white/10 to-transparent blur-md animate-bounce duration-[14000ms]" />
-      </div>
-
       {/* HEADER */}
       <header className="mb-2 relative z-10">
         <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
@@ -84,7 +77,7 @@ export default function ContactSection() {
         {/* RIGHT — INFO CARD */}
         <div className="
           relative flex flex-col justify-between rounded-2xl border border-white/10 
-          bg-[#0a0815]/30 backdrop-blur-xl p-6 md:p-8 transition-all duration-300 
+          liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-6 md:p-8 transition-all duration-300
           hover:border-white/20 hover:bg-[#0a0815]/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]
         ">
           {/* subtle ambient glow */}
@@ -95,16 +88,16 @@ export default function ContactSection() {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
                 <span className="text-xs md:text-sm font-semibold text-emerald-400 uppercase tracking-wider">
-                  Available for internships & collaborations
+                  Open to six-month software engineering internships
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-500"></span>
                 </span>
                 <span className="text-xs md:text-sm font-semibold text-cyan-400 uppercase tracking-wider">
@@ -116,7 +109,7 @@ export default function ContactSection() {
             {/* Direct contact items */}
             <div className="space-y-4">
               {/* EMAIL ROW */}
-              <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02] transition hover:bg-white/[0.04]">
+              <div className="flex items-center justify-between gap-4 p-4 glass-control rounded-xl border border-white/5 bg-white/[0.02] transition hover:bg-white/[0.04]">
                 <div className="flex items-center gap-3.5 min-w-0">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
                     <Mail size={18} />
@@ -138,7 +131,7 @@ export default function ContactSection() {
               </div>
 
               {/* PHONE ROW */}
-              <div className="flex items-center justify-between gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02] transition hover:bg-white/[0.04]">
+              <div className="flex items-center justify-between gap-4 p-4 glass-control rounded-xl border border-white/5 bg-white/[0.02] transition hover:bg-white/[0.04]">
                 <div className="flex items-center gap-3.5 min-w-0">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
                     <Phone size={18} />
@@ -160,7 +153,7 @@ export default function ContactSection() {
               </div>
 
               {/* ADDRESS ROW */}
-              <div className="flex items-center gap-3.5 p-4 rounded-xl border border-white/5 bg-white/[0.02] transition hover:bg-white/[0.04]">
+              <div className="flex items-center gap-3.5 p-4 glass-control rounded-xl border border-white/5 bg-white/[0.02] transition hover:bg-white/[0.04]">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
                   <MapPin size={18} />
                 </div>

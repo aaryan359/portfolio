@@ -1,28 +1,29 @@
 "use client";
 
 import Link from "next/link";
+import { ProjectImage } from "./project-image";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import { TechPill } from "../components/ui/TechPill";
 
 export function ProjectCard({ project }) {
   const categories = project.categories || (project.role ? [project.role.replace(" Developer", "").replace(" Engineering", "")] : []);
-  const points = project.features || project.problem || [];
 
   return (
     <article className="
-      group relative overflow-hidden flex flex-col md:flex-row md:h-[230px]
+      group relative overflow-hidden flex flex-col md:flex-row md:min-h-[230px]
       rounded-2xl border border-white/10
-      bg-[#0a0815]/30 backdrop-blur-xl
+      liquid-glass bg-[#0a0815]/30 backdrop-blur-xl
       transition-all duration-300 ease-out
       hover:border-purple-500/50
     ">
       {/* LEFT COLUMN: IMAGE PREVIEW */}
-      <div className="relative w-full md:w-56 h-48 md:h-full shrink-0 overflow-hidden bg-black/40 border-b md:border-b-0 md:border-r border-white/5">
-        <img
-          src={project.images[0]}
-          alt={project.name}
+      <div className="relative w-full md:w-56 h-48 md:h-auto md:self-stretch shrink-0 overflow-hidden bg-black/40 border-b md:border-b-0 md:border-r border-white/5">
+        <ProjectImage
+          loading={project.id === 1 ? "eager" : "lazy"}
+          src={project.images?.[0]}
+          alt={project.imageAlt || project.name}
           className="
-            h-full w-full object-cover
+            absolute inset-0 h-full w-full object-cover
             transition-transform duration-700 ease-out
             group-hover:scale-105
           "
@@ -31,7 +32,7 @@ export function ProjectCard({ project }) {
       </div>
 
       {/* RIGHT COLUMN: PROJECT DETAILS */}
-      <div className="flex-1 p-4 md:p-5 flex flex-col justify-between md:h-full">
+      <div className="flex-1 p-4 md:p-5 flex flex-col justify-between md:min-h-[230px]">
         <div className="space-y-1.5">
 
           {/* Title and Category Badges */}
@@ -80,7 +81,7 @@ export function ProjectCard({ project }) {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
+                  className="glass-control
                     project-demo-btn
                     inline-flex items-center gap-1.5 px-3 py-1.5 
                     font-semibold text-xs rounded-lg 
@@ -97,7 +98,7 @@ export function ProjectCard({ project }) {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
+                  className="glass-control
                     inline-flex items-center gap-1.5 px-3 py-1.5 
                     bg-black/60 border border-white/20 text-white font-medium text-xs rounded-lg 
                     hover:bg-white/[0.08] hover:border-white/30 transition-all duration-200
@@ -112,7 +113,7 @@ export function ProjectCard({ project }) {
             {/* Right side: Details */}
             <Link
               href={`/projects/${project.slug}`}
-              className="
+              className="glass-control
                 inline-flex items-center gap-1.5 px-3 py-1.5 
                 border border-purple-500/30 bg-purple-500/10 text-purple-300 font-medium text-xs rounded-lg 
                 hover:bg-purple-500/20 hover:border-purple-500/50 transition-all duration-200

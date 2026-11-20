@@ -6,7 +6,7 @@ import { skillsData } from "@/utils/data/skills";
 
 export default function Skills() {
   return (
-    <section id="skills" className="pt-8 pb-8  pl-6 pr-6 md:pr-6 relative">
+    <section id="skills" className="liquid-glass mt-6 rounded-3xl p-6 relative">
       {/* Header */}
       <div className="mb-2">
         <h2 className="text-2xl font-semibold text-white">Skills & Tech Stack</h2>

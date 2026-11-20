@@ -58,13 +58,6 @@ const getCourseIcon = (name) => {
 export default function Education() {
   return (
     <section id="education" className="pt-6 pb-6 pl-6 pr-6 md:pr-6 relative">
-      {/* Apple-style background blur helper elements */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
-        <div className="absolute top-[20%] left-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
-        <div className="absolute bottom-[20%] right-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.03] blur-[120px] animate-pulse duration-[10000ms]" />
-        <div className="absolute top-[40%] right-[40%] w-32 h-32 rounded-full bg-gradient-to-tr from-white/10 to-transparent blur-md animate-bounce duration-[12000ms]" />
-      </div>
-
       {/* Header */}
       <div className="mb-2 relative z-10">
         <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
@@ -80,7 +73,7 @@ export default function Education() {
             className="
               relative flex flex-col justify-between
               rounded-2xl border border-white/10 
-              bg-[#0a0815]/30 backdrop-blur-xl p-5 md:p-6
+              liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-5 md:p-6
             "
           >
             <div>
@@ -128,7 +121,7 @@ export default function Education() {
                       <span
                         tabIndex={0}
                         className="
-                          inline-flex items-center gap-2
+                          glass-control inline-flex items-center gap-2
                           text-xs md:text-sm font-semibold px-3.5 py-1.5 rounded-lg border border-white/10
                           bg-white/[0.03] text-white/90 backdrop-blur-xl
                           cursor-pointer select-none transition-all duration-300

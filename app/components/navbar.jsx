@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 import { personalData } from "@/utils/data/personal-data";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import profileImg from "@/public/profile.jpg";
+import { applyTheme, toggleTheme as toggleDocumentTheme } from "@/utils/theme";
 
 const NAV_ITEMS = [
   { id: "experience", label: "Experience", href: "/#experience" },
@@ -25,26 +26,38 @@ function Navbar() {
   const navRef = useRef(null);
   const pathname = usePathname();
 
-  // Load theme preference on mount
   useEffect(() => {
-    try {
-      const storedTheme = localStorage.getItem("theme");
-      if (storedTheme) {
-        setTheme(storedTheme);
-        document.documentElement.classList.toggle("light", storedTheme === "light");
-      } else {
-        const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
-        setTheme(prefersLight ? "light" : "dark");
-        document.documentElement.classList.toggle("light", prefersLight);
-      }
-    } catch (e) { }
+    const root = document.documentElement;
+    const system = window.matchMedia("(prefers-color-scheme: light)");
+    const sync = () => setTheme(root.classList.contains("light") ? "light" : "dark");
+    let saved;
+    try { saved = localStorage.getItem("theme"); } catch {}
+    applyTheme(root, saved === "light" || saved === "dark" ? saved : system.matches ? "light" : "dark");
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    const onStorage = (event) => {
+      if (event.key !== "theme") return;
+      applyTheme(root, event.newValue === "light" || event.newValue === "dark" ? event.newValue : system.matches ? "light" : "dark");
+    };
+    const onSystem = () => {
+      let preference;
+      try { preference = localStorage.getItem("theme"); } catch {}
+      if (preference !== "light" && preference !== "dark") applyTheme(root, system.matches ? "light" : "dark");
+    };
+    window.addEventListener("storage", onStorage);
+    system.addEventListener("change", onSystem);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("storage", onStorage);
+      system.removeEventListener("change", onSystem);
+    };
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    localStorage.setItem("theme", nextTheme);
-    document.documentElement.classList.toggle("light", nextTheme === "light");
+    let storage;
+    try { storage = window.localStorage; } catch {}
+    setTheme(toggleDocumentTheme(document.documentElement, storage));
   };
 
   // Close mobile menu on outside click
@@ -66,7 +79,7 @@ function Navbar() {
           relative
           rounded-2xl
           border border-white/10
-          bg-black/40 backdrop-blur-md
+          liquid-glass bg-black/40 backdrop-blur-md
           px-4 py-2.5
           transition-all duration-300
         "
@@ -130,14 +143,18 @@ function Navbar() {
             {/* Theme Toggle Button (Desktop) */}
             <button
               onClick={toggleTheme}
-              className="
+              className="glass-control theme-toggle
                 p-2 rounded-xl border border-white/10 bg-white/[0.03] text-white/70 
                 hover:text-white hover:bg-white/10 hover:border-white/20
                 transition-all duration-200 focus-visible:outline-none
               "
-              aria-label="Toggle theme"
+              type="button"
+              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              aria-pressed={theme === "dark"}
+              title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             >
-              {theme === "dark" ? <Sun size={18} className="text-yellow-400" /> : <Moon size={18} className="text-purple-400" />}
+              <Sun size={18} className="theme-sun text-yellow-400" />
+              <Moon size={18} className="theme-moon text-purple-400" />
             </button>
           </div>
 
@@ -146,14 +163,18 @@ function Navbar() {
             {/* Theme Toggle Button (Mobile) */}
             <button
               onClick={toggleTheme}
-              className="
+              className="glass-control theme-toggle
                 p-1.5 rounded-xl border border-white/10 bg-white/[0.03] text-white/70 
                 hover:text-white hover:bg-white/10 hover:border-white/20
                 transition-all duration-200 focus-visible:outline-none
               "
-              aria-label="Toggle theme"
+              type="button"
+              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              aria-pressed={theme === "dark"}
+              title={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
             >
-              {theme === "dark" ? <Sun size={16} className="text-yellow-400" /> : <Moon size={16} className="text-purple-400" />}
+              <Sun size={16} className="theme-sun text-yellow-400" />
+              <Moon size={16} className="theme-moon text-purple-400" />
             </button>
 
             {/* Hamburger button */}

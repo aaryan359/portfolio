@@ -73,7 +73,11 @@ export default function HeroSection() {
 						improving performance, and learning how to build features that people actually use.
 					</p>
 
-					{/* CTA */}
+					<p className="mt-5 text-sm font-medium text-emerald-400">
+                        {personalData.availability}
+                    </p>
+
+                    {/* CTA */}
 					<div
 						className='
 							mt-8 flex flex-wrap gap-4
@@ -81,7 +85,7 @@ export default function HeroSection() {
 						'>
 						<Link
 							href='#contact'
-							className='btn-mono'>
+							className='glass-control btn-mono'>
 							<RiContactsFill size={14} />
 							Get in touch
 						</Link>
@@ -89,7 +93,7 @@ export default function HeroSection() {
 						<Link
 							href={personalData.resume}
 							target='_blank'
-							className='btn-mono'>
+							className='glass-control btn-mono'>
 							<MdDownload size={14} />
 							Resume / CV
 						</Link>

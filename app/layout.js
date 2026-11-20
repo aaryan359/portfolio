@@ -5,9 +5,13 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+import GlassVisibility from "./components/ui/GlassVisibility";
 import "./css/card.scss";
 import "./css/globals.scss";
+import "./css/liquid-glass.scss";
 import ScrollToTop from "./components/helper/scroll-to-top";
+
+const assetBase = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 
 export const metadata = {
   title: "Aaryan Meena – Freelance Web & App Developer",
@@ -41,20 +45,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                try {
-                  const theme = localStorage.getItem('theme');
-                  if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-                    document.documentElement.classList.add('light');
-                  } else {
-                    document.documentElement.classList.remove('light');
-                  }
-                } catch (e) {}
+                var saved;
+                try { saved = localStorage.getItem('theme'); } catch (e) {}
+                var light = saved === 'light' || (saved !== 'dark' && window.matchMedia('(prefers-color-scheme: light)').matches);
+                var root = document.documentElement;
+                root.classList.toggle('light', light);
+                root.dataset.theme = light ? 'light' : 'dark';
+                root.style.colorScheme = light ? 'light' : 'dark';
               })();
             `
           }}
@@ -105,6 +108,14 @@ export default function RootLayout({ children }) {
       </head>
 
       <body>
+        <div className="glass-backdrop" aria-hidden="true">
+          <picture className="glass-photo">
+            <source media="(max-width: 640px)" srcSet={`${assetBase}/image/backgrounds/alpine-glass-mobile.webp`} />
+            <img src={`${assetBase}/image/backgrounds/alpine-glass.webp`} alt="" width="1920" height="1280" fetchPriority="high" decoding="async" />
+          </picture>
+          {Array.from({ length: 7 }, (_, index) => <span key={index} className={`glass-blob glass-blob-${index + 1}`} />)}
+        </div>
+        <GlassVisibility />
         <ToastContainer />
         <main className="min-h-screen w-full max-w-5xl relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-white">
           <Navbar />

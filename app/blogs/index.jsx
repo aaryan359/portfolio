@@ -22,7 +22,7 @@ function BlogCard({ blog }) {
       rel="noopener noreferrer"
       tabIndex={0}
       className="
-        blog-card
+        liquid-glass blog-card
         group relative block
         rounded-xl
         p-6
