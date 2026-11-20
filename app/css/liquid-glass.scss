@@ -17,18 +17,18 @@
 }
 html.light {
   color-scheme: light;
-  --glass-page: #edf2f5;
-  --glass-ink: #0d1a28;
-  --glass-muted: #1b2939;
-  --glass-surface: rgb(255 255 255 / 16%);
+  --glass-page: #153b35;
+  --glass-ink: #f2f7fc;
+  --glass-muted: #d9e5ed;
+  --glass-surface: rgb(8 26 28 / 36%);
   --glass-border: rgb(255 255 255 / 24%);
   --glass-rim: rgb(255 255 255 / 45%);
   --glass-shadow: rgb(34 64 89 / 10%);
-  --glass-control-fill: rgb(255 255 255 / 6%);
-  --glass-nav-fill: rgb(241 247 251 / 28%);
-  --glass-focus: #7355b8;
-  --glass-opaque: #f4f7fa;
-  --muted-foreground: #1b2939;
+  --glass-control-fill: rgb(255 255 255 / 4%);
+  --glass-nav-fill: rgb(8 26 28 / 40%);
+  --glass-focus: #d4bfff;
+  --glass-opaque: #163331;
+  --muted-foreground: #d9e5ed;
 }
 html[data-theme] body { background: var(--glass-page) !important; color: var(--glass-ink); }
 body > main { z-index: 1; }
@@ -39,24 +39,10 @@ body > main { z-index: 1; }
 .glass-photo img { object-fit: cover; object-position: center; }
 .glass-backdrop::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgb(4 12 22 / 44%), rgb(4 12 22 / 44%));
+  background: rgb(3 14 18 / 28%);
 }
-html.light .glass-backdrop::after { background: linear-gradient(180deg, rgb(241 247 252 / 34%), rgb(241 247 252 / 42%)); }
-.glass-blob {
-  position: absolute;
-  width: clamp(120px, 22vw, 260px);
-  aspect-ratio: 1;
-  background: radial-gradient(ellipse, rgb(var(--blob-rgb) / 10%), rgb(var(--blob-rgb) / 4%) 38%, transparent 72%);
-  border-radius: 50%;
-}
-.glass-blob-1 { --blob-rgb: 159 145 211; left: 1%; top: 3%; }
-.glass-blob-2 { --blob-rgb: 117 188 198; right: 5%; top: 21%; width: 180px; }
-.glass-blob-3 { --blob-rgb: 202 156 184; left: 33%; top: 42%; width: 140px; }
-.glass-blob-4 { --blob-rgb: 148 167 207; right: 0; top: 68%; }
-.glass-blob-5 { --blob-rgb: 134 195 173; left: 2%; top: 80%; width: 180px; }
-.glass-blob-6 { --blob-rgb: 166 154 212; left: 52%; top: -6%; width: 160px; }
-.glass-blob-7 { --blob-rgb: 124 179 203; left: 55%; top: 91%; width: 130px; }
-
+/* Day mode shows the original photo; night mode adds only a neutral dark scrim. */
+html.light .glass-backdrop::after { background: none; }
 /* Small controls and nested panels share their parent material, without extra blur. */
 html[data-theme] body main [class*="backdrop-"],
 html[data-theme] body main :is(.liquid-glass, .glass-control, button, input, textarea, .tech-pill-tooltip, .course-pill-tooltip, .contact-tooltip) {
@@ -136,7 +122,6 @@ html body main .timeline-glass-flow path { fill: none; stroke-linecap: round; st
 .timeline-glass-shine { stroke: rgb(255 255 255 / 26%); stroke-width: 0.4; transform: translateX(-0.7px); }
 @media (max-width: 640px) {
   .home-timeline { padding-inline: 12px; }
-  .glass-blob { width: 135px; }
   html[data-theme] body main .liquid-glass.glass-in-view { -webkit-backdrop-filter: blur(2px) !important; backdrop-filter: blur(2px) !important; }
   html[data-theme] body main > header > nav.liquid-glass { -webkit-backdrop-filter: blur(2px) !important; backdrop-filter: blur(2px) !important; }
 }
@@ -222,3 +207,22 @@ html.light .glass-tooltip { background: #f4f8fc; color: #142131; border-color: r
 }
 
 @media (pointer: coarse) { .info-tooltip-trigger[tabindex] > .glass-control { min-height: 44px; } }
+
+/* Keep the photo's natural colour in day mode. Contrast belongs to the panels,
+   rather than a white overlay across the entire photograph. */
+html.light[data-theme] body main { color: var(--glass-ink) !important; }
+html.light[data-theme] body main :is(h1, h2, h3, h4, h5, h6, p) { color: var(--glass-ink) !important; }
+html.light[data-theme] body main :is(.about-thought-text, .experience-point-text) { color: var(--glass-muted) !important; }
+html.light[data-theme] body main nav a,
+html.light[data-theme] body main footer a { color: var(--glass-ink) !important; }
+html.light[data-theme] body main .glass-control:not([class*="social-icon-"]) { color: var(--glass-ink) !important; }
+html.light[data-theme] body main :is(.text-purple-300, .text-purple-400) { color: #d4bfff !important; }
+html.light[data-theme] body main svg.text-purple-400 { stroke: currentColor !important; }
+html.light[data-theme] body main .social-icon-github { color: #f2f7fc !important; }
+html.light[data-theme] body main .blog-card :is(span, div) { color: inherit !important; }
+html.light[data-theme] body main .text-rose-100\/90 { color: #fecdd3 !important; }
+html.light[data-theme] body main .text-emerald-100\/90 { color: #d1fae5 !important; }
+html.light[data-theme] body main .text-cyan-100\/90 { color: #cffafe !important; }
+html.light[data-theme] body main .text-fuchsia-100\/90 { color: #fae8ff !important; }
+
+html.light[data-theme] body main .text-white { color: var(--glass-ink) !important; }
