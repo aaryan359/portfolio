@@ -12,7 +12,7 @@ export default function Home() {
   const containerRef = useRef(null);
 
   return (
-    <div ref={containerRef} className="home-timeline relative w-full">
+    <div ref={containerRef} className="relative w-full">
       {/* Scroll-Linked Neon Zig-Zag Timeline */}
       <TimelineFlow parentRef={containerRef} />
 

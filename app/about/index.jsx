@@ -8,10 +8,16 @@ import { FaTwitterSquare, FaEnvelope } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
+import { motion } from "framer-motion";
 
 function AboutSection() {
   return (
-    <section id="about" className="liquid-glass relative mt-6 rounded-3xl p-5 sm:p-7 overflow-hidden">
+    <section id="about" className="relative pt-10 pb-8 pl-8 md:pl-8 overflow-hidden">
+      {/* Background glow effect */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-32 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-purple-500/10 blur-[120px]" />
+      </div>
+
       <div className="w-full flex flex-col justify-center">
         <span className="text-xs font-semibold tracking-widest uppercase text-purple-400">
           DevOps & AI/ML Engineer
@@ -31,7 +37,7 @@ function AboutSection() {
         <div className="mt-4 flex flex-wrap gap-4">
           <Link
             href="#contact"
-            className="glass-control inline-flex items-center gap-2 rounded-xl bg-purple-600 px-3 py-1.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25 hover:bg-purple-500 hover:shadow-purple-500/35 transition duration-300"
+            className="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-3 py-1.5 text-sm font-semibold text-white shadow-lg shadow-purple-600/25 hover:bg-purple-500 hover:shadow-purple-500/35 transition duration-300"
           >
             <RiContactsFill size={14} />
             Get in touch
@@ -41,7 +47,7 @@ function AboutSection() {
             href={personalData.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-control inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/20 transition duration-300 resume-btn"
+            className="inline-flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-1.5 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/20 transition duration-300 resume-btn"
           >
             <MdDownload size={16} />
             Resume / CV
@@ -56,7 +62,7 @@ function AboutSection() {
               href={personalData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control w-10 h-10 flex items-center justify-center social-icon-github transition-all duration-300 hover:-translate-y-0.5"
+              className="w-10 h-10 flex items-center justify-center social-icon-github transition-all duration-300 hover:-translate-y-0.5"
               aria-label="GitHub"
             >
               <BsGithub size={18} />
@@ -73,7 +79,7 @@ function AboutSection() {
               href={personalData.linkedIn}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control w-10 h-10 flex items-center justify-center social-icon-linkedin transition-all duration-300 hover:-translate-y-0.5"
+              className="w-10 h-10 flex items-center justify-center social-icon-linkedin transition-all duration-300 hover:-translate-y-0.5"
               aria-label="LinkedIn"
             >
               <BsLinkedin size={18} />
@@ -90,7 +96,7 @@ function AboutSection() {
               href={personalData.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control w-10 h-10 flex items-center justify-center social-icon-leetcode transition-all duration-300 hover:-translate-y-0.5"
+              className="w-10 h-10 flex items-center justify-center social-icon-leetcode transition-all duration-300 hover:-translate-y-0.5"
               aria-label="LeetCode"
             >
               <SiLeetcode size={18} />
@@ -107,7 +113,7 @@ function AboutSection() {
               href={personalData.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control w-10 h-10 flex items-center justify-center social-icon-instagram transition-all duration-300 hover:-translate-y-0.5"
+              className="w-10 h-10 flex items-center justify-center social-icon-instagram transition-all duration-300 hover:-translate-y-0.5"
               aria-label="Instagram"
             >
               <BsInstagram size={18} />
@@ -124,7 +130,7 @@ function AboutSection() {
               href={personalData.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control w-10 h-10 flex items-center justify-center social-icon-twitter transition-all duration-300 hover:-translate-y-0.5"
+              className="w-10 h-10 flex items-center justify-center social-icon-twitter transition-all duration-300 hover:-translate-y-0.5"
               aria-label="Twitter"
             >
               <FaTwitterSquare size={18} />
@@ -141,7 +147,7 @@ function AboutSection() {
               href={`https://wa.me/${personalData.phone.replace(/[^0-9]/g, "")}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control w-10 h-10 flex items-center justify-center social-icon-whatsapp transition-all duration-300 hover:-translate-y-0.5"
+              className="w-10 h-10 flex items-center justify-center social-icon-whatsapp transition-all duration-300 hover:-translate-y-0.5"
               aria-label="WhatsApp"
             >
               <BsWhatsapp size={18} />
@@ -156,7 +162,7 @@ function AboutSection() {
           <div className="relative group">
             <a
               href={`mailto:${personalData.email}`}
-              className="glass-control w-10 h-10 flex items-center justify-center social-icon-email transition-all duration-300 hover:-translate-y-0.5"
+              className="w-10 h-10 flex items-center justify-center social-icon-email transition-all duration-300 hover:-translate-y-0.5"
               aria-label="Email"
             >
               <FaEnvelope size={18} />

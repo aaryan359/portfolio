@@ -5,10 +5,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
-import GlassVisibility from "./components/ui/GlassVisibility";
 import "./css/card.scss";
 import "./css/globals.scss";
-import "./css/liquid-glass.scss";
 import ScrollToTop from "./components/helper/scroll-to-top";
 
 export const metadata = {
@@ -43,19 +41,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
-                var saved;
-                try { saved = localStorage.getItem('theme'); } catch (e) {}
-                var light = saved === 'light' || (saved !== 'dark' && window.matchMedia('(prefers-color-scheme: light)').matches);
-                var root = document.documentElement;
-                root.classList.toggle('light', light);
-                root.dataset.theme = light ? 'light' : 'dark';
-                root.style.colorScheme = light ? 'light' : 'dark';
+                try {
+                  const theme = localStorage.getItem('theme');
+                  if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                    document.documentElement.classList.add('light');
+                  } else {
+                    document.documentElement.classList.remove('light');
+                  }
+                } catch (e) {}
               })();
             `
           }}
@@ -106,9 +105,8 @@ export default function RootLayout({ children }) {
       </head>
 
       <body>
-        <GlassVisibility />
         <ToastContainer />
-        <main className="portfolio-shell min-h-screen w-full relative mx-auto text-white">
+        <main className="min-h-screen w-full max-w-5xl relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12 text-white">
           <Navbar />
           {children}
 

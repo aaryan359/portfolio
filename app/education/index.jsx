@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import InfoTooltip from "../components/ui/InfoTooltip";
 import { educations } from "@/utils/data/educations";
 import { FaGraduationCap, FaFlask } from "react-icons/fa";
 import {
@@ -58,7 +57,14 @@ const getCourseIcon = (name) => {
 
 export default function Education() {
   return (
-    <section id="education" className="section-shell py-6 relative">
+    <section id="education" className="pt-6 pb-6 pl-6 pr-6 md:pr-6 relative">
+      {/* Apple-style background blur helper elements */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
+        <div className="absolute top-[20%] left-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.02] blur-[110px] animate-pulse duration-[8000ms]" />
+        <div className="absolute bottom-[20%] right-[10%] h-[350px] w-[350px] rounded-full bg-white/[0.03] blur-[120px] animate-pulse duration-[10000ms]" />
+        <div className="absolute top-[40%] right-[40%] w-32 h-32 rounded-full bg-gradient-to-tr from-white/10 to-transparent blur-md animate-bounce duration-[12000ms]" />
+      </div>
+
       {/* Header */}
       <div className="mb-2 relative z-10">
         <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
@@ -74,7 +80,7 @@ export default function Education() {
             className="
               relative flex flex-col justify-between
               rounded-2xl border border-white/10 
-              liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-5 md:p-6
+              bg-[#0a0815]/30 backdrop-blur-xl p-5 md:p-6
             "
           >
             <div>
@@ -118,10 +124,11 @@ export default function Education() {
                 </p>
                 <div className="flex flex-wrap gap-2.5">
                   {edu.coursework.map((course) => (
-                    <InfoTooltip key={course.name} description={course.desc}>
+                    <div key={course.name} className="relative group hover:z-50">
                       <span
+                        tabIndex={0}
                         className="
-                          glass-control inline-flex items-center gap-2
+                          inline-flex items-center gap-2
                           text-xs md:text-sm font-semibold px-3.5 py-1.5 rounded-lg border border-white/10
                           bg-white/[0.03] text-white/90 backdrop-blur-xl
                           cursor-pointer select-none transition-all duration-300
@@ -134,7 +141,27 @@ export default function Education() {
                         {course.name}
                       </span>
 
-                    </InfoTooltip>
+                      {/* Tooltip Description on Hover */}
+                      {course.desc && (
+                        <div
+                          className="
+                            course-pill-tooltip
+                            absolute bottom-full left-1/2 z-50 mb-3 w-64 -translate-x-1/2
+                            rounded-xl border border-white/10 bg-[#121214] p-3 text-xs md:text-sm font-medium text-zinc-200 shadow-[0_10px_35px_rgba(0,0,0,0.8),0_0_15px_rgba(255,255,255,0.05)]
+                            backdrop-blur-lg transition-all duration-200 ease-out
+                            opacity-0 scale-95 pointer-events-none
+                            group-hover:opacity-100 group-hover:scale-100
+                          "
+                        >
+                          {/* Arrow */}
+                          <div className="absolute top-full left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1 rotate-45 border-r border-b border-white/10 bg-[#121214] tooltip-arrow" />
+
+                          <div className="text-center leading-relaxed font-normal">
+                            {course.desc}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               </div>

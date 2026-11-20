@@ -7,7 +7,18 @@ import { experiences } from "@/utils/data/experience";
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-shell py-6 relative">
+    <section id="experience" className="pt-8 pb-8 pl-8 md:pl-8 relative">
+      {/* Apple-style background blur helper elements */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden z-0 select-none">
+        <div className="absolute top-[10%] left-[20%] h-[350px] w-[350px] rounded-full bg-white/[0.03] blur-[110px] animate-pulse duration-[8000ms]" />
+        <div className="absolute top-[45%] right-[25%] h-[300px] w-[300px] rounded-full bg-white/[0.02] blur-[100px] animate-pulse duration-[10000ms]" />
+        <div className="absolute bottom-[10%] left-[30%] h-[280px] w-[280px] rounded-full bg-white/[0.04] blur-[90px] animate-pulse duration-[6000ms]" />
+
+        {/* Colorful elements for deep refraction contrast */}
+        <div className="absolute top-[5%] right-[15%] h-[250px] w-[250px] rounded-full bg-purple-500/5 blur-[90px]" />
+        <div className="absolute bottom-[5%] left-[15%] h-[300px] w-[300px] rounded-full bg-blue-500/5 blur-[100px]" />
+      </div>
+
       {/* Header */}
       <div className="mb-4 relative z-10">
         <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
@@ -21,9 +32,9 @@ export default function Experience() {
           <div key={idx} className="group relative">
             {/* Apple-style Glassmorphic Card */}
             <div className="
-              relative rounded-2xl border border-white/10 
-              liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-4 sm:p-6 transition-all duration-300
-              hover:border-white/20 hover:bg-[#0a0815]/50 
+              relative rounded-2xl border border-white/10
+              bg-[#0a0815]/30 backdrop-blur-xl p-6 transition-all duration-300
+              hover:border-white/20 hover:bg-[#0a0815]/50
               hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]
             ">
               {/* Header Container */}
@@ -36,7 +47,7 @@ export default function Experience() {
 
                     {exp.status === "Active" && (
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-ping" />
                         {exp.status}
                       </span>
                     )}

@@ -53,7 +53,7 @@ export default function Gallery() {
           <div
             key={image.id}
             className="
-              liquid-glass blog-card
+              blog-card
               break-inside-avoid
               mb-4
               overflow-hidden
@@ -63,8 +63,6 @@ export default function Gallery() {
           >
             <div className="relative overflow-hidden rounded-lg mb-3">
               <img
-                loading="lazy"
-                decoding="async"
                 src={image.src}
                 alt={image.title}
                 className="w-full h-auto object-cover rounded-lg block transition-transform duration-300 hover:scale-[1.02]"

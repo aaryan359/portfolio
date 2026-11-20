@@ -19,7 +19,7 @@ function PaperCard({ paper }) {
         group relative block
         rounded-xl
         border border-white/10
-        liquid-glass bg-[#0f0f0f]
+        bg-[#0f0f0f]
         p-6
         transition-all duration-300
         hover:border-white/20
@@ -40,7 +40,7 @@ function PaperCard({ paper }) {
               href={paper.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control p-2 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition duration-200"
+              className="p-2 rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition duration-200"
               aria-label="View Paper"
             >
               <ExternalLink className="h-4 w-4" />

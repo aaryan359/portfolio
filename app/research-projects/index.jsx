@@ -12,7 +12,7 @@ function ResearchProjectCard({ project }) {
       className="
         group relative overflow-hidden
         rounded-xl border border-white/10
-        liquid-glass bg-[#0f0f0f]
+        bg-[#0f0f0f]
         p-6
         transition-all duration-300
         hover:border-white/20
@@ -87,7 +87,7 @@ function ResearchProjectCard({ project }) {
               href={project.paperUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control
+              className="
                 project-demo-btn
                 inline-flex items-center gap-1.5 px-3 py-1.5 
                 font-semibold text-xs rounded-lg 
@@ -104,7 +104,7 @@ function ResearchProjectCard({ project }) {
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-control
+              className="
                 inline-flex items-center gap-1.5 px-3 py-1.5 
                 bg-black/60 border border-white/20 text-white font-medium text-xs rounded-lg 
                 hover:bg-white/[0.08] hover:border-white/30 transition-all duration-200

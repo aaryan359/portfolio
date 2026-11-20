@@ -6,7 +6,7 @@ export function ShowMoreButton({
   return (
     <button
       onClick={onClick}
-      className="glass-control
+      className="
         group 
         inline-flex items-center gap-2
         rounded-full px-3 py-2

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=IM+Fell+Great+Primer:ital,wght@0,400;0,700;1,400;1,700&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Sono:wght@200..800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,17 +7,12 @@
 
 @font-face {
   font-family: 'Hanken Grotesk';
-  src: url('../../public/fonts/HankenGrotesk-Variable.ttf') format('truetype');
-  font-weight: 100 900;
-  font-display: swap;
+  src: url('/fonts/HankenGrotesk-Variable.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Hanken Grotesk Italic';
-  src: url('../../public/fonts/HankenGrotesk-Italic-Variable.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
+  src: url('/fonts/HankenGrotesk-Italic-Variable.ttf') format('truetype');
 }
 
 
@@ -247,11 +243,11 @@
 }
 
 .about-intro-text {
-  font-family: 'Hanken Grotesk', sans-serif !important;
+  font-family: "Schibsted Grotesk", sans-serif !important;
 }
 
 .about-thought-text {
-  font-family: 'Hanken Grotesk', sans-serif !important;
+  font-family: "Schibsted Grotesk", sans-serif !important;
   font-size: 1.1rem;
   line-height: 1.75;
   letter-spacing: -0.015em;
@@ -260,7 +256,7 @@
 }
 
 .experience-point-text {
-  font-family: 'Hanken Grotesk', sans-serif;
+  font-family: "Schibsted Grotesk", sans-serif;
   font-size: 1.05rem;
   line-height: 1.65;
   letter-spacing: -0.015em;
@@ -269,7 +265,7 @@
 }
 
 .project-card-text {
-  font-family: 'Hanken Grotesk', sans-serif !important;
+  font-family: "Schibsted Grotesk", sans-serif !important;
 }
 
 .project-demo-btn {
@@ -436,6 +432,18 @@ html.light {
         background: rgba(0, 0, 0, 0.06) !important;
         border-color: rgba(0, 0, 0, 0.15) !important;
       }
+    }
+  }
+
+  // Tech pills in light mode
+  .relative.group>span {
+    background: rgba(0, 0, 0, 0.03) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    color: #1e293b !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06) !important;
+      border-color: rgba(0, 0, 0, 0.15) !important;
     }
   }
 
