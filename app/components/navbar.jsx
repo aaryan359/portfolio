@@ -60,6 +60,17 @@ function Navbar() {
     setTheme(toggleDocumentTheme(document.documentElement, storage));
   };
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event) => {
+      if (event.key !== "Escape") return;
+      setOpen(false);
+      navRef.current?.querySelector('[aria-controls="portfolio-mobile-navigation"]')?.focus();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   // Close mobile menu on outside click
   useEffect(() => {
     function handleClick(e) {
@@ -90,7 +101,7 @@ function Navbar() {
           {/* Logo / Profile */}
           <Link
             href="/"
-            className="flex items-center gap-3 select-none"
+            className="flex min-w-0 items-center gap-2 sm:gap-3 select-none"
           >
             <div className="relative w-[40px] h-[40px] bg-white/5 rounded-lg overflow-hidden shrink-0 border border-white/10">
               <Image
@@ -102,7 +113,7 @@ function Navbar() {
                 unoptimized
               />
             </div>
-            <span className="hidden sm:block text-sm font-semibold tracking-wide text-white/90 hover:text-white transition-colors duration-200">
+            <span className="block max-w-[9rem] truncate text-sm font-semibold tracking-wide text-white/90 hover:text-white transition-colors duration-200">
               {personalData.name}
             </span>
           </Link>
@@ -180,7 +191,10 @@ function Navbar() {
             {/* Hamburger button */}
             <button
               onClick={() => setOpen((v) => !v)}
-              aria-label="Toggle menu"
+              type="button"
+              aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={open}
+              aria-controls="portfolio-mobile-navigation"
               className="
                 rounded-lg p-2
                 text-white/70
@@ -196,8 +210,11 @@ function Navbar() {
 
         {/* Mobile Nav Drawer */}
         <div
+          id="portfolio-mobile-navigation"
+          hidden={!open}
+          aria-hidden={!open}
           className={`
-            lg:hidden overflow-hidden
+            mobile-navigation lg:hidden overflow-hidden
             transition-all duration-300 ease-in-out
             ${open ? "max-h-[500px] opacity-100 mt-4" : "max-h-0 opacity-0"}
           `}

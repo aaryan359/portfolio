@@ -10,7 +10,7 @@ export function ProjectCard({ project }) {
 
   return (
     <article className="
-      group relative overflow-hidden flex flex-col md:flex-row md:min-h-[230px]
+      project-card group relative overflow-hidden flex flex-col md:flex-row md:min-h-[230px]
       rounded-2xl border border-white/10
       liquid-glass bg-[#0a0815]/30 backdrop-blur-xl
       transition-all duration-300 ease-out
@@ -32,7 +32,7 @@ export function ProjectCard({ project }) {
       </div>
 
       {/* RIGHT COLUMN: PROJECT DETAILS */}
-      <div className="flex-1 p-4 md:p-5 flex flex-col justify-between md:min-h-[230px]">
+      <div className="project-card-content min-w-0 flex-1 p-4 md:p-5 flex flex-col justify-between md:min-h-[230px]">
         <div className="space-y-1.5">
 
           {/* Title and Category Badges */}
@@ -62,7 +62,7 @@ export function ProjectCard({ project }) {
         {/* Tech Stack and Call-To-Action buttons */}
         <div className="mt-3 space-y-2 pt-2 border-t border-white/5">
           {/* Tech Stack Pills (Wraps to exactly 2 lines using smaller premium sizes) */}
-          <div className="flex flex-wrap gap-1.5 max-h-[62px] overflow-hidden">
+          <div className="project-tech-stack flex flex-wrap gap-1.5 max-h-[62px] overflow-hidden">
             {project.techStack.map((tech) => (
               <TechPill
                 key={tech}
@@ -73,9 +73,9 @@ export function ProjectCard({ project }) {
           </div>
 
           {/* Action Buttons: Left Aligned Demo/Github, Right Aligned Details */}
-          <div className="flex items-center justify-between w-full">
+          <div className="project-card-actions flex flex-wrap gap-3 items-center justify-between w-full">
             {/* Left side: Demo and Github */}
-            <div className="flex gap-2.5">
+            <div className="flex flex-wrap gap-2.5">
               {project.liveUrl && project.liveUrl !== "#" && (
                 <a
                   href={project.liveUrl}

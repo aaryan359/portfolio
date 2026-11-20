@@ -11,7 +11,7 @@ export default function ProjectDetailClient({ project }) {
   const isMobile = project.slug === "pulse" || project.slug === "every-penny" || project.slug === "vehicle-rental-app" || project.slug === "promptx";
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-6 relative z-10">
+    <section className="project-detail py-6 relative z-10">
       <div className="mx-auto max-w-5xl space-y-6">
         {/* BACK TO PROJECTS */}
         <Link
@@ -120,7 +120,7 @@ export default function ProjectDetailClient({ project }) {
               <span className="text-xs font-bold text-white/45 tracking-wider uppercase block">
                 Key Features
               </span>
-              <div className="grid grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {project.features.map((feature, i) => (
                   <div 
                     key={i} 
@@ -130,7 +130,7 @@ export default function ProjectDetailClient({ project }) {
                     "
                   >
                     <Check size={13} className="text-purple-400 shrink-0" />
-                    <span className="font-semibold line-clamp-1">{feature}</span>
+                    <span className="font-semibold leading-relaxed">{feature}</span>
                   </div>
                 ))}
               </div>

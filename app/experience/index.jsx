@@ -7,7 +7,7 @@ import { experiences } from "@/utils/data/experience";
 
 export default function Experience() {
   return (
-    <section id="experience" className="pt-8 pb-8 pl-8 md:pl-8 relative">
+    <section id="experience" className="section-shell py-6 relative">
       {/* Header */}
       <div className="mb-4 relative z-10">
         <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
@@ -22,7 +22,7 @@ export default function Experience() {
             {/* Apple-style Glassmorphic Card */}
             <div className="
               relative rounded-2xl border border-white/10 
-              liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-6 transition-all duration-300
+              liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-4 sm:p-6 transition-all duration-300
               hover:border-white/20 hover:bg-[#0a0815]/50 
               hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]
             ">

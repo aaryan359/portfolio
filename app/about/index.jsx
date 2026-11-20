@@ -11,7 +11,7 @@ import { SiLeetcode } from "react-icons/si";
 
 function AboutSection() {
   return (
-    <section id="about" className="liquid-glass relative mt-6 rounded-3xl p-6 md:p-8 overflow-hidden">
+    <section id="about" className="liquid-glass relative mt-6 rounded-3xl p-5 sm:p-7 overflow-hidden">
       <div className="w-full flex flex-col justify-center">
         <span className="text-xs font-semibold tracking-widest uppercase text-purple-400">
           DevOps & AI/ML Engineer

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import InfoTooltip from "../components/ui/InfoTooltip";
 import { educations } from "@/utils/data/educations";
 import { FaGraduationCap, FaFlask } from "react-icons/fa";
 import {
@@ -57,7 +58,7 @@ const getCourseIcon = (name) => {
 
 export default function Education() {
   return (
-    <section id="education" className="pt-6 pb-6 pl-6 pr-6 md:pr-6 relative">
+    <section id="education" className="section-shell py-6 relative">
       {/* Header */}
       <div className="mb-2 relative z-10">
         <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
@@ -117,9 +118,8 @@ export default function Education() {
                 </p>
                 <div className="flex flex-wrap gap-2.5">
                   {edu.coursework.map((course) => (
-                    <div key={course.name} className="relative group hover:z-50">
+                    <InfoTooltip key={course.name} description={course.desc}>
                       <span
-                        tabIndex={0}
                         className="
                           glass-control inline-flex items-center gap-2
                           text-xs md:text-sm font-semibold px-3.5 py-1.5 rounded-lg border border-white/10
@@ -134,27 +134,7 @@ export default function Education() {
                         {course.name}
                       </span>
 
-                      {/* Tooltip Description on Hover */}
-                      {course.desc && (
-                        <div
-                          className="
-                            course-pill-tooltip
-                            absolute bottom-full left-1/2 z-50 mb-3 w-64 -translate-x-1/2
-                            rounded-xl border border-white/10 bg-[#121214] p-3 text-xs md:text-sm font-medium text-zinc-200 shadow-[0_10px_35px_rgba(0,0,0,0.8),0_0_15px_rgba(255,255,255,0.05)]
-                            backdrop-blur-lg transition-all duration-200 ease-out
-                            opacity-0 scale-95 pointer-events-none
-                            group-hover:opacity-100 group-hover:scale-100
-                          "
-                        >
-                          {/* Arrow */}
-                          <div className="absolute top-full left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1 rotate-45 border-r border-b border-white/10 bg-[#121214] tooltip-arrow" />
-
-                          <div className="text-center leading-relaxed font-normal">
-                            {course.desc}
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                    </InfoTooltip>
                   ))}
                 </div>
               </div>

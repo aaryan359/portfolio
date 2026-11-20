@@ -52,7 +52,7 @@ export function ContactForm() {
         relative rounded-2xl
         border border-white/10
         liquid-glass bg-[#0a0815]/30 backdrop-blur-xl
-        p-6 md:p-8
+        p-4 sm:p-6
         transition-all duration-300
         hover:border-white/20
         focus-within:border-purple-500/50
@@ -79,6 +79,8 @@ export function ContactForm() {
             <input
               type="text"
               name="name"
+              aria-label="Name"
+              autoComplete="name"
               id="name"
               required
               value={formData.name}
@@ -105,6 +107,8 @@ export function ContactForm() {
             <input
               type="email"
               name="email"
+              aria-label="Email address"
+              autoComplete="email"
               id="email"
               required
               value={formData.email}
@@ -139,7 +143,7 @@ export function ContactForm() {
                     key={sub.value}
                     type="button"
                     onClick={() => setFormData({ ...formData, subject: sub.value })}
-                    className={`
+                    className={`glass-control
                       px-4 py-3 rounded-xl border text-xs md:text-sm font-semibold
                       transition-all duration-300 select-none text-left flex items-center justify-between
                       ${
@@ -163,6 +167,7 @@ export function ContactForm() {
           <div className="relative group">
             <textarea
               name="message"
+              aria-label="Message"
               id="message"
               required
               rows={4}

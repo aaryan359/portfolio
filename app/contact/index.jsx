@@ -62,7 +62,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="pt-8 pb-8 pl-6 md:pl-8 relative">
+    <section id="contact" className="section-shell py-6 relative">
       {/* HEADER */}
       <header className="mb-2 relative z-10">
         <h2 className="text-2xl md:text-2xl font-extrabold tracking-tight text-white">
@@ -77,7 +77,7 @@ export default function ContactSection() {
         {/* RIGHT — INFO CARD */}
         <div className="
           relative flex flex-col justify-between rounded-2xl border border-white/10 
-          liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-6 md:p-8 transition-all duration-300
+          liquid-glass bg-[#0a0815]/30 backdrop-blur-xl p-4 sm:p-6 transition-all duration-300
           hover:border-white/20 hover:bg-[#0a0815]/50 hover:shadow-[0_20px_50px_rgba(0,0,0,0.4)]
         ">
           {/* subtle ambient glow */}
